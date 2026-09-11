@@ -1,0 +1,6 @@
+{
+  "name": "STRAWBELLE — Luxury Handbag Boutique",
+  "description": "Artisanal luxury leather handbags boutique with live catalog, initialData.ts admin control panel, refined profile management, direct concierge ordering, and courier tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
