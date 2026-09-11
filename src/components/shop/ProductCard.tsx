@@ -63,6 +63,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             alt={product.title}
             className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
             referrerPolicy="no-referrer"
+            loading="lazy"
+            decoding="async"
           />
 
           {/* Badges Overlay */}

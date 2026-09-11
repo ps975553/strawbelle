@@ -93,7 +93,7 @@ export const QuickViewModal: React.FC = () => {
                       : 'border-neutral-200 opacity-70 hover:opacity-100'
                   }`}
                 >
-                  <img src={img} alt="" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
+                  <img src={img} alt="" className="w-full h-full object-contain" referrerPolicy="no-referrer" loading="lazy" decoding="async" />
                 </button>
               ))}
             </div>
