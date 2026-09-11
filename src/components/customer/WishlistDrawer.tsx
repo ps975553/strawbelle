@@ -117,7 +117,7 @@ export const WishlistDrawer: React.FC = () => {
 
                       <h4
                         onClick={() => handleProductClick(product.id)}
-                        className="font-serif text-sm font-semibold text-[#1D1D1D] hover:text-[#C6A56B] cursor-pointer line-clamp-1"
+                        className="font-serif text-sm font-semibold text-[#1D1D1D] hover:text-[#C6A56B] cursor-pointer line-clamp-2 break-words whitespace-normal leading-snug"
                       >
                         {product.title}
                       </h4>

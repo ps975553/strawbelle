@@ -146,7 +146,7 @@ export const ProductDetail: React.FC = () => {
             {product.category}
           </button>
           <ChevronRight className="w-3.5 h-3.5 shrink-0 text-neutral-400" />
-          <span className="text-[#1D1D1D] font-bold truncate max-w-xs">{product.title}</span>
+          <span className="text-[#1D1D1D] font-bold max-w-full break-words whitespace-normal line-clamp-2 leading-snug">{product.title}</span>
         </nav>
 
         {/* Back Button */}
@@ -272,7 +272,7 @@ export const ProductDetail: React.FC = () => {
 
               {/* Title & Rating */}
               <div>
-                <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#1D1D1D] leading-tight">
+                <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#1D1D1D] leading-tight break-words whitespace-normal [overflow-wrap:anywhere]">
                   {product.title}
                 </h1>
                 <div className="flex items-center gap-1.5 mt-2">
@@ -405,7 +405,7 @@ export const ProductDetail: React.FC = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="text-white">
-              <h3 className="font-serif text-base sm:text-lg font-bold truncate max-w-sm sm:max-w-md">
+              <h3 className="font-serif text-base sm:text-lg font-bold max-w-sm sm:max-w-md break-words whitespace-normal line-clamp-2 leading-snug">
                 {product.title}
               </h3>
               <p className="text-xs text-neutral-400">

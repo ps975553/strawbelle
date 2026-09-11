@@ -147,7 +147,7 @@ export const CartDrawer: React.FC = () => {
                     <div className="flex-1 flex flex-col justify-between">
                       <div>
                         <div className="flex items-start justify-between gap-2">
-                          <h4 className="font-serif text-sm font-semibold text-[#1D1D1D] line-clamp-1">
+                          <h4 className="font-serif text-sm font-semibold text-[#1D1D1D] line-clamp-2 break-words whitespace-normal leading-snug">
                             {item.product?.title}
                           </h4>
                           <button

@@ -124,7 +124,7 @@ export const SearchModal: React.FC = () => {
                     <span className="text-[10px] font-bold uppercase tracking-wider text-[#C6A56B]">
                       {product.collection}
                     </span>
-                    <h4 className="font-serif text-sm font-semibold text-[#1D1D1D] group-hover:text-[#C6A56B] transition-colors line-clamp-1">
+                    <h4 className="font-serif text-sm font-semibold text-[#1D1D1D] group-hover:text-[#C6A56B] transition-colors line-clamp-2 break-words whitespace-normal leading-snug">
                       {product.title}
                     </h4>
                   </div>

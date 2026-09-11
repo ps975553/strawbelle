@@ -140,7 +140,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </div>
           </div>
 
-          <h3 className="font-serif text-xs sm:text-sm font-semibold text-[#1D1D1D] group-hover:text-[#C6A56B] transition-colors line-clamp-1">
+          <h3 className="font-serif text-xs sm:text-sm font-semibold text-[#1D1D1D] group-hover:text-[#C6A56B] transition-colors line-clamp-3 break-words whitespace-normal leading-snug min-h-[3.75rem]">
             {product.title}
           </h3>
         </div>

@@ -38,15 +38,15 @@ export const CheckoutModal: React.FC = () => {
 
   // Address Form State
   const [address, setAddress] = useState<Address>({
-    fullName: 'Charlotte De La Tour',
-    email: 'c.delatour@parisfashion.fr',
-    phone: '+33 6 12 34 56 78',
-    street: '15 Rue de la Paix',
-    apartment: 'Apt 4B',
-    city: 'Paris',
-    state: 'Île-de-France',
-    postalCode: '75002',
-    country: 'France'
+    fullName: '',
+    email: '',
+    phone: '',
+    street: '',
+    apartment: '',
+    city: '',
+    state: '',
+    postalCode: '',
+    country: ''
   });
 
   // Payment Selection (WhatsApp or Instagram only)
@@ -333,7 +333,7 @@ export const CheckoutModal: React.FC = () => {
                         </div>
                         <div className="flex-1 min-w-0 flex flex-col justify-between">
                           <div>
-                            <p className="font-bold text-neutral-900 text-[11px] sm:text-xs truncate">{item.product.title}</p>
+                            <p className="font-bold text-neutral-900 text-[11px] sm:text-xs leading-snug break-words whitespace-normal line-clamp-2">{item.product.title}</p>
                             <p className="text-neutral-500 text-[10px] sm:text-[11px]">
                               {item.selectedColor?.name || 'Signature'} • Qty: {item.quantity}
                             </p>
@@ -525,7 +525,7 @@ export const CheckoutModal: React.FC = () => {
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-start justify-between gap-1">
-                              <p className="font-bold text-neutral-900 truncate">{item.product.title}</p>
+                              <p className="font-bold text-neutral-900 leading-snug break-words whitespace-normal line-clamp-2">{item.product.title}</p>
                               <span className="text-[#1D1D1D] font-mono font-bold shrink-0">
                                 {formatPrice(item.product.price * item.quantity)}
                               </span>
@@ -540,7 +540,7 @@ export const CheckoutModal: React.FC = () => {
                               className="text-[10px] text-[#C6A56B] hover:text-[#1D1D1D] flex items-center gap-1 font-semibold underline mt-1"
                             >
                               <LinkIcon className="w-2.5 h-2.5" />
-                              <span className="truncate">Handbag Link: {item.product.title}</span>
+                              <span className="break-words whitespace-normal leading-snug">Handbag Link: {item.product.title}</span>
                               <ExternalLink className="w-2.5 h-2.5 shrink-0" />
                             </a>
                           </div>
@@ -630,7 +630,7 @@ export const CheckoutModal: React.FC = () => {
                     return (
                       <div key={idx} className="flex justify-between items-center bg-[#FAF8F5] p-2 rounded-lg text-[11px]">
                         <div className="min-w-0 pr-2">
-                          <p className="font-bold text-neutral-900 truncate">{item.productTitle}</p>
+                          <p className="font-bold text-neutral-900 leading-snug break-words whitespace-normal line-clamp-2">{item.productTitle}</p>
                           <a
                             href={productUrl}
                             target="_blank"
