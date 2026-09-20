@@ -129,6 +129,8 @@ export const Footer: React.FC = () => {
           <p>© {new Date().getFullYear()} STRAWBELLE. All rights reserved.</p>
           <div className="flex items-center gap-5 flex-wrap justify-center">
             <button onClick={() => { setActiveView('contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-[#C6A56B] transition-colors">Concierge Services</button>
+            <button onClick={() => { setActiveView('return-policy'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-[#C6A56B] transition-colors">Return Policy</button>
+            <button onClick={() => { setActiveView('privacy-policy'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-[#C6A56B] transition-colors">Privacy Policy</button>
           </div>
         </div>
       </div>
