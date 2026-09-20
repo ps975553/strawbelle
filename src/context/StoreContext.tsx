@@ -131,8 +131,6 @@ interface StoreContextType {
   setIsSearchOpen: (open: boolean) => void;
   quickViewProduct: Product | null;
   setQuickViewProduct: (product: Product | null) => void;
-  isCheckoutOpen: boolean;
-  setIsCheckoutOpen: (open: boolean) => void;
   isAccountOpen: boolean;
   setIsAccountOpen: (open: boolean) => void;
   
@@ -330,7 +328,6 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
-  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [isAccountOpen, setIsAccountOpen] = useState(false);
 
   // Toast notifications
@@ -914,8 +911,6 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         setIsSearchOpen,
         quickViewProduct,
         setQuickViewProduct,
-        isCheckoutOpen,
-        setIsCheckoutOpen,
         isAccountOpen,
         setIsAccountOpen,
 

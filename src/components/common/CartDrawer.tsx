@@ -7,10 +7,9 @@ import {
   Trash2,
   ShoppingBag,
   ArrowRight,
-  ShieldCheck,
   Tag
 } from 'lucide-react';
-import { getProductShareUrl } from '../../utils/socialOrder';
+import { orderCartViaWhatsApp } from '../../utils/socialOrder';
 
 export const CartDrawer: React.FC = () => {
   const {
@@ -30,7 +29,6 @@ export const CartDrawer: React.FC = () => {
     applyCoupon,
     removeCoupon,
     formatPrice,
-    setIsCheckoutOpen,
     setActiveView,
     showToast
   } = useStore();
@@ -52,9 +50,16 @@ export const CartDrawer: React.FC = () => {
     }
   };
 
-  const handleProceedToCheckout = () => {
-    setIsCartOpen(false);
-    setIsCheckoutOpen(true);
+  const handleWhatsAppOrder = () => {
+    orderCartViaWhatsApp({
+      cart,
+      cartSubtotal,
+      cartDiscount,
+      cartTotal,
+      formatPrice,
+      appliedCouponCode: appliedCoupon?.code,
+      onToast: showToast,
+    });
   };
 
   const handleBrowseCatalog = () => {
@@ -277,19 +282,13 @@ export const CartDrawer: React.FC = () => {
                 </div>
               </div>
 
-              {/* Compact Checkout Trigger */}
+              {/* WhatsApp Order */}
               <button
-                onClick={handleProceedToCheckout}
-                className="w-full py-2.5 sm:py-3 bg-[#1D1D1D] text-[#F8F5F2] hover:bg-[#C6A56B] active:scale-[0.99] text-[11px] sm:text-xs font-bold uppercase tracking-wider rounded-xl shadow-md transition-all duration-200 flex items-center justify-center gap-2 group cursor-pointer"
+                onClick={handleWhatsAppOrder}
+                className="w-full py-2.5 sm:py-3 bg-[#1D1D1D] text-[#F8F5F2] hover:bg-[#C6A56B] active:scale-[0.99] text-[11px] sm:text-xs font-bold uppercase tracking-wider rounded-xl shadow-md transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Proceed to Luxury Checkout</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                <span>Order via WhatsApp</span>
               </button>
-
-              <div className="flex items-center justify-center gap-1.5 text-[9px] sm:text-[10px] text-neutral-400 uppercase tracking-wider">
-                <ShieldCheck className="w-3 h-3 text-[#C6A56B]" />
-                <span>SSL Encrypted Checkout</span>
-              </div>
             </div>
           )}
         </div>

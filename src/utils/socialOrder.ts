@@ -1,4 +1,4 @@
-import { Product, ProductColor } from '../types';
+import { CartItem, Product, ProductColor } from '../types';
 
 export interface SocialOrderPayload {
   product: Product;
@@ -89,6 +89,72 @@ export const STRAWBELLE_INSTAGRAM_HANDLE = '@strawbelle_bags';
 export const STRAWBELLE_INSTAGRAM_URL = 'https://www.instagram.com/strawbelle_bags?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==';
 export const STRAWBELLE_EMAIL = 'concierge@strawbelle.com';
 export const STRAWBELLE_EMAIL_MAILTO = 'mailto:concierge@strawbelle.com?subject=Strawbelle%20Luxury%20Inquiry&body=Hello%20Strawbelle%20Concierge%2C%0A%0AFollow%20us%20on%20Instagram%3A%20https%3A%2F%2Fwww.instagram.com%2Fstrawbelle_bags%20(%40strawbelle_bags)%0A%0AInquiry%20Details%3A%0A';
+
+
+export interface CartOrderPayload {
+  cart: CartItem[];
+  cartSubtotal: number;
+  cartDiscount: number;
+  cartTotal: number;
+  formatPrice: (amount: number) => string;
+  appliedCouponCode?: string;
+  onToast?: (title: string, message: string, type?: 'success' | 'info' | 'error' | 'gold') => void;
+}
+
+export const buildCartOrderMessage = ({
+  cart,
+  cartSubtotal,
+  cartDiscount,
+  cartTotal,
+  formatPrice,
+  appliedCouponCode
+}: CartOrderPayload): string => {
+  const lines = [
+    `👜 *STRAWBELLE WHATSAPP ORDER*`,
+    `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+  ];
+
+  cart.forEach((item, index) => {
+    const chosenColor = item.selectedColor?.name || item.product.colors[0]?.name || 'Signature';
+    const quantity = Number(item.quantity) || 1;
+    lines.push(
+      `\n${index + 1}. ✨ *${item.product.title}*`,
+      `🏷️ SKU: ${item.product.sku}`,
+      `🎨 Color: ${chosenColor}`,
+      `📦 Quantity: ${quantity}`,
+      `💰 Price: ${formatPrice(item.product.price * quantity)}`,
+      `🔗 ${getProductShareUrl(item.product.id)}`
+    );
+  });
+
+  lines.push(
+    `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+    `💰 *Subtotal:* ${formatPrice(cartSubtotal)}`,
+    appliedCouponCode && cartDiscount > 0 ? `🎟️ *Discount (${appliedCouponCode}):* -${formatPrice(cartDiscount)}` : '',
+    `💎 *Total:* ${formatPrice(cartTotal)}`,
+    `\nPlease confirm availability and order details. Thank you!`
+  );
+
+  return lines.filter(Boolean).join('\n');
+};
+
+export const orderCartViaWhatsApp = (payload: CartOrderPayload) => {
+  const message = buildCartOrderMessage(payload);
+  const encoded = encodeURIComponent(message);
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${STRAWBELLE_WHATSAPP_PHONE}&text=${encoded}`;
+
+  if (typeof window !== 'undefined') {
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  }
+
+  if (payload.onToast) {
+    payload.onToast(
+      'WhatsApp Order Ready',
+      'Your cart order details were opened in WhatsApp.',
+      'gold'
+    );
+  }
+};
 
 export const orderViaWhatsApp = (payload: SocialOrderPayload) => {
   const message = buildProductOrderMessage(payload);
