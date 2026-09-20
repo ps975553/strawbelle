@@ -110,8 +110,8 @@ interface StoreContextType {
   formatPrice: (usdAmount: number) => string;
   
   // Views and Navigation
-  activeView: 'home' | 'shop' | 'product-detail' | 'about' | 'contact';
-  setActiveView: (view: 'home' | 'shop' | 'product-detail' | 'about' | 'contact') => void;
+  activeView: 'home' | 'shop' | 'product-detail' | 'about' | 'contact' | 'return-policy' | 'privacy-policy';
+  setActiveView: (view: 'home' | 'shop' | 'product-detail' | 'about' | 'contact' | 'return-policy' | 'privacy-policy') => void;
   selectedProductId: string | null;
   setSelectedProductId: (id: string | null) => void;
   selectedCategoryFilter: HandbagCategory | null;
@@ -245,7 +245,7 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const [recentlyViewed, setRecentlyViewed] = useState<string[]>(['sb-prod-01', 'sb-prod-02', 'sb-prod-03']);
 
   // Navigation and UI State
-  const [activeView, setActiveView] = useState<'home' | 'shop' | 'product-detail' | 'about' | 'contact'>('home');
+  const [activeView, setActiveView] = useState<'home' | 'shop' | 'product-detail' | 'about' | 'contact' | 'return-policy' | 'privacy-policy'>('home');
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<HandbagCategory | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('');

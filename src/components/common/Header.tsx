@@ -39,7 +39,7 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (view: 'home' | 'shop' | 'about' | 'contact' | 'home', category?: HandbagCategory) => {
+  const handleNavClick = (view: 'home' | 'shop' | 'about' | 'contact' | 'return-policy' | 'privacy-policy' | 'home', category?: HandbagCategory) => {
     if (category) {
       setSelectedCategoryFilter(category);
     } else if (view === 'shop') {
@@ -98,6 +98,44 @@ export const Header: React.FC = () => {
                   {activeView === 'shop' && (
                     <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#C6A56B]" />
                   )}
+                </button>
+
+                <button
+                  onClick={() => handleNavClick('about')}
+                  className={`transition-colors hover:text-[#C6A56B] relative py-1 ${activeView === 'about' ? 'text-[#C6A56B]' : ''}`}
+                >
+                  About Us
+                </button>
+                <button
+                  onClick={() => handleNavClick('return-policy')}
+                  className={`transition-colors hover:text-[#C6A56B] relative py-1 ${activeView === 'return-policy' ? 'text-[#C6A56B]' : ''}`}
+                >
+                  Return Policy
+                </button>
+                <button
+                  onClick={() => handleNavClick('privacy-policy')}
+                  className={`transition-colors hover:text-[#C6A56B] relative py-1 ${activeView === 'privacy-policy' ? 'text-[#C6A56B]' : ''}`}
+                >
+                  Privacy Policy
+                </button>
+
+                <button
+                  onClick={() => handleNavClick('about')}
+                  className="text-left py-3 px-3 rounded-xl transition-colors flex items-center justify-between hover:bg-neutral-200/50"
+                >
+                  <span>About Us</span><ChevronRight className="w-4 h-4 text-neutral-400" />
+                </button>
+                <button
+                  onClick={() => handleNavClick('return-policy')}
+                  className="text-left py-3 px-3 rounded-xl transition-colors flex items-center justify-between hover:bg-neutral-200/50"
+                >
+                  <span>Return Policy</span><ChevronRight className="w-4 h-4 text-neutral-400" />
+                </button>
+                <button
+                  onClick={() => handleNavClick('privacy-policy')}
+                  className="text-left py-3 px-3 rounded-xl transition-colors flex items-center justify-between hover:bg-neutral-200/50"
+                >
+                  <span>Privacy Policy</span><ChevronRight className="w-4 h-4 text-neutral-400" />
                 </button>
 
                 <button
