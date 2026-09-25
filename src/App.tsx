@@ -8,6 +8,7 @@ import { CartDrawer } from './components/common/CartDrawer';
 import { QuickViewModal } from './components/common/QuickViewModal';
 import { WishlistDrawer } from './components/customer/WishlistDrawer';
 import { AccountModal } from './components/customer/AccountModal';
+import { CheckoutModal } from './components/shop/CheckoutModal';
 import { FloatingContact } from './components/common/FloatingContact';
 import { HomePage } from './components/home/HomePage';
 import { ShopPage } from './components/shop/ShopPage';
@@ -70,6 +71,7 @@ export default function App() {
       <CartDrawer />
       <WishlistDrawer />
       <QuickViewModal />
+      <CheckoutModal />
       <AccountModal />
       <FloatingContact />
       <ToastContainer />

@@ -39,7 +39,7 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (view: 'home' | 'shop' | 'about' | 'contact', category?: HandbagCategory) => {
+  const handleNavClick = (view: 'home' | 'shop' | 'about' | 'contact' | 'home', category?: HandbagCategory) => {
     if (category) {
       setSelectedCategoryFilter(category);
     } else if (view === 'shop') {
