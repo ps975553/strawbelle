@@ -110,8 +110,8 @@ interface StoreContextType {
   formatPrice: (usdAmount: number) => string;
   
   // Views and Navigation
-  activeView: 'home' | 'shop' | 'product-detail' | 'about' | 'contact' | 'return-policy' | 'privacy-policy';
-  setActiveView: (view: 'home' | 'shop' | 'product-detail' | 'about' | 'contact' | 'return-policy' | 'privacy-policy') => void;
+  activeView: 'home' | 'shop' | 'product-detail' | 'about' | 'contact';
+  setActiveView: (view: 'home' | 'shop' | 'product-detail' | 'about' | 'contact') => void;
   selectedProductId: string | null;
   setSelectedProductId: (id: string | null) => void;
   selectedCategoryFilter: HandbagCategory | null;
@@ -155,8 +155,19 @@ const StoreContext = createContext<StoreContextType | undefined>(undefined);
 export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [isHydrated, setIsHydrated] = useState(false);
 
+  const mergeWithInitialProducts = (stored: Product[] | null | undefined): Product[] => {
+    if (!Array.isArray(stored) || stored.length === 0) return INITIAL_PRODUCTS;
+
+    const storedById = new Map(stored.map((product) => [product.id, product]));
+    const mergedInitial = INITIAL_PRODUCTS.map((product) => storedById.get(product.id) || product);
+    const initialIds = new Set(INITIAL_PRODUCTS.map((product) => product.id));
+    const extraProducts = stored.filter((product) => product?.id && !initialIds.has(product.id));
+
+    return [...mergedInitial, ...extraProducts];
+  };
+
   const [products, setProducts] = useState<Product[]>(() => {
-    return safeGetItem<Product[]>('products', INITIAL_PRODUCTS);
+    return mergeWithInitialProducts(safeGetItem<Product[]>('products', null));
   });
 
   const [cart, setCart] = useState<CartItem[]>(() => {
@@ -245,7 +256,7 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const [recentlyViewed, setRecentlyViewed] = useState<string[]>(['sb-prod-01', 'sb-prod-02', 'sb-prod-03']);
 
   // Navigation and UI State
-  const [activeView, setActiveView] = useState<'home' | 'shop' | 'product-detail' | 'about' | 'contact' | 'return-policy' | 'privacy-policy'>('home');
+  const [activeView, setActiveView] = useState<'home' | 'shop' | 'product-detail' | 'about' | 'contact'>('home');
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<HandbagCategory | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -277,9 +288,9 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         ]);
 
         if (Array.isArray(idbProducts) && idbProducts.length > 0) {
-          setProducts(idbProducts);
+          setProducts(mergeWithInitialProducts(idbProducts));
         } else {
-          setProducts((prev) => (prev && prev.length > 0 ? prev : INITIAL_PRODUCTS));
+          setProducts((prev) => mergeWithInitialProducts(prev));
         }
         if (Array.isArray(idbCart)) {
           setCart(idbCart);

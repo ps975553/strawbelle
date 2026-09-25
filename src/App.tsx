@@ -17,7 +17,6 @@ import { AboutPage } from './components/pages/AboutPage';
 import { LookbookPage } from './components/pages/LookbookPage';
 import { ContactPage } from './components/pages/ContactPage';
 import { FAQPage } from './components/pages/FAQPage';
-import { InfoPage } from './components/pages/InfoPage';
 
 const MainViewRouter: React.FC = () => {
   const { activeView, selectedProductId, setActiveView, navigateToProduct } = useStore();
@@ -55,8 +54,6 @@ const MainViewRouter: React.FC = () => {
         )}
         {activeView === 'about' && <AboutPage />}
         {activeView === 'contact' && <ContactPage />}
-        {activeView === 'return-policy' && <InfoPage title="Return Policy" />}
-        {activeView === 'privacy-policy' && <InfoPage title="Privacy Policy" />}
       </main>
       <Footer />
     </div>
