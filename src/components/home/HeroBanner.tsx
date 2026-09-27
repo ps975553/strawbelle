@@ -21,6 +21,16 @@ export const HeroBanner: React.FC = () => {
 
   const slides: HeroSlide[] = [
     {
+      imageUrl: './banners/premium-imported-quality.webp',
+      badge: 'PREMIUM IMPORTED QUALITY',
+      heading: 'Premium Imported UA Quality.',
+      subheading: 'Same Look & Feel as Branded.',
+      primaryButtonText: 'Shop Handbags',
+      secondaryButtonText: 'View Collection',
+      contentClass: 'items-center text-center mx-auto',
+      overlayClass: 'bg-gradient-to-r from-black/80 via-black/55 to-black/25',
+    },
+    {
       imageUrl: homepageConfig.heroImageUrl,
       badge: homepageConfig.heroBadge || '',
       heading: homepageConfig.heroHeading || 'Timeless Handbags. Effortless Style.',
@@ -29,36 +39,6 @@ export const HeroBanner: React.FC = () => {
       secondaryButtonText: homepageConfig.secondaryButtonText || 'Explore Collections',
       contentClass: 'items-start text-left',
       overlayClass: 'bg-gradient-to-r from-black/85 via-black/55 to-black/30',
-    },
-    {
-      imageUrl: './banners/premium-imported-quality.webp',
-      badge: 'PREMIUM IMPORTED QUALITY',
-      heading: 'Premium Imported UA Quality.',
-      subheading: 'Same Look & Feel as Branded Styles — selected for a polished, luxury-inspired finish.',
-      primaryButtonText: 'Shop Handbags',
-      secondaryButtonText: 'View Collection',
-      contentClass: 'items-start text-left md:items-end md:text-right',
-      overlayClass: 'bg-gradient-to-l from-black/85 via-black/50 to-black/20',
-    },
-    {
-      imageUrl: './banners/curated-collection.webp',
-      badge: 'CURATED COLLECTION',
-      heading: 'Elevated Details. Everyday Elegance.',
-      subheading: 'Discover refined silhouettes, rich textures, and statement pieces made to complete your look.',
-      primaryButtonText: 'Explore Handbags',
-      secondaryButtonText: 'Shop the Edit',
-      contentClass: 'items-center text-center mx-auto',
-      overlayClass: 'bg-gradient-to-r from-black/70 via-black/35 to-black/70',
-    },
-    {
-      imageUrl: './banners/new-season-edit.webp',
-      badge: 'NEW SEASON EDIT',
-      heading: 'Fresh Styles. Signature Confidence.',
-      subheading: 'A new selection of premium imported handbags for day-to-evening styling.',
-      primaryButtonText: 'Discover New Arrivals',
-      secondaryButtonText: 'Explore Handbags',
-      contentClass: 'items-start text-left',
-      overlayClass: 'bg-gradient-to-r from-black/80 via-black/45 to-black/20',
     },
   ];
 
@@ -99,7 +79,7 @@ export const HeroBanner: React.FC = () => {
     >
       {/* Background Media */}
       <div className="absolute inset-0 z-0">
-        {activeSlide === 0 && homepageConfig.heroType === 'video' && homepageConfig.heroVideoUrl ? (
+        {activeSlide === 1 && homepageConfig.heroType === 'video' && homepageConfig.heroVideoUrl ? (
           <video
             src={homepageConfig.heroVideoUrl}
             autoPlay
@@ -125,18 +105,22 @@ export const HeroBanner: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-5 sm:py-10 md:py-14 w-full">
         <div className={`max-w-2xl text-white space-y-2 sm:space-y-3 md:space-y-4 flex flex-col ${current.contentClass}`}>
           {current.badge && (
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/10 backdrop-blur-md border border-[#C6A56B]/40 text-[#C6A56B] text-[9px] sm:text-xs font-bold uppercase tracking-[0.22em] shadow-sm w-fit">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-black/20 backdrop-blur-md border border-[#C6A56B]/55 text-[#D7B77A] text-[9px] sm:text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] shadow-[0_8px_30px_rgba(0,0,0,0.18)] w-fit">
               <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
               <span>{current.badge}</span>
             </div>
           )}
 
-          <h1 className="font-serif text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[#F8F5F2] leading-tight">
-            {current.heading}
-          </h1>
+          <div className="flex items-center gap-3 w-full max-w-3xl justify-center">
+            <span className="hidden sm:block h-px w-10 bg-gradient-to-r from-transparent to-[#C6A56B]/80" />
+            <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[0.015em] text-[#FBF8F3] leading-[1.04] drop-shadow-[0_3px_18px_rgba(0,0,0,0.38)] max-w-3xl">
+              {current.heading}
+            </h1>
+            <span className="hidden sm:block h-px w-10 bg-gradient-to-l from-transparent to-[#C6A56B]/80" />
+          </div>
 
           {current.subheading && (
-            <p className="text-[11px] sm:text-sm md:text-base text-neutral-300 font-light leading-relaxed max-w-lg">
+            <p className="text-[11px] sm:text-sm md:text-base text-[#E8E0D6] font-light leading-relaxed tracking-[0.035em] max-w-xl">
               {current.subheading}
             </p>
           )}
