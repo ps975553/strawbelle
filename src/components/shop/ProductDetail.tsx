@@ -8,7 +8,6 @@ import {
   ArrowLeft,
   Plus,
   Minus,
-  Star,
   MessageCircle,
   Instagram,
   Maximize2,
@@ -261,22 +260,11 @@ export const ProductDetail: React.FC = () => {
                 </div>
               </div>
 
-              {/* Title & Rating */}
+              {/* Title */}
               <div>
                 <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-[#1D1D1D] leading-tight break-words whitespace-normal [overflow-wrap:anywhere]">
                   {product.title}
                 </h1>
-                <div className="flex items-center gap-1.5 mt-2">
-                  <div className="flex items-center text-[#C6A56B]">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-[#C6A56B]" />
-                    ))}
-                  </div>
-                  <span className="text-xs font-bold text-[#1D1D1D]">
-                    {product.rating ? Number(product.rating).toFixed(1) : '5.0'}
-                  </span>
-                  <span className="text-[11px] text-neutral-400">/ 5.0</span>
-                </div>
               </div>
 
               {/* Price Display */}
