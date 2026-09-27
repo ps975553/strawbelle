@@ -11,6 +11,8 @@ type HeroSlide = {
   secondaryButtonText?: string;
   contentClass: string;
   overlayClass: string;
+  showContent?: boolean;
+  plainImage?: boolean;
 };
 
 export const HeroBanner: React.FC = () => {
@@ -38,6 +40,18 @@ export const HeroBanner: React.FC = () => {
       secondaryButtonText: homepageConfig.secondaryButtonText || 'Explore Collections',
       contentClass: 'items-start text-left',
       overlayClass: 'bg-gradient-to-r from-black/85 via-black/55 to-black/30',
+    },
+    {
+      imageUrl: './banners/first-order-offer.webp',
+      badge: '',
+      heading: '',
+      subheading: '',
+      primaryButtonText: '',
+      secondaryButtonText: '',
+      contentClass: 'items-center text-center mx-auto',
+      overlayClass: '',
+      showContent: false,
+      plainImage: true,
     },
   ];
 
@@ -86,16 +100,21 @@ export const HeroBanner: React.FC = () => {
         ) : (
           <img
             src={current.imageUrl}
-            alt="Strawbelle premium handbag collection"
-            className="w-full h-full object-cover opacity-60 scale-105 transition-all duration-700"
+            alt={activeSlide === 2 ? 'Strawbelle exclusive welcome offer' : 'Strawbelle premium handbag collection'}
+            className={`w-full h-full ${current.plainImage ? 'object-cover opacity-100 scale-100' : 'object-cover opacity-60 scale-105'} transition-all duration-700`}
             referrerPolicy="no-referrer"
           />
         )}
 
-        <div className={`absolute inset-0 ${current.overlayClass}`} />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1D1D1D]/70 via-transparent to-black/25" />
+        {!current.plainImage && (
+          <>
+            <div className={`absolute inset-0 ${current.overlayClass}`} />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1D1D1D]/70 via-transparent to-black/25" />
+          </>
+        )}
       </div>
 
+      {current.showContent !== false && (
       <div className="relative z-10 max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-5 sm:py-10 md:py-14 w-full">
         <div className={`max-w-2xl text-white space-y-2 sm:space-y-3 md:space-y-4 flex flex-col ${current.contentClass}`}>
           {current.badge && (
@@ -139,6 +158,7 @@ export const HeroBanner: React.FC = () => {
           </div>
         </div>
       </div>
+      )}
 
       <div className="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
         {slides.map((_, index) => (
