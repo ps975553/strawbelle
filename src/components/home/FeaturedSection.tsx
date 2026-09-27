@@ -1,19 +1,50 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useStore } from '../../context/StoreContext';
 import { ProductCard } from '../shop/ProductCard';
 import { ArrowRight } from 'lucide-react';
+
+const shuffleProducts = <T,>(items: T[]): T[] => {
+  const shuffled = [...items];
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
 
 export const FeaturedSection: React.FC = () => {
   const { products, setActiveView, setSelectedCategoryFilter } = useStore();
   const [activeTab, setActiveTab] = useState<'featured' | 'bestsellers' | 'new'>('featured');
 
-  const filteredProducts = products.filter((p) => {
-    if (p.status !== 'published') return false;
-    if (activeTab === 'featured') return p.featured;
-    if (activeTab === 'bestsellers') return p.bestSeller;
-    if (activeTab === 'new') return p.isNewArrival;
-    return true;
-  });
+  // Pick a fresh random set once per homepage load/refresh.
+  // Keeping the IDs in a ref prevents the set from changing on ordinary re-renders.
+  const randomFeaturedIdsRef = useRef<string[]>([]);
+  const [randomFeaturedIds, setRandomFeaturedIds] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (randomFeaturedIdsRef.current.length > 0) return;
+
+    const publishedProducts = products.filter((p) => p.status === 'published');
+    if (publishedProducts.length === 0) return;
+
+    const ids = shuffleProducts(publishedProducts).map((p) => p.id);
+    randomFeaturedIdsRef.current = ids;
+    setRandomFeaturedIds(ids);
+  }, [products]);
+
+  const randomFeaturedProducts = randomFeaturedIds
+    .map((id) => products.find((p) => p.id === id))
+    .filter((p): p is typeof products[number] => Boolean(p && p.status === 'published'));
+
+  const filteredProducts =
+    activeTab === 'featured'
+      ? randomFeaturedProducts
+      : products.filter((p) => {
+          if (p.status !== 'published') return false;
+          if (activeTab === 'bestsellers') return p.bestSeller;
+          if (activeTab === 'new') return p.isNewArrival;
+          return true;
+        });
 
   const handleViewAll = () => {
     setSelectedCategoryFilter(null);

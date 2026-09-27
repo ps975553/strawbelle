@@ -7,7 +7,6 @@ type HeroSlide = {
   badge: string;
   heading: string;
   subheading: string;
-  disclaimer?: string;
   primaryButtonText: string;
   secondaryButtonText?: string;
   contentClass: string;
@@ -55,15 +54,12 @@ export const HeroBanner: React.FC = () => {
 
   useEffect(() => {
     if (isPaused) return;
-
     const timer = window.setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % slides.length);
     }, 6000);
-
     return () => window.clearInterval(timer);
   }, [isPaused, slides.length]);
 
-  // Keep the rotating hero stable if homepage settings are changed by the admin.
   useEffect(() => {
     setActiveSlide(0);
   }, [homepageConfig.heroImageUrl, homepageConfig.heroHeading]);
@@ -77,7 +73,6 @@ export const HeroBanner: React.FC = () => {
       onMouseLeave={() => setIsPaused(false)}
       aria-label="Strawbelle featured banners"
     >
-      {/* Background Media */}
       <div className="absolute inset-0 z-0">
         {activeSlide === 1 && homepageConfig.heroType === 'video' && homepageConfig.heroVideoUrl ? (
           <video
@@ -101,7 +96,6 @@ export const HeroBanner: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#1D1D1D]/70 via-transparent to-black/25" />
       </div>
 
-      {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-5 sm:py-10 md:py-14 w-full">
         <div className={`max-w-2xl text-white space-y-2 sm:space-y-3 md:space-y-4 flex flex-col ${current.contentClass}`}>
           {current.badge && (
@@ -122,12 +116,6 @@ export const HeroBanner: React.FC = () => {
           {current.subheading && (
             <p className="text-[11px] sm:text-sm md:text-base text-[#E8E0D6] font-light leading-relaxed tracking-[0.035em] max-w-xl">
               {current.subheading}
-            </p>
-          )}
-
-          {current.disclaimer && (
-            <p className="text-[9px] sm:text-[10px] md:text-[11px] text-neutral-300/90 font-medium tracking-wide max-w-md">
-              {current.disclaimer}
             </p>
           )}
 
@@ -152,7 +140,6 @@ export const HeroBanner: React.FC = () => {
         </div>
       </div>
 
-      {/* Slide Controls */}
       <div className="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
         {slides.map((_, index) => (
           <button
