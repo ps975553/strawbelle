@@ -149,15 +149,6 @@ export const ProductDetail: React.FC = () => {
           <span className="text-[#1D1D1D] font-bold max-w-full break-words whitespace-normal line-clamp-2 leading-snug">{product.title}</span>
         </nav>
 
-        {/* Back Button */}
-        <button
-          onClick={() => setActiveView('shop')}
-          className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-neutral-500 hover:text-[#1D1D1D] mb-4 transition-colors"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Back to Handbags</span>
-        </button>
-
         {/* Main Product Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 bg-white p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-neutral-200/80 shadow-sm">
           {/* Left Column: Visual Media Gallery */}

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef, ReactNode } from 'react';
 import {
   Product,
   CartItem,
@@ -112,6 +112,7 @@ interface StoreContextType {
   // Views and Navigation
   activeView: 'home' | 'shop' | 'product-detail' | 'about' | 'contact' | 'return-policy' | 'privacy-policy';
   setActiveView: (view: 'home' | 'shop' | 'product-detail' | 'about' | 'contact' | 'return-policy' | 'privacy-policy') => void;
+  goBack: () => void;
   selectedProductId: string | null;
   setSelectedProductId: (id: string | null) => void;
   selectedCategoryFilter: HandbagCategory | null;
@@ -254,7 +255,26 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const [recentlyViewed, setRecentlyViewed] = useState<string[]>(['sb-prod-01', 'sb-prod-02', 'sb-prod-03']);
 
   // Navigation and UI State
-  const [activeView, setActiveView] = useState<'home' | 'shop' | 'product-detail' | 'about' | 'contact' | 'return-policy' | 'privacy-policy'>('home');
+  type ActiveView = 'home' | 'shop' | 'product-detail' | 'about' | 'contact' | 'return-policy' | 'privacy-policy';
+  const [activeViewState, setActiveViewState] = useState<ActiveView>('home');
+  const activeView = activeViewState;
+  const viewHistoryRef = useRef<ActiveView[]>([]);
+
+  const setActiveView = (view: ActiveView) => {
+    if (activeViewState === view) return;
+    viewHistoryRef.current = [...viewHistoryRef.current, activeViewState].slice(-20);
+    setActiveViewState(view);
+  };
+
+  const goBack = () => {
+    const previousView = viewHistoryRef.current.pop();
+    setActiveViewState(previousView || 'home');
+    if (!previousView) {
+      viewHistoryRef.current = [];
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<HandbagCategory | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -904,6 +924,7 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
         activeView,
         setActiveView,
+        goBack,
         selectedProductId,
         setSelectedProductId,
         selectedCategoryFilter,

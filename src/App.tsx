@@ -17,9 +17,10 @@ import { LookbookPage } from './components/pages/LookbookPage';
 import { ContactPage } from './components/pages/ContactPage';
 import { FAQPage } from './components/pages/FAQPage';
 import { InfoPage } from './components/pages/InfoPage';
+import { ArrowLeft } from 'lucide-react';
 
 const MainViewRouter: React.FC = () => {
-  const { activeView, selectedProductId, setActiveView, navigateToProduct } = useStore();
+  const { activeView, selectedProductId, setActiveView, goBack, navigateToProduct } = useStore();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -46,6 +47,18 @@ const MainViewRouter: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#F8F5F2] text-[#1D1D1D] selection:bg-[#C6A56B] selection:text-white">
       <Header />
+
+      {activeView !== 'home' && (
+        <button
+          onClick={goBack}
+          aria-label="Go back to the previous page"
+          className="fixed top-[76px] sm:top-[88px] left-3 sm:left-6 z-30 inline-flex items-center gap-1.5 px-3 py-2 sm:px-3.5 sm:py-2 rounded-full bg-white/95 backdrop-blur-md border border-neutral-200 shadow-md text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] text-[#1D1D1D] hover:text-[#C6A56B] hover:border-[#C6A56B]/50 transition-all"
+        >
+          <ArrowLeft className="w-3.5 h-3.5" />
+          <span>Back</span>
+        </button>
+      )}
+
       <main className="flex-1">
         {activeView === 'home' && <HomePage />}
         {activeView === 'shop' && <ShopPage />}
