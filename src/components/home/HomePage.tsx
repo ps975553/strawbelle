@@ -29,16 +29,33 @@ export const HomePage: React.FC = () => {
           <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] text-[#C6A56B]">
             Shop by Category
           </span>
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-wrap items-start justify-center gap-2">
             {categories.map((category) => (
-              <button
-                key={category}
-                type="button"
-                onClick={() => handleCategoryClick(category)}
-                className="rounded-full border border-neutral-200 bg-[#F8F5F2] px-4 py-2 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#1D1D1D] transition-colors hover:border-[#C6A56B] hover:text-[#C6A56B]"
-              >
-                {category}
-              </button>
+              <div key={category} className="flex flex-col items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => handleCategoryClick(category)}
+                  className="rounded-full border border-neutral-200 bg-[#F8F5F2] px-4 py-2 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#1D1D1D] transition-colors hover:border-[#C6A56B] hover:text-[#C6A56B]"
+                >
+                  {category}
+                </button>
+                {category === 'Lady Watch' && (
+                  <button
+                    type="button"
+                    onClick={() => handleCategoryClick(category)}
+                    aria-label="Explore Lady Watch"
+                    className="h-28 w-28 overflow-hidden rounded-xl border border-neutral-200 bg-[#1D1D1D] shadow-sm transition-transform hover:scale-[1.02]"
+                  >
+                    <img
+                      src="./catalog/images/rose-gold-crystal-studded-watch.png"
+                      alt="Rose gold crystal-studded watch"
+                      className="h-full w-full object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                )}
+              </div>
             ))}
           </div>
         </div>
