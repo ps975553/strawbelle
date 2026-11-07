@@ -158,7 +158,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <span className="font-serif text-xs sm:text-sm font-bold text-[#1D1D1D] truncate block">
             {formatPrice(product.price)}
           </span>
-          {product.category !== 'Women Perfume' && product.category !== 'Ladies Watch' && product.oldPrice && product.oldPrice > product.price && (
+          {product.oldPrice && product.oldPrice > product.price && (
             <span className="text-[9px] sm:text-[10px] text-neutral-400 line-through">
               {formatPrice(product.oldPrice)}
             </span>

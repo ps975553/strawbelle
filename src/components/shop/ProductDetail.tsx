@@ -274,7 +274,7 @@ export const ProductDetail: React.FC = () => {
                 <span className="font-serif text-2xl sm:text-3xl font-bold text-[#1D1D1D]">
                   {formatPrice(product.price)}
                 </span>
-                {product.category !== 'Women Perfume' && product.category !== 'Ladies Watch' && product.oldPrice && product.oldPrice > product.price && (
+                {product.oldPrice && product.oldPrice > product.price && (
                   <span className="text-sm text-neutral-400 line-through">
                     {formatPrice(product.oldPrice)}
                   </span>
