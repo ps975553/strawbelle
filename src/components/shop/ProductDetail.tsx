@@ -239,7 +239,7 @@ export const ProductDetail: React.FC = () => {
               {/* Wishlist and Share */}
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#C6A56B]">
-                  {product.category === 'Women Perfume' || product.category === 'Ladies Watch'
+                  {product.category === 'Women Perfume' || product.category === 'Ladies Watch' || product.category === 'Ladies Sunglasses' || product.category === 'Luxury Scarves'
                     ? product.collection
                     : 'Handcrafted Atelier'}
                 </span>
@@ -334,6 +334,10 @@ export const ProductDetail: React.FC = () => {
                         ? 'Order this perfume directly via WhatsApp'
                         : product.category === 'Ladies Watch'
                         ? 'Order this watch directly via WhatsApp'
+                        : product.category === 'Ladies Sunglasses'
+                        ? 'Order these sunglasses directly via WhatsApp'
+                        : product.category === 'Luxury Scarves'
+                        ? 'Order this scarf directly via WhatsApp'
                         : 'Order this handbag directly via WhatsApp'}
                     >
                       <MessageCircle className="w-4 h-4 fill-current shrink-0" />
@@ -349,6 +353,10 @@ export const ProductDetail: React.FC = () => {
                         ? 'Order this perfume directly via Instagram DM'
                         : product.category === 'Ladies Watch'
                         ? 'Order this watch directly via Instagram DM'
+                        : product.category === 'Ladies Sunglasses'
+                        ? 'Order these sunglasses directly via Instagram DM'
+                        : product.category === 'Luxury Scarves'
+                        ? 'Order this scarf directly via Instagram DM'
                         : 'Order this handbag directly via Instagram DM'}
                     >
                       <Instagram className="w-4 h-4 shrink-0" />

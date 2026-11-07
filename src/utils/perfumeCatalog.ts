@@ -1,6 +1,6 @@
-import type { Product } from '../types';
+import type { Product, ProductColor } from '../types';
 
-type CatalogCategory = 'Women Perfume' | 'Ladies Watch';
+type CatalogCategory = 'Women Perfume' | 'Ladies Watch' | 'Ladies Sunglasses' | 'Luxury Scarves';
 
 type CatalogConfig = {
   category: CatalogCategory;
@@ -33,6 +33,19 @@ const mapCatalog = (catalog: unknown, config: CatalogConfig): Product[] => {
     const galleryImages = Array.isArray(item.galleryImages)
       ? item.galleryImages.filter((image): image is string => typeof image === 'string' && image.length > 0)
       : [];
+    const keepsCatalogColors = config.category === 'Ladies Sunglasses' || config.category === 'Luxury Scarves';
+    const colors: ProductColor[] = keepsCatalogColors && Array.isArray(item.availableColors)
+      ? item.availableColors.flatMap((color): ProductColor[] => {
+          if (!color || typeof color !== 'object') return [];
+          const availableColor = color as Record<string, unknown>;
+          const name = typeof availableColor.name === 'string' ? availableColor.name.trim() : '';
+          if (!name) return [];
+          return [{
+            name,
+            hex: typeof availableColor.hex === 'string' ? availableColor.hex : '#C6A56B',
+          }];
+        })
+      : [{ name: 'Standard', hex: '#C6A56B' }];
     const createdAt = typeof item.createdAt === 'string' ? item.createdAt : '2026-11-07T00:00:00.000Z';
 
     return [{
@@ -47,17 +60,19 @@ const mapCatalog = (catalog: unknown, config: CatalogConfig): Product[] => {
       discountPercentage: typeof item.discount === 'number' ? item.discount : undefined,
       thumbnail,
       galleryImages: galleryImages.length > 0 ? galleryImages : [thumbnail],
-      colors: [{ name: 'Standard', hex: '#C6A56B' }],
+      colors: colors.length > 0 ? colors : [{ name: 'Standard', hex: '#C6A56B' }],
       description: typeof item.description === 'string' ? item.description : '',
       details: [],
-      material: config.material,
+      material: keepsCatalogColors && typeof item.material === 'string'
+        ? item.material
+        : config.material,
       lining: 'N/A',
       hardware: 'N/A',
       dimensions: { widthCm: 0, heightCm: 0, depthCm: 0, strapDropCm: 0 },
       weightGrams: 0,
       stock: typeof item.stock === 'number' && Number.isFinite(item.stock) ? item.stock : 0,
-      rating: 0,
-      reviewsCount: 0,
+      rating: keepsCatalogColors && typeof item.rating === 'number' ? item.rating : 0,
+      reviewsCount: keepsCatalogColors && typeof item.reviewCount === 'number' ? item.reviewCount : 0,
       featured: item.featured === true,
       bestSeller: item.bestSeller === true,
       isNewArrival: item.isNewArrival === true,
@@ -86,3 +101,21 @@ export const mapLadyWatchCatalog = (catalog: unknown): Product[] =>
     collectionFallback: 'Ladies Watch',
     material: 'Watch',
   }).map((product) => ({ ...product, collection: 'Ladies Watch' }));
+
+export const mapLadiesSunglassesCatalog = (catalog: unknown): Product[] =>
+  mapCatalog(catalog, {
+    category: 'Ladies Sunglasses',
+    idPrefix: 'sunglasses',
+    skuPrefix: 'SB-SUNGLASSES',
+    collectionFallback: 'Ladies Sunglasses',
+    material: 'Sunglasses',
+  });
+
+export const mapLuxuryScarvesCatalog = (catalog: unknown): Product[] =>
+  mapCatalog(catalog, {
+    category: 'Luxury Scarves',
+    idPrefix: 'scarf',
+    skuPrefix: 'SB-SCARF',
+    collectionFallback: 'Luxury Scarves',
+    material: 'Luxury scarf',
+  });

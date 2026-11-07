@@ -4,11 +4,13 @@ import type { HandbagCategory } from '../../types';
 import { HeroBanner } from './HeroBanner';
 import { FeaturedSection } from './FeaturedSection';
 
-const categories: HandbagCategory[] = ['Handbag', 'Women Perfume', 'Ladies Watch'];
+const categories: HandbagCategory[] = ['Handbag', 'Women Perfume', 'Ladies Watch', 'Ladies Sunglasses', 'Luxury Scarves'];
 const categoryImages: Partial<Record<HandbagCategory, string>> = {
   Handbag: './catalog/images/handbag-category.png',
   'Women Perfume': './catalog/images/women-perfume-category.png',
   'Ladies Watch': './catalog/images/rose-gold-crystal-studded-watch.png',
+  'Ladies Sunglasses': './catalog/images/ladies-sunglasses-category.png',
+  'Luxury Scarves': './catalog/images/luxury-scarves-category.png',
 };
 
 export const HomePage: React.FC = () => {

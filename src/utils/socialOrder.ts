@@ -63,6 +63,10 @@ export const buildProductOrderMessage = ({
     ? 'perfume'
     : product.category === 'Ladies Watch'
     ? 'watch'
+    : product.category === 'Ladies Sunglasses'
+    ? 'sunglasses'
+    : product.category === 'Luxury Scarves'
+    ? 'scarf'
     : null;
   const chosenColor = selectedColor?.name || product.colors[0]?.name || 'Signature';
   const unitPrice = formatPrice(product.price);
@@ -72,11 +76,15 @@ export const buildProductOrderMessage = ({
   const shippingPrice = shippingCharge > 0 ? formatPrice(shippingCharge) : 'FREE';
   const productUrl = getProductShareUrl(product.id);
 
+  const catalogIcon = catalogType === 'watch' ? '⌚' : catalogType === 'sunglasses' ? '🕶️' : catalogType === 'scarf' ? '🧣' : '🌸';
+  const catalogLabel = catalogType === 'watch' ? 'Watch' : catalogType === 'sunglasses' ? 'Sunglasses' : catalogType === 'scarf' ? 'Scarf' : 'Perfume';
   const lines = catalogType ? [
-    `${catalogType === 'watch' ? '⌚' : '🌸'} *STRAWBELLE ${catalogType.toUpperCase()} ORDER INQUIRY*`,
+    `${catalogIcon} *STRAWBELLE ${catalogType.toUpperCase()} ORDER INQUIRY*`,
     `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-    `✨ *${catalogType === 'watch' ? 'Watch' : 'Perfume'}:* ${product.title}`,
+    `✨ *${catalogLabel}:* ${product.title}`,
     `🏷️ *SKU:* ${product.sku}`,
+    ...(catalogType === 'sunglasses' ? [`🎨 *Colorway:* ${chosenColor}`] : []),
+    ...(catalogType === 'scarf' ? [`🎨 *Colorway:* ${chosenColor}`, `🧵 *Material:* ${product.material}`] : []),
     `📦 *Quantity:* ${quantity}`,
     `💰 *Unit Price:* ${unitPrice}`,
     `🚚 *Shipping Charges:* ${shippingPrice}`,
@@ -104,7 +112,7 @@ export const buildProductOrderMessage = ({
 
   lines.push(
     catalogType
-      ? `Please confirm ${catalogType} availability and order details. Thank you!`
+      ? `Please confirm ${catalogLabel.toLowerCase()} availability and order details. Thank you!`
       : `Please confirm piece availability and VIP dispatch from the Florence atelier. Thank you!`
   );
 
@@ -146,13 +154,20 @@ export const buildCartOrderMessage = ({
       ? 'perfume'
       : item.product.category === 'Ladies Watch'
       ? 'watch'
+      : item.product.category === 'Ladies Sunglasses'
+      ? 'sunglasses'
+      : item.product.category === 'Luxury Scarves'
+      ? 'scarf'
       : null;
     const chosenColor = item.selectedColor?.name || item.product.colors[0]?.name || 'Signature';
     const quantity = Number(item.quantity) || 1;
+    const catalogIcon = catalogType === 'watch' ? '⌚' : catalogType === 'sunglasses' ? '🕶️' : catalogType === 'scarf' ? '🧣' : '🌸';
     lines.push(...(catalogType
       ? [
-          `\n${index + 1}. ${catalogType === 'watch' ? '⌚' : '🌸'} *${item.product.title}*`,
+          `\n${index + 1}. ${catalogIcon} *${item.product.title}*`,
           `🏷️ SKU: ${item.product.sku}`,
+          ...(catalogType === 'sunglasses' ? [`🎨 Color: ${chosenColor}`] : []),
+          ...(catalogType === 'scarf' ? [`🎨 Color: ${chosenColor}`] : []),
           `📦 Quantity: ${quantity}`,
           `💰 Price: ${formatPrice(item.product.price * quantity)}`,
           `🔗 Product Link: ${getProductShareUrl(item.product.id)}`

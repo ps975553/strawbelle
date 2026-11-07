@@ -32,7 +32,7 @@ import {
   idbSet,
   saveProductsPersistently
 } from '../utils/storage';
-import { mapLadyWatchCatalog, mapWomenPerfumeCatalog } from '../utils/perfumeCatalog';
+import { mapLadyWatchCatalog, mapWomenPerfumeCatalog, mapLadiesSunglassesCatalog, mapLuxuryScarvesCatalog } from '../utils/perfumeCatalog';
 import { calculateShippingCharge } from '../utils/shipping';
 
 export interface ToastMessage {
@@ -160,7 +160,7 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   const isCatalogCategoryProduct = (product: Partial<Product>): boolean => {
     const classification = `${product.category || ''} ${product.collection || ''}`.toLowerCase();
-    return /perfume|fragrance|\bwatches?\b/.test(classification);
+    return /perfume|fragrance|\bwatches?\b|sunglasses|scarf|scarves|shawl/.test(classification);
   };
 
   const productIdentity = (product: Partial<Product>): string => {
@@ -430,13 +430,15 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     };
 
     const loadProductCatalogs = async () => {
-      const [perfumeProducts, watchProducts] = await Promise.all([
+      const [perfumeProducts, watchProducts, sunglassesProducts, scarfProducts] = await Promise.all([
         fetchCatalog('./catalog/perfumes_catalog_all_2026-11-07.json', mapWomenPerfumeCatalog),
         fetchCatalog('./catalog/lady_watches_catalog_all_2026-11-07.json', mapLadyWatchCatalog),
+        fetchCatalog('./catalog/strawbelle_ladies_sunglasses_all_2026-11-07.json', mapLadiesSunglassesCatalog),
+        fetchCatalog('./catalog/strawbelle_luxury_scarves_all_2026-11-07.json', mapLuxuryScarvesCatalog),
       ]);
       if (cancelled) return;
 
-      const catalogProducts = [...perfumeProducts, ...watchProducts];
+      const catalogProducts = [...perfumeProducts, ...watchProducts, ...sunglassesProducts, ...scarfProducts];
       if (catalogProducts.length === 0) return;
 
       supplementalCatalogRef.current = catalogProducts;

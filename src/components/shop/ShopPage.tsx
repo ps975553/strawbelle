@@ -30,11 +30,23 @@ export const ShopPage: React.FC = () => {
       .filter((p) => {
         if (p.status !== 'published') return false;
 
-        if (selectedCategoryFilter === 'Women Perfume' || selectedCategoryFilter === 'Ladies Watch') {
+        if (
+          selectedCategoryFilter === 'Women Perfume' ||
+          selectedCategoryFilter === 'Ladies Watch' ||
+          selectedCategoryFilter === 'Ladies Sunglasses' ||
+          selectedCategoryFilter === 'Luxury Scarves'
+        ) {
           if (p.category !== selectedCategoryFilter) return false;
         } else if (selectedCategoryFilter === 'Handbag') {
           const productType = `${p.collection} ${p.category}`.toLowerCase();
-          if (productType.includes('perfume') || productType.includes('fragrance') || productType.includes('watch')) {
+          if (
+            productType.includes('perfume') ||
+            productType.includes('fragrance') ||
+            productType.includes('watch') ||
+            productType.includes('sunglasses') ||
+            productType.includes('scarf') ||
+            productType.includes('scarves')
+          ) {
             return false;
           }
         } else if (selectedCategoryFilter && p.collection !== selectedCategoryFilter && p.category !== selectedCategoryFilter) {
@@ -81,7 +93,7 @@ export const ShopPage: React.FC = () => {
             Shop by Category
           </span>
           <div className="flex flex-wrap justify-center gap-2">
-            {(['Handbag', 'Women Perfume', 'Ladies Watch'] as HandbagCategory[]).map((category) => (
+            {(['Handbag', 'Women Perfume', 'Ladies Watch', 'Ladies Sunglasses', 'Luxury Scarves'] as HandbagCategory[]).map((category) => (
               <button
                 key={category}
                 type="button"

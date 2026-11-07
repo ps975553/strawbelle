@@ -8,7 +8,9 @@ export type HandbagCategory =
   | 'Mini Bags'
   | 'Backpacks'
   | 'Women Perfume'
-  | 'Ladies Watch';
+  | 'Ladies Watch'
+  | 'Ladies Sunglasses'
+  | 'Luxury Scarves';
 
 export interface ProductColor {
   name: string;

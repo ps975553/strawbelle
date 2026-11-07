@@ -136,6 +136,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 ? 'Perfume For Women'
                 : product.category === 'Ladies Watch'
                 ? 'Ladies Watch'
+                : product.category === 'Ladies Sunglasses'
+                ? 'Ladies Sunglasses'
+                : product.category === 'Luxury Scarves'
+                ? 'Luxury Scarves'
                 : 'Handcrafted'}
             </span>
             {product.category !== 'Women Perfume' && product.category !== 'Ladies Watch' && (

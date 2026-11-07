@@ -1,0 +1,947 @@
+[
+  {
+    "id": "sb-1794069468018-118-tzqee4",
+    "title": "YSL Monogram Pattern Wool Blend Scarf Black & Grey With Carry Bag Y01",
+    "slug": "ysl-monogram-pattern-wool-blend-scarf-black-grey-with-carry-bag-y01",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 10,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-a070a5ea1f64e730fb17947d80c8bf99894c7b0faa062f1d17cfb901761bbc7b.png",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-a070a5ea1f64e730fb17947d80c8bf99894c7b0faa062f1d17cfb901761bbc7b.png",
+      "./catalog/images/luxury-scarves/scarf-0e1413b1164f73488b5aef72803e583670d25a2618d6c3fc6ac15882592fbe6e.jpg",
+      "./catalog/images/luxury-scarves/scarf-41dc497db273a0c401f0d4de5cc4eb79e07cc7316020fdebcc877950a839c65d.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794069390233-112-t6ptaq",
+    "title": "Miss Diyor Oblique Geometric Pattern Wool Blend Scarf Coffee & Brown With Carry Bag MD01",
+    "slug": "miss-diyor-oblique-geometric-pattern-wool-blend-scarf-coffee-brown-with-carry-bag-md01",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 15,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-5f6729df89c7d4354333a54baefc77c89db57925838f0fdd4dfc2270afb2f66a.png",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-5f6729df89c7d4354333a54baefc77c89db57925838f0fdd4dfc2270afb2f66a.png",
+      "./catalog/images/luxury-scarves/scarf-f7d680c3d3e34e81f43feb2a31f3c1910c7eb4319cfb606df28b432b6f12156b.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794069279731-106-0ayula",
+    "title": "Louiis Vuitton Monogram Floral Pattern Wool Blend Scarf Black & White With Carry Bag",
+    "slug": "louiis-vuitton-monogram-floral-pattern-wool-blend-scarf-black-white-with-carry-bag",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 10,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-db82a2fd7337dc701bc454bc48a86a9e4d772a8f7966589edb130f283ebe54dc.png",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-db82a2fd7337dc701bc454bc48a86a9e4d772a8f7966589edb130f283ebe54dc.png"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794069211947-102-jnhgps",
+    "title": "Louiis Vuitton Monogram Floral Pattern Wool Blend Scarf Black & Grey With Carry Bag",
+    "slug": "louiis-vuitton-monogram-floral-pattern-wool-blend-scarf-black-grey-with-carry-bag",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 15,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": true,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-8a948ed726a5ed57d4d88d80f2dc6b53f8daa2343a8760fb188757e3f6e5dd6e.png",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-8a948ed726a5ed57d4d88d80f2dc6b53f8daa2343a8760fb188757e3f6e5dd6e.png"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794069160506-98-2iivfc",
+    "title": "Louiis Vuitton Monogram Floral Pattern Wool Blend Scarf Black & Beige With Carry Bag",
+    "slug": "louiis-vuitton-monogram-floral-pattern-wool-blend-scarf-black-beige-with-carry-bag",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 15,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-5880e3f409dce5bd8bd71219c7c5047eb6aaa1d0fe9e895acb672c4796531add.png",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-5880e3f409dce5bd8bd71219c7c5047eb6aaa1d0fe9e895acb672c4796531add.png",
+      "./catalog/images/luxury-scarves/scarf-8bc688a03bf98306e3c4de7e33ccecebd6c3ca3e4303119c3b06b0563658c1eb.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794069092441-92-hmb60o",
+    "title": "Loius Vutton LV Monogram Wool Blend Scarf With Fringe & Carry Bag Chocolate Brown",
+    "slug": "loius-vutton-lv-monogram-wool-blend-scarf-with-fringe-carry-bag-chocolate-brown",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 10,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-da9d397a10b44b7a9467d81ac80779c3920bf83342c8ec4138047e966d1e1777.webp",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-da9d397a10b44b7a9467d81ac80779c3920bf83342c8ec4138047e966d1e1777.webp",
+      "./catalog/images/luxury-scarves/scarf-25186a65464bb9708fdf9d6d2c905f795e4cfe3dc73fbe72b3ffcde98a1ef60a.webp"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794069027746-86-quap10",
+    "title": "Loius Vutton LV Logo Pattern Wool Blend Scarf Grey & White With Carry Bag",
+    "slug": "loius-vutton-lv-logo-pattern-wool-blend-scarf-grey-white-with-carry-bag",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 5,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-62d81fb27388ecd8217e122e4fd0e38811edabaa9bb1e12388b0482c45b46f4c.webp",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-62d81fb27388ecd8217e122e4fd0e38811edabaa9bb1e12388b0482c45b46f4c.webp"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794068969048-82-gyval3",
+    "title": "Loewe LW-1 Unisex Woollen Scarf",
+    "slug": "loewe-lw-1-unisex-woollen-scarf",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 15,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-e42657a6f0cd12d66a1e224953930efdd5f2d384486f661afc2093824006b237.jpg",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-51bc45897ca0383c54b749bacf867d8c7b33a7bae06a4c38341e9c0779f7bc6a.jpg",
+      "./catalog/images/luxury-scarves/scarf-0c14d843be4b01bc6aa9d7a3acae06d3877a8225e748aee77470de73c473a131.jpg",
+      "./catalog/images/luxury-scarves/scarf-e42657a6f0cd12d66a1e224953930efdd5f2d384486f661afc2093824006b237.jpg",
+      "./catalog/images/luxury-scarves/scarf-a4309f768903cd7f86b39b68523757b050ee1a3a5dc1d67f32b214e2bae55c8e.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794068887880-75-wngx82",
+    "title": "Guchi GG Diamond Pattern Wool Blend Scarf Dark Brown & Camel Beige With Carry Bag",
+    "slug": "guchi-gg-diamond-pattern-wool-blend-scarf-dark-brown-camel-beige-with-carry-bag",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 15,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-627854d9d3b5ea79ae0a0a6468c776f75ff8aaf183d023ab66268498e3739ae4.jpg",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-627854d9d3b5ea79ae0a0a6468c776f75ff8aaf183d023ab66268498e3739ae4.jpg",
+      "./catalog/images/luxury-scarves/scarf-a589853ef1cc1ad136e35993684e1f7a1a52cb3d64da0d394b07869c549e0827.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794068826279-69-0ydq1n",
+    "title": "Guccci_GG_Wool_Big_Monogram_Shawl_Scarf_Camel_Brown_With_Multi-Tone_GG_Pattern_With_OG_Box_&_Carry_Bag",
+    "slug": "guccci-gg-wool-big-monogram-shawl-scarf-camel-brown-with-multi-tone-gg-pattern-with-og-box-carry-bag",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 5,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-567e71f464b7dac0de40bc9aaab5e42f44c7ca2613579165611b8dd49c850bfb.jpg",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-567e71f464b7dac0de40bc9aaab5e42f44c7ca2613579165611b8dd49c850bfb.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794068768734-65-rcg50x",
+    "title": "Fenddi FF Logo Woolen Scarf Brown Black Design With Polythene",
+    "slug": "fenddi-ff-logo-woolen-scarf-brown-black-design-with-polythene",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 5,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-f1910fc13336e5db0b9262abcc131702c1dd7a8a57f7c892735ff3cb54909ab2.jpg",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-f1910fc13336e5db0b9262abcc131702c1dd7a8a57f7c892735ff3cb54909ab2.jpg",
+      "./catalog/images/luxury-scarves/scarf-26fd8c96884c5969433cf32162b6b2d0826f747bb7f5a858fbeaed7503acca0b.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794068707901-59-my00it",
+    "title": "Diyor Oblique Light Blue & Grey Printed Silk Scarf With Carry Bag",
+    "slug": "diyor-oblique-light-blue-grey-printed-silk-scarf-with-carry-bag",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 15,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-6aed6a530d9d424f6d5e6320a082ea8b5618db4eca07df6481a70da30e549026.jpg",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-6aed6a530d9d424f6d5e6320a082ea8b5618db4eca07df6481a70da30e549026.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794068658511-55-3u836n",
+    "title": "Diyor DD-9 Unisex Woollen Scarf With Original CarryBag",
+    "slug": "diyor-dd-9-unisex-woollen-scarf-with-original-carrybag",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 5,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-90a3923e0a503c3b709073a573e3b81cc5194f8b06c957e3f89eb3dfc90017cd.webp",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-90a3923e0a503c3b709073a573e3b81cc5194f8b06c957e3f89eb3dfc90017cd.webp",
+      "./catalog/images/luxury-scarves/scarf-65c5d1a5bbfa911fe87f1977e8fb6514dc2301d37ed58e8aafae161a757daed8.webp",
+      "./catalog/images/luxury-scarves/scarf-004e9bc0ebe6a20ae508555b5cb01718930faa6b3f6e3da6e5aa33779bff7e3e.webp",
+      "./catalog/images/luxury-scarves/scarf-faff1379311ba2429f30f53be7dce23055163e61b896cc48f53961772b925ce3.webp",
+      "./catalog/images/luxury-scarves/scarf-6a1b803a7183e2a341f5020af674299db73bbc4331639fdd2e3434117eb19d03.webp",
+      "./catalog/images/luxury-scarves/scarf-0dd81f7a45b629ea47af016c368a152a3485a72a0f93313c8c1f253413e8e8bc.webp",
+      "./catalog/images/luxury-scarves/scarf-34430106664783ff50355487ee7cde05744af6a433b9035c20981bd880b29b33.webp"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794068547480-49-oc2n2o",
+    "title": "Diyor DD4 Unisex Woollen Scarf With Original CarryBag",
+    "slug": "diyor-dd4-unisex-woollen-scarf-with-original-carrybag",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 10,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-c8753b321e6bd0ae1a602b224a1555ed208a8acd5acd0721c66b07c28dab2af0.jpg",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-c8753b321e6bd0ae1a602b224a1555ed208a8acd5acd0721c66b07c28dab2af0.jpg",
+      "./catalog/images/luxury-scarves/scarf-9d5474eb252dc9d0560cd3c186258a86a5d272830ea8bbc4c7c36082a73ab3e0.jpg",
+      "./catalog/images/luxury-scarves/scarf-9167d24563078b5c81af9eb098b98b3622129bf788a025b310fd5a32ae85c3a1.jpg",
+      "./catalog/images/luxury-scarves/scarf-8870330296a0618ab2011a7eb80d766756f64feba0f0c724c18daa8f30298b53.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794068466968-43-95n3rf",
+    "title": "Diyor DD1 Unisex Woollen Scarf With Original CarryBag",
+    "slug": "diyor-dd1-unisex-woollen-scarf-with-original-carrybag",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 5,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-99548dc3e0b58b71f4d1e65ce9510423eed4c8ac8a5c317d1ffb7593eff1df20.jpg",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-99548dc3e0b58b71f4d1e65ce9510423eed4c8ac8a5c317d1ffb7593eff1df20.jpg",
+      "./catalog/images/luxury-scarves/scarf-3d0b08624795cf9919313fa9013acce2acd4c181363a6340f4b5ed6727ded280.jpg",
+      "./catalog/images/luxury-scarves/scarf-eafffd45cbe5d54445f216788f7468320d3107025edb73ca13dc4cba9ffbfa20.jpg",
+      "./catalog/images/luxury-scarves/scarf-8fd650bb0a8024004f4df28d9ed9e620b6094d006632255c5b3e6670f79f5411.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794068387980-37-qwrr2y",
+    "title": "Dioor Oblique Camel & Black Floral Print Wool Scarf With Carry Bag",
+    "slug": "dioor-oblique-camel-black-floral-print-wool-scarf-with-carry-bag",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 6,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-edfec8651c3cc987483a981e90ddedc6d58d428476f38116c1badbb7d862d28e.jpg",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-edfec8651c3cc987483a981e90ddedc6d58d428476f38116c1badbb7d862d28e.jpg",
+      "./catalog/images/luxury-scarves/scarf-a6e64a8d83287e93393d157f51b391e1b25fbac28ce07ba5052efb92b28678c7.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794068323104-31-j3p7bv",
+    "title": "Christian Diyor Toile de Jouy Jacquard Scarf Polythene Packing",
+    "slug": "christian-diyor-toile-de-jouy-jacquard-scarf-polythene-packing",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 6,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": true,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-1a53b9d6c5f629ed5b76f2b7121dded2e33e5bc2eafd4f788be7b67c491f4818.jpg",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-1a53b9d6c5f629ed5b76f2b7121dded2e33e5bc2eafd4f788be7b67c491f4818.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794068250387-27-bkwdpc",
+    "title": "Christian Diyor Oblique Jacquard Wollen Scarf Polythene Packing",
+    "slug": "christian-diyor-oblique-jacquard-wollen-scarf-polythene-packing",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 6,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-c961a606aba6727654d251daee39f6a31f014616fa7c06e733fd498691c901bf.jpg",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-c961a606aba6727654d251daee39f6a31f014616fa7c06e733fd498691c901bf.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794068196060-23-bw39jf",
+    "title": "Christian Dioor Oblique Monogram Pattern Wool Blend Scarf Black & Beige With Carry Bag",
+    "slug": "christian-dioor-oblique-monogram-pattern-wool-blend-scarf-black-beige-with-carry-bag",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 8,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-c264c548ae729385ffc5b91721a1447b7890917da29c42ec8e1863211cb7153e.jpg",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-c264c548ae729385ffc5b91721a1447b7890917da29c42ec8e1863211cb7153e.jpg",
+      "./catalog/images/luxury-scarves/scarf-8934e048b34e6e1b4966b7d57e18ed706342988cd1eaa9b1312122e3018036f6.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794068123582-17-u8odw4",
+    "title": "Chaneel CC Diamond Pattern Wool Blend Scarf Brown & Beige With Carry Bag CH02",
+    "slug": "chaneel-cc-diamond-pattern-wool-blend-scarf-brown-beige-with-carry-bag-ch02",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 15,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-c57226facb3143de249ac7103684428eefc6a5a44059ba881535b7acc725874c.png",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-c57226facb3143de249ac7103684428eefc6a5a44059ba881535b7acc725874c.png"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794068066960-13-pk8xbg",
+    "title": "Chaneel CC Camellia Brown & Beige Jacquard Fringe Scarf With Polythene",
+    "slug": "chaneel-cc-camellia-brown-beige-jacquard-fringe-scarf-with-polythene",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 10,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-08c8d1242cee9f7aae3b8ec41beb47edf3008832db3e44db98e588af8abed69e.jpg",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-08c8d1242cee9f7aae3b8ec41beb47edf3008832db3e44db98e588af8abed69e.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794068013450-9-5lmzh4",
+    "title": "Chaneel CC Camellia Black & Beige Jacquard Fringe Scarf With Polythene",
+    "slug": "chaneel-cc-camellia-black-beige-jacquard-fringe-scarf-with-polythene",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 5,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-38fbe1233c0777b33c8209212fc796465352012f2271f13e6da55cc1374850e8.jpg",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-38fbe1233c0777b33c8209212fc796465352012f2271f13e6da55cc1374850e8.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  },
+  {
+    "id": "sb-1794067966749-5-l44bes",
+    "title": "Celine Triomphe Monogram Wool Blend Scarf Grey & White With Carry Bag",
+    "slug": "celine-triomphe-monogram-wool-blend-scarf-grey-white-with-carry-bag",
+    "description": "Artisanal luxury scarf crafted from 100% pure Mulberry silk twill with exquisite hand-rolled edges and bespoke print motifs.",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 15,
+    "collection": "Luxury Scarves",
+    "productType": "scarf",
+    "stock": 15,
+    "status": "published",
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "isImportant": false,
+    "thumbnail": "./catalog/images/luxury-scarves/scarf-6f5f8e4a1189aee7b3497a31f62c8ff07d472af7a77acc7beca06a6249166975.jpg",
+    "galleryImages": [
+      "./catalog/images/luxury-scarves/scarf-6f5f8e4a1189aee7b3497a31f62c8ff07d472af7a77acc7beca06a6249166975.jpg",
+      "./catalog/images/luxury-scarves/scarf-52a0123a3c6296798629bbd51c7628ee5b066d0747cc9040da5f6797620e403d.jpg"
+    ],
+    "material": "100% Pure Mulberry Silk Twill",
+    "dimensions": "90 cm x 90 cm (Square Carré)",
+    "availableColors": [
+      {
+        "name": "Royal Gold & Navy",
+        "hex": "#C6A56B"
+      },
+      {
+        "name": "Emerald Flora",
+        "hex": "#1B4D3E"
+      },
+      {
+        "name": "Burgundy Crimson",
+        "hex": "#800020"
+      }
+    ],
+    "rating": 5,
+    "reviewCount": 1,
+    "gender": "Women"
+  }
+]

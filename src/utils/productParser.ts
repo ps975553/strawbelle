@@ -108,6 +108,8 @@ export function normalizeCategory(rawCat: any): HandbagCategory {
   if (c.includes('tote')) return 'Totes';
   if (c.includes('crossbody') || c.includes('cross-body')) return 'Crossbody';
   if (c.includes('shoulder')) return 'Shoulder Bags';
+  if (c.includes('sunglass') || c.includes('eyewear')) return 'Ladies Sunglasses';
+  if (c.includes('scarf') || c.includes('scarves') || c.includes('shawl')) return 'Luxury Scarves';
   if (c.includes('clutch')) return 'Clutches';
   if (c.includes('top-handle') || c.includes('top handle') || c.includes('tophandle')) return 'Top-Handle';
   if (c.includes('mini') || c.includes('pochette')) return 'Mini Bags';
