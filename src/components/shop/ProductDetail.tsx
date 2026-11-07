@@ -239,7 +239,9 @@ export const ProductDetail: React.FC = () => {
               {/* Wishlist and Share */}
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#C6A56B]">
-                  Handcrafted Atelier
+                  {product.category === 'Women Perfume' || product.category === 'Lady Watch'
+                    ? product.collection
+                    : 'Handcrafted Atelier'}
                 </span>
 
                 <div className="flex items-center gap-2">
@@ -328,7 +330,11 @@ export const ProductDetail: React.FC = () => {
                       id="order-via-whatsapp-btn"
                       onClick={() => orderViaWhatsApp({ product, quantity, formatPrice, onToast: showToast })}
                       className="w-full py-2.5 px-4 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold uppercase tracking-wider rounded-xl shadow-sm hover:shadow transition-all flex items-center justify-center gap-2 group cursor-pointer"
-                      title="Order this handbag directly via WhatsApp"
+                      title={product.category === 'Women Perfume'
+                        ? 'Order this perfume directly via WhatsApp'
+                        : product.category === 'Lady Watch'
+                        ? 'Order this watch directly via WhatsApp'
+                        : 'Order this handbag directly via WhatsApp'}
                     >
                       <MessageCircle className="w-4 h-4 fill-current shrink-0" />
                       <span>Order via WhatsApp</span>
@@ -339,7 +345,11 @@ export const ProductDetail: React.FC = () => {
                       id="order-via-instagram-btn"
                       onClick={() => orderViaInstagram({ product, quantity, formatPrice, onToast: showToast })}
                       className="w-full py-2.5 px-4 bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider rounded-xl shadow-sm hover:shadow transition-all flex items-center justify-center gap-2 group cursor-pointer"
-                      title="Order this handbag directly via Instagram DM"
+                      title={product.category === 'Women Perfume'
+                        ? 'Order this perfume directly via Instagram DM'
+                        : product.category === 'Lady Watch'
+                        ? 'Order this watch directly via Instagram DM'
+                        : 'Order this handbag directly via Instagram DM'}
                     >
                       <Instagram className="w-4 h-4 shrink-0" />
                       <span>Order via Instagram</span>

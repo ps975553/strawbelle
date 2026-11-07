@@ -58,12 +58,27 @@ export const buildProductOrderMessage = ({
   formatPrice,
   customNotes
 }: SocialOrderPayload): string => {
+  const catalogType = product.category === 'Women Perfume'
+    ? 'perfume'
+    : product.category === 'Lady Watch'
+    ? 'watch'
+    : null;
   const chosenColor = selectedColor?.name || product.colors[0]?.name || 'Signature';
   const unitPrice = formatPrice(product.price);
   const totalPrice = formatPrice(product.price * quantity);
   const productUrl = getProductShareUrl(product.id);
 
-  const lines = [
+  const lines = catalogType ? [
+    `${catalogType === 'watch' ? '⌚' : '🌸'} *STRAWBELLE ${catalogType.toUpperCase()} ORDER INQUIRY*`,
+    `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+    `✨ *${catalogType === 'watch' ? 'Watch' : 'Perfume'}:* ${product.title}`,
+    `🏷️ *SKU:* ${product.sku}`,
+    `📦 *Quantity:* ${quantity}`,
+    `💰 *Unit Price:* ${unitPrice}`,
+    `💎 *Total:* ${totalPrice}`,
+    `🔗 *Product Link:* ${productUrl}`,
+    `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`
+  ] : [
     `👜 *STRAWBELLE LUXURY ORDER INQUIRY*`,
     `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
     `✨ *Piece:* ${product.title}`,
@@ -81,7 +96,11 @@ export const buildProductOrderMessage = ({
     lines.push(`📝 *Client Note:* ${customNotes}`);
   }
 
-  lines.push(`Please confirm piece availability and VIP dispatch from the Florence atelier. Thank you!`);
+  lines.push(
+    catalogType
+      ? `Please confirm ${catalogType} availability and order details. Thank you!`
+      : `Please confirm piece availability and VIP dispatch from the Florence atelier. Thank you!`
+  );
 
   return lines.join('\n');
 };
@@ -115,16 +134,29 @@ export const buildCartOrderMessage = ({
   ];
 
   cart.forEach((item, index) => {
+    const catalogType = item.product.category === 'Women Perfume'
+      ? 'perfume'
+      : item.product.category === 'Lady Watch'
+      ? 'watch'
+      : null;
     const chosenColor = item.selectedColor?.name || item.product.colors[0]?.name || 'Signature';
     const quantity = Number(item.quantity) || 1;
-    lines.push(
-      `\n${index + 1}. ✨ *${item.product.title}*`,
-      `🏷️ SKU: ${item.product.sku}`,
-      `🎨 Color: ${chosenColor}`,
-      `📦 Quantity: ${quantity}`,
-      `💰 Price: ${formatPrice(item.product.price * quantity)}`,
-      `🔗 Product Link: ${getProductShareUrl(item.product.id)}`
-    );
+    lines.push(...(catalogType
+      ? [
+          `\n${index + 1}. ${catalogType === 'watch' ? '⌚' : '🌸'} *${item.product.title}*`,
+          `🏷️ SKU: ${item.product.sku}`,
+          `📦 Quantity: ${quantity}`,
+          `💰 Price: ${formatPrice(item.product.price * quantity)}`,
+          `🔗 Product Link: ${getProductShareUrl(item.product.id)}`
+        ]
+      : [
+          `\n${index + 1}. ✨ *${item.product.title}*`,
+          `🏷️ SKU: ${item.product.sku}`,
+          `🎨 Color: ${chosenColor}`,
+          `📦 Quantity: ${quantity}`,
+          `💰 Price: ${formatPrice(item.product.price * quantity)}`,
+          `🔗 Product Link: ${getProductShareUrl(item.product.id)}`
+        ]));
   });
 
   lines.push(

@@ -132,12 +132,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="mt-1.5 sm:mt-2 space-y-0.5 sm:space-y-1">
           <div className="flex items-center justify-between">
             <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.16em] text-[#C6A56B]">
-              Handcrafted
+              {product.category === 'Women Perfume'
+                ? 'Perfume For Women'
+                : product.category === 'Lady Watch'
+                ? 'Lady Watch'
+                : 'Handcrafted'}
             </span>
-            <div className="flex items-center gap-0.5 text-[9px] sm:text-[10px] text-neutral-600 font-semibold">
-              <Star className="w-2.5 h-2.5 text-[#C6A56B] fill-[#C6A56B]" />
-              <span>{product.rating ? Number(product.rating).toFixed(1) : '5.0'}</span>
-            </div>
+            {product.category !== 'Women Perfume' && product.category !== 'Lady Watch' && (
+              <div className="flex items-center gap-0.5 text-[9px] sm:text-[10px] text-neutral-600 font-semibold">
+                <Star className="w-2.5 h-2.5 text-[#C6A56B] fill-[#C6A56B]" />
+                <span>{product.rating ? Number(product.rating).toFixed(1) : '5.0'}</span>
+              </div>
+            )}
           </div>
 
           <h3 className="font-serif text-xs sm:text-sm font-semibold text-[#1D1D1D] group-hover:text-[#C6A56B] transition-colors line-clamp-3 break-words whitespace-normal leading-snug min-h-[3.75rem]">

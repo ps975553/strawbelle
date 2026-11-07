@@ -1,31 +1,17 @@
 import React, { useState, useMemo } from 'react';
 import { useStore } from '../../context/StoreContext';
 import { ProductCard } from './ProductCard';
-import type { HandbagCategory, Product } from '../../types';
+import type { HandbagCategory } from '../../types';
 import {
   Filter,
   SlidersHorizontal
 } from 'lucide-react';
-
-const HANDBAG_CATEGORY_VALUES = new Set<HandbagCategory>([
-  'Totes',
-  'Crossbody',
-  'Shoulder Bags',
-  'Clutches',
-  'Top-Handle',
-  'Mini Bags',
-  'Backpacks',
-]);
 
 export const ShopPage: React.FC = () => {
   const {
     products,
     selectedCategoryFilter,
     setSelectedCategoryFilter,
-    showHandbagsOnly,
-    setShowHandbagsOnly,
-    isWomenPerfumeCatalogLoading,
-    isLadyWatchCatalogLoading,
     formatPrice
   } = useStore();
 
@@ -35,34 +21,21 @@ export const ShopPage: React.FC = () => {
 
   const resetFilters = () => {
     setSelectedCategoryFilter(null);
-    setShowHandbagsOnly(false);
     setPriceLimit(4000);
     setSortBy('newest');
   };
 
   const filteredProducts = useMemo(() => {
-    const uniqueProductsById = new Map<string, Product>();
-    products.forEach((product) => {
-      if (product?.id) {
-        uniqueProductsById.set(product.id, product);
-      }
-    });
-
-    const uniqueProductsBySku = new Map<string, Product>();
-    uniqueProductsById.forEach((product) => {
-      const sku = product.sku?.trim().toLowerCase();
-      const identity = sku ? `sku:${sku}` : `id:${product.id}`;
-      uniqueProductsBySku.set(identity, product);
-    });
-
-    return Array.from(uniqueProductsBySku.values())
+    return products
       .filter((p) => {
         if (p.status !== 'published') return false;
 
-        const isHandbag = HANDBAG_CATEGORY_VALUES.has(p.category);
-        if (showHandbagsOnly && !isHandbag) return false;
-
-        if (
+        if (selectedCategoryFilter === 'Handbag') {
+          const productType = `${p.collection} ${p.category}`.toLowerCase();
+          if (productType.includes('perfume') || productType.includes('fragrance') || productType.includes('watch')) {
+            return false;
+          }
+        } else if (
           selectedCategoryFilter &&
           p.collection !== selectedCategoryFilter &&
           p.category !== selectedCategoryFilter
@@ -83,11 +56,10 @@ export const ShopPage: React.FC = () => {
         if (sortBy === 'discount') return (b.discountPercentage || 0) - (a.discountPercentage || 0);
         return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
       });
-  }, [products, selectedCategoryFilter, showHandbagsOnly, priceLimit, sortBy]);
+  }, [products, selectedCategoryFilter, priceLimit, sortBy]);
 
   const activeFiltersCount =
     (selectedCategoryFilter ? 1 : 0) +
-    (showHandbagsOnly ? 1 : 0) +
     (priceLimit < 4000 ? 1 : 0);
 
   return (
@@ -106,45 +78,19 @@ export const ShopPage: React.FC = () => {
           </p>
         </div>
 
-        <div
-          role="note"
-          className="mx-auto mb-5 max-w-4xl rounded-xl border border-[#C6A56B]/40 bg-white px-4 py-3 text-center shadow-sm"
-        >
-          <p className="text-[11px] sm:text-xs leading-relaxed text-neutral-600">
-            <strong className="font-bold text-[#1D1D1D]">Note:</strong> Due to copyright rules, product names are changed on Strawbelle.com. The physical item arrives with the correct brand logo and spelling, but please note this is{' '}
-            <strong className="font-bold text-[#1D1D1D]">UA quality</strong> (not from the official brand store). Check the photos or message our team for a real video of the product before ordering!
-          </p>
-        </div>
-
         <div className="mb-5 flex flex-col items-center gap-2">
           <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500">
             Shop by Category
           </span>
           <div className="flex flex-wrap justify-center gap-2">
-            <button
-              type="button"
-              aria-pressed={showHandbagsOnly}
-              onClick={() => {
-                setSelectedCategoryFilter(null);
-                setShowHandbagsOnly((current) => !current);
-              }}
-              className={`rounded-full border px-4 py-2 text-[10px] font-semibold uppercase tracking-wider transition-colors ${
-                showHandbagsOnly
-                  ? 'border-[#1D1D1D] bg-[#1D1D1D] text-white'
-                  : 'border-neutral-200 bg-white text-[#1D1D1D] hover:border-[#C6A56B] hover:text-[#C6A56B]'
-              }`}
-            >
-              Handbag
-            </button>
-            {(['Women Perfume', 'Lady Watch'] as HandbagCategory[]).map((category) => (
+            {(['Handbag', 'Women Perfume', 'Lady Watch'] as HandbagCategory[]).map((category) => (
               <button
                 key={category}
                 type="button"
                 aria-pressed={selectedCategoryFilter === category}
-                onClick={() => {
-                  setShowHandbagsOnly(false);
-                  setSelectedCategoryFilter(selectedCategoryFilter === category ? null : category);
-                }}
+                onClick={() =>
+                  setSelectedCategoryFilter(selectedCategoryFilter === category ? null : category)
+                }
                 className={`rounded-full border px-4 py-2 text-[10px] font-semibold uppercase tracking-wider transition-colors ${
                   selectedCategoryFilter === category
                     ? 'border-[#1D1D1D] bg-[#1D1D1D] text-white'
@@ -263,16 +209,7 @@ export const ShopPage: React.FC = () => {
             )}
 
             {/* Product Cards */}
-            {(
-              (selectedCategoryFilter === 'Women Perfume' && isWomenPerfumeCatalogLoading) ||
-              (selectedCategoryFilter === 'Lady Watch' && isLadyWatchCatalogLoading)
-            ) ? (
-              <div className="bg-white rounded-2xl p-8 text-center border border-neutral-200">
-                <p className="text-[11px] text-neutral-500">
-                  Loading {selectedCategoryFilter === 'Women Perfume' ? 'women’s perfume' : 'lady watch'} catalog…
-                </p>
-              </div>
-            ) : filteredProducts.length === 0 ? (
+            {filteredProducts.length === 0 ? (
               <div className="bg-white rounded-2xl p-8 text-center border border-neutral-200 space-y-3">
                 <p className="font-serif text-lg font-bold text-[#1D1D1D]">
                   No items meet your filter criteria

@@ -1,4 +1,5 @@
 export type HandbagCategory =
+  | 'Handbag'
   | 'Totes'
   | 'Crossbody'
   | 'Shoulder Bags'

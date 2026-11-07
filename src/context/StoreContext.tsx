@@ -32,6 +32,7 @@ import {
   idbSet,
   saveProductsPersistently
 } from '../utils/storage';
+import { mapLadyWatchCatalog, mapWomenPerfumeCatalog } from '../utils/perfumeCatalog';
 
 export interface ToastMessage {
   id: string;
@@ -46,122 +47,6 @@ const CURRENCY_CONFIGS: Record<Currency, CurrencyConfig> = {
   GBP: { code: 'GBP', symbol: '£', rateFromUSD: 0.79 },
   INR: { code: 'INR', symbol: '₹', rateFromUSD: 83.5 },
 };
-
-interface WomenPerfumeCatalogEntry {
-  title: string;
-  price: number;
-  oldPrice?: number;
-  discount?: number;
-  collection?: string;
-  stock?: number;
-  description?: string;
-  thumbnail: string;
-  galleryImages?: string[];
-  featured?: boolean;
-  bestSeller?: boolean;
-  isNewArrival?: boolean;
-  status?: 'published' | 'draft';
-}
-
-const mapWomenPerfumeCatalog = (entries: WomenPerfumeCatalogEntry[]): Product[] =>
-  entries.map((entry, index) => {
-    const productNumber = String(index + 1).padStart(3, '0');
-    const titleSlug = entry.title
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-|-$/g, '');
-    const timestamp = '2026-11-07T00:00:00.000Z';
-
-    return {
-      id: `sb-women-perfume-${productNumber}`,
-      title: entry.title,
-      slug: `women-perfume-${productNumber}-${titleSlug}`,
-      sku: `SB-WP-${productNumber}`,
-      collection: entry.collection || 'Perfume For Women',
-      category: 'Women Perfume',
-      price: entry.price,
-      oldPrice: entry.oldPrice,
-      discountPercentage: entry.discount,
-      thumbnail: entry.thumbnail,
-      galleryImages: entry.galleryImages || [],
-      colors: [],
-      description: entry.description || '',
-      details: [],
-      material: 'Fragrance',
-      lining: '',
-      hardware: '',
-      dimensions: { widthCm: 0, heightCm: 0, depthCm: 0, strapDropCm: 0 },
-      weightGrams: 0,
-      stock: entry.stock ?? 0,
-      rating: 5,
-      reviewsCount: 0,
-      featured: entry.featured ?? false,
-      bestSeller: entry.bestSeller ?? false,
-      isNewArrival: entry.isNewArrival ?? false,
-      status: entry.status === 'draft' ? 'draft' : 'published',
-      createdAt: timestamp,
-      updatedAt: timestamp,
-    };
-  });
-
-interface LadyWatchCatalogEntry {
-  title: string;
-  price: number;
-  oldPrice?: number;
-  discount?: number;
-  collection?: string;
-  stock?: number;
-  description?: string;
-  thumbnail: string;
-  galleryImages?: string[];
-  featured?: boolean;
-  bestSeller?: boolean;
-  isNewArrival?: boolean;
-  status?: 'published' | 'draft';
-}
-
-const mapLadyWatchCatalog = (entries: LadyWatchCatalogEntry[]): Product[] =>
-  entries.map((entry, index) => {
-    const productNumber = String(index + 1).padStart(3, '0');
-    const titleSlug = entry.title
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-|-$/g, '');
-    const timestamp = '2026-11-07T00:00:00.000Z';
-
-    return {
-      id: `sb-lady-watch-${productNumber}`,
-      title: entry.title,
-      slug: `lady-watch-${productNumber}-${titleSlug}`,
-      sku: `SB-LW-${productNumber}`,
-      collection: entry.collection || 'Lady Watches',
-      category: 'Lady Watch',
-      price: entry.price,
-      oldPrice: entry.oldPrice,
-      discountPercentage: entry.discount,
-      thumbnail: entry.thumbnail,
-      galleryImages: entry.galleryImages || [],
-      colors: [],
-      description: entry.description || '',
-      details: [],
-      material: 'Timepiece',
-      lining: '',
-      hardware: '',
-      dimensions: { widthCm: 0, heightCm: 0, depthCm: 0, strapDropCm: 0 },
-      weightGrams: 0,
-      stock: entry.stock ?? 0,
-      rating: 5,
-      reviewsCount: 0,
-      featured: entry.featured ?? false,
-      bestSeller: entry.bestSeller ?? false,
-      isNewArrival: entry.isNewArrival ?? false,
-      status: entry.status === 'draft' ? 'draft' : 'published',
-      createdAt: timestamp,
-      updatedAt: timestamp,
-    };
-  });
 
 interface StoreContextType {
   // Products & Collections
@@ -234,10 +119,6 @@ interface StoreContextType {
   setSelectedProductId: (id: string | null) => void;
   selectedCategoryFilter: HandbagCategory | null;
   setSelectedCategoryFilter: (cat: HandbagCategory | null) => void;
-  showHandbagsOnly: boolean;
-  setShowHandbagsOnly: (show: boolean) => void;
-  isWomenPerfumeCatalogLoading: boolean;
-  isLadyWatchCatalogLoading: boolean;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
   navigateToProduct: (productId: string) => void;
@@ -274,28 +155,19 @@ const StoreContext = createContext<StoreContextType | undefined>(undefined);
 
 export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [isHydrated, setIsHydrated] = useState(false);
+  const supplementalCatalogRef = useRef<Product[]>([]);
 
-  const mergeWithInitialProducts = (stored: Product[] | null | undefined): Product[] => {
-    if (!Array.isArray(stored) || stored.length === 0) return INITIAL_PRODUCTS;
+  const mergeWithInitialProducts = (
+    stored: Product[] | null | undefined,
+    supplementalProducts = supplementalCatalogRef.current
+  ): Product[] => {
+    const initialProducts = [...INITIAL_PRODUCTS, ...supplementalProducts];
+    if (!Array.isArray(stored) || stored.length === 0) return initialProducts;
 
-    const storedById = new Map<string, Product>();
-    stored.forEach((product) => {
-      if (product?.id) {
-        storedById.set(product.id, product);
-      }
-    });
-
-    const mergedInitial = INITIAL_PRODUCTS.map((product) => storedById.get(product.id) || product);
-    const initialIds = new Set(INITIAL_PRODUCTS.map((product) => product.id));
-    const knownSkus = new Set(mergedInitial.map((product) => product.sku.trim().toLowerCase()));
-    const extraProducts = Array.from(storedById.values()).filter((product) => {
-      if (initialIds.has(product.id)) return false;
-
-      const sku = product.sku?.trim().toLowerCase();
-      if (sku && knownSkus.has(sku)) return false;
-      if (sku) knownSkus.add(sku);
-      return true;
-    });
+    const storedById = new Map(stored.map((product) => [product.id, product]));
+    const mergedInitial = initialProducts.map((product) => storedById.get(product.id) || product);
+    const initialIds = new Set(initialProducts.map((product) => product.id));
+    const extraProducts = stored.filter((product) => product?.id && !initialIds.has(product.id));
 
     return [...mergedInitial, ...extraProducts];
   };
@@ -420,11 +292,6 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<HandbagCategory | null>(null);
-  const [showHandbagsOnly, setShowHandbagsOnly] = useState(false);
-  const [isWomenPerfumeCatalogLoading, setIsWomenPerfumeCatalogLoading] = useState(false);
-  const womenPerfumeCatalogLoadStateRef = useRef<'idle' | 'loading' | 'loaded'>('idle');
-  const [isLadyWatchCatalogLoading, setIsLadyWatchCatalogLoading] = useState(false);
-  const ladyWatchCatalogLoadStateRef = useRef<'idle' | 'loading' | 'loaded'>('idle');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   // Hydrate all state asynchronously from IndexedDB on initial mount
@@ -498,84 +365,39 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   }, []);
 
   useEffect(() => {
-    if (
-      !isHydrated ||
-      selectedCategoryFilter !== 'Women Perfume' ||
-      womenPerfumeCatalogLoadStateRef.current === 'loading' ||
-      womenPerfumeCatalogLoadStateRef.current === 'loaded'
-    ) {
-      return;
-    }
+    let cancelled = false;
 
-    womenPerfumeCatalogLoadStateRef.current = 'loading';
-    setIsWomenPerfumeCatalogLoading(true);
-
-    const loadCatalog = async () => {
+    const fetchCatalog = async (
+      path: string,
+      mapCatalog: (catalog: unknown) => Product[]
+    ): Promise<Product[]> => {
       try {
-        const catalogUrl = new URL('catalog/women-perfume.json', document.baseURI);
-        const response = await fetch(catalogUrl);
-        if (!response.ok) {
-          throw new Error(`Catalog request failed with status ${response.status}`);
-        }
-
-        const entries = (await response.json()) as WomenPerfumeCatalogEntry[];
-        if (!Array.isArray(entries)) {
-          throw new Error('The Women Perfume catalog must be a JSON array.');
-        }
-
-        const perfumeProducts = mapWomenPerfumeCatalog(entries);
-        setProducts((prev) => mergeWithInitialProducts([...prev, ...perfumeProducts]));
-        womenPerfumeCatalogLoadStateRef.current = 'loaded';
-      } catch (error) {
-        womenPerfumeCatalogLoadStateRef.current = 'idle';
-        console.error('[Store] Could not load Women Perfume catalog:', error);
-      } finally {
-        setIsWomenPerfumeCatalogLoading(false);
+        const response = await fetch(path);
+        return response.ok ? mapCatalog(await response.json()) : [];
+      } catch {
+        return [];
       }
     };
 
-    void loadCatalog();
-  }, [isHydrated, selectedCategoryFilter]);
+    const loadProductCatalogs = async () => {
+      const [perfumeProducts, watchProducts] = await Promise.all([
+        fetchCatalog('./catalog/perfumes_catalog_all_2026-11-07.json', mapWomenPerfumeCatalog),
+        fetchCatalog('./catalog/lady_watches_catalog_all_2026-11-07.json', mapLadyWatchCatalog),
+      ]);
+      if (cancelled) return;
 
-  useEffect(() => {
-    if (
-      !isHydrated ||
-      selectedCategoryFilter !== 'Lady Watch' ||
-      ladyWatchCatalogLoadStateRef.current === 'loading' ||
-      ladyWatchCatalogLoadStateRef.current === 'loaded'
-    ) {
-      return;
-    }
+      const catalogProducts = [...perfumeProducts, ...watchProducts];
+      if (catalogProducts.length === 0) return;
 
-    ladyWatchCatalogLoadStateRef.current = 'loading';
-    setIsLadyWatchCatalogLoading(true);
-
-    const loadCatalog = async () => {
-      try {
-        const catalogUrl = new URL('catalog/lady-watch.json', document.baseURI);
-        const response = await fetch(catalogUrl);
-        if (!response.ok) {
-          throw new Error(`Catalog request failed with status ${response.status}`);
-        }
-
-        const entries = (await response.json()) as LadyWatchCatalogEntry[];
-        if (!Array.isArray(entries)) {
-          throw new Error('The Lady Watch catalog must be a JSON array.');
-        }
-
-        const watchProducts = mapLadyWatchCatalog(entries);
-        setProducts((prev) => mergeWithInitialProducts([...prev, ...watchProducts]));
-        ladyWatchCatalogLoadStateRef.current = 'loaded';
-      } catch (error) {
-        ladyWatchCatalogLoadStateRef.current = 'idle';
-        console.error('[Store] Could not load Lady Watch catalog:', error);
-      } finally {
-        setIsLadyWatchCatalogLoading(false);
-      }
+      supplementalCatalogRef.current = catalogProducts;
+      setProducts((current) => mergeWithInitialProducts(current, catalogProducts));
     };
 
-    void loadCatalog();
-  }, [isHydrated, selectedCategoryFilter]);
+    void loadProductCatalogs();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const setAllProducts = (newProducts: Product[]) => {
     saveProductsPersistently(newProducts);
@@ -1012,7 +834,6 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   };
 
   const navigateToCategory = (category: HandbagCategory) => {
-    setShowHandbagsOnly(false);
     setSelectedCategoryFilter(category);
     setActiveView('shop');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1040,7 +861,7 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     safeRemoveItem('media');
     safeRemoveItem('customers');
 
-    setProducts(INITIAL_PRODUCTS);
+    setProducts(mergeWithInitialProducts(INITIAL_PRODUCTS));
     setCoupons(INITIAL_COUPONS);
     setOrders(INITIAL_ORDERS);
     setCustomers(INITIAL_CUSTOMERS);
@@ -1162,10 +983,6 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         setSelectedProductId,
         selectedCategoryFilter,
         setSelectedCategoryFilter,
-        showHandbagsOnly,
-        setShowHandbagsOnly,
-        isWomenPerfumeCatalogLoading,
-        isLadyWatchCatalogLoading,
         searchQuery,
         setSearchQuery,
         navigateToProduct,

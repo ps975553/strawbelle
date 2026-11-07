@@ -104,7 +104,9 @@ export const QuickViewModal: React.FC = () => {
             <div>
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#C6A56B]">
-                  Handcrafted Edition
+                  {quickViewProduct.category === 'Women Perfume' || quickViewProduct.category === 'Lady Watch'
+                    ? quickViewProduct.collection
+                    : 'Handcrafted Edition'}
                 </span>
                 <button
                   onClick={() => toggleWishlist(quickViewProduct.id)}
@@ -121,17 +123,19 @@ export const QuickViewModal: React.FC = () => {
                 {quickViewProduct.title}
               </h2>
 
-              <div className="flex items-center gap-1.5 mt-1.5">
-                <div className="flex text-[#C6A56B]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 fill-current" />
-                  ))}
+              {quickViewProduct.category !== 'Women Perfume' && quickViewProduct.category !== 'Lady Watch' && (
+                <div className="flex items-center gap-1.5 mt-1.5">
+                  <div className="flex text-[#C6A56B]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3 h-3 fill-current" />
+                    ))}
+                  </div>
+                  <span className="text-xs font-bold text-[#1D1D1D]">
+                    {quickViewProduct.rating ? Number(quickViewProduct.rating).toFixed(1) : '5.0'}
+                  </span>
+                  <span className="text-[10px] text-neutral-400">/ 5.0</span>
                 </div>
-                <span className="text-xs font-bold text-[#1D1D1D]">
-                  {quickViewProduct.rating ? Number(quickViewProduct.rating).toFixed(1) : '5.0'}
-                </span>
-                <span className="text-[10px] text-neutral-400">/ 5.0</span>
-              </div>
+              )}
 
               {/* Price */}
               <div className="mt-2 flex items-baseline gap-3">

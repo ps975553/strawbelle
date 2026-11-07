@@ -24,7 +24,9 @@ export const FeaturedSection: React.FC = () => {
   useEffect(() => {
     if (randomFeaturedIdsRef.current.length > 0) return;
 
-    const publishedProducts = products.filter((p) => p.status === 'published');
+    const publishedProducts = products.filter(
+      (p) => p.status === 'published' && p.category !== 'Women Perfume' && p.category !== 'Lady Watch'
+    );
     if (publishedProducts.length === 0) return;
 
     const ids = shuffleProducts(publishedProducts).map((p) => p.id);
@@ -34,13 +36,16 @@ export const FeaturedSection: React.FC = () => {
 
   const randomFeaturedProducts = randomFeaturedIds
     .map((id) => products.find((p) => p.id === id))
-    .filter((p): p is typeof products[number] => Boolean(p && p.status === 'published'));
+    .filter(
+      (p): p is typeof products[number] =>
+        Boolean(p && p.status === 'published' && p.category !== 'Women Perfume' && p.category !== 'Lady Watch')
+    );
 
   const filteredProducts =
     activeTab === 'featured'
       ? randomFeaturedProducts
       : products.filter((p) => {
-          if (p.status !== 'published') return false;
+          if (p.status !== 'published' || p.category === 'Women Perfume' || p.category === 'Lady Watch') return false;
           if (activeTab === 'bestsellers') return p.bestSeller;
           if (activeTab === 'new') return p.isNewArrival;
           return true;
