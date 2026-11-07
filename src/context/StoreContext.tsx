@@ -113,6 +113,7 @@ interface StoreContextType {
   activeView: 'home' | 'shop' | 'product-detail' | 'about' | 'contact' | 'return-policy' | 'privacy-policy';
   setActiveView: (view: 'home' | 'shop' | 'product-detail' | 'about' | 'contact' | 'return-policy' | 'privacy-policy') => void;
   goBack: () => void;
+  getShopScrollRestorePosition: () => number | null;
   selectedProductId: string | null;
   setSelectedProductId: (id: string | null) => void;
   selectedCategoryFilter: HandbagCategory | null;
@@ -259,6 +260,14 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const [activeViewState, setActiveViewState] = useState<ActiveView>('home');
   const activeView = activeViewState;
   const viewHistoryRef = useRef<ActiveView[]>([]);
+  const shopScrollPositionRef = useRef(0);
+  const shouldRestoreShopScrollRef = useRef(false);
+
+  const getShopScrollRestorePosition = () => {
+    if (!shouldRestoreShopScrollRef.current) return null;
+    shouldRestoreShopScrollRef.current = false;
+    return shopScrollPositionRef.current;
+  };
 
   const setActiveView = (view: ActiveView) => {
     if (activeViewState === view) return;
@@ -268,11 +277,11 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   const goBack = () => {
     const previousView = viewHistoryRef.current.pop();
+    shouldRestoreShopScrollRef.current = activeViewState === 'product-detail' && previousView === 'shop';
     setActiveViewState(previousView || 'home');
     if (!previousView) {
       viewHistoryRef.current = [];
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
@@ -770,9 +779,12 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   // Navigation helpers
   const navigateToProduct = (productId: string) => {
+    if (activeViewState === 'shop') {
+      shopScrollPositionRef.current = window.scrollY;
+      shouldRestoreShopScrollRef.current = false;
+    }
     setSelectedProductId(productId);
     setActiveView('product-detail');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     setRecentlyViewed((prev) => {
       const filtered = prev.filter((id) => id !== productId);
@@ -925,6 +937,7 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         activeView,
         setActiveView,
         goBack,
+        getShopScrollRestorePosition,
         selectedProductId,
         setSelectedProductId,
         selectedCategoryFilter,

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import { StoreProvider, useStore } from './context/StoreContext';
 import { Header } from './components/common/Header';
 import { Footer } from './components/common/Footer';
@@ -20,10 +20,18 @@ import { InfoPage } from './components/pages/InfoPage';
 import { ArrowLeft } from 'lucide-react';
 
 const MainViewRouter: React.FC = () => {
-  const { activeView, selectedProductId, setActiveView, goBack, navigateToProduct } = useStore();
+  const {
+    activeView,
+    selectedProductId,
+    setActiveView,
+    goBack,
+    navigateToProduct,
+    getShopScrollRestorePosition,
+  } = useStore();
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  useLayoutEffect(() => {
+    const restorePosition = activeView === 'shop' ? getShopScrollRestorePosition() : null;
+    window.scrollTo({ top: restorePosition ?? 0 });
   }, [activeView]);
 
   useEffect(() => {
@@ -61,7 +69,11 @@ const MainViewRouter: React.FC = () => {
 
       <main className="flex-1">
         {activeView === 'home' && <HomePage />}
-        {activeView === 'shop' && <ShopPage />}
+        {(activeView === 'shop' || activeView === 'product-detail') && (
+          <div className={activeView === 'shop' ? '' : 'hidden'} aria-hidden={activeView !== 'shop'}>
+            <ShopPage />
+          </div>
+        )}
         {(activeView === 'product-detail') && (
           <ProductDetail key={selectedProductId || 'default'} />
         )}
