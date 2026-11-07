@@ -44,7 +44,7 @@ export const HomePage: React.FC = () => {
                     type="button"
                     onClick={() => handleCategoryClick(category)}
                     aria-label="Explore Ladies Watch"
-                    className="h-[67px] w-[67px] overflow-hidden rounded-lg border border-neutral-200 bg-[#1D1D1D] shadow-sm transition-transform hover:scale-[1.02]"
+                    className="h-20 w-20 overflow-hidden rounded-lg border border-neutral-200 bg-[#1D1D1D] shadow-sm transition-transform hover:scale-[1.02]"
                   >
                     <img
                       src="./catalog/images/rose-gold-crystal-studded-watch.png"
