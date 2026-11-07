@@ -157,19 +157,68 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const [isHydrated, setIsHydrated] = useState(false);
   const supplementalCatalogRef = useRef<Product[]>([]);
 
+  const isCatalogCategoryProduct = (product: Partial<Product>): boolean => {
+    const classification = `${product.category || ''} ${product.collection || ''}`.toLowerCase();
+    return /perfume|fragrance|\bwatches?\b/.test(classification);
+  };
+
+  const productIdentity = (product: Partial<Product>): string => {
+    const title = typeof product.title === 'string'
+      ? product.title.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
+      : '';
+    const thumbnail = typeof product.thumbnail === 'string' ? product.thumbnail : '';
+    return title && thumbnail ? `${title}\u0000${thumbnail}` : '';
+  };
+
   const mergeWithInitialProducts = (
     stored: Product[] | null | undefined,
     supplementalProducts = supplementalCatalogRef.current
   ): Product[] => {
-    const initialProducts = [...INITIAL_PRODUCTS, ...supplementalProducts];
-    if (!Array.isArray(stored) || stored.length === 0) return initialProducts;
+    const baseProducts = [...INITIAL_PRODUCTS, ...supplementalProducts];
+    const storedProducts = Array.isArray(stored)
+      ? stored.filter((product) => product && typeof product.id === 'string')
+      : [];
+    const storedById = new Map(storedProducts.map((product) => [product.id, product]));
+    const baseIds = new Set<string>();
+    const baseIdentities = new Set<string>();
+    const mergedBase: Product[] = [];
 
-    const storedById = new Map(stored.map((product) => [product.id, product]));
-    const mergedInitial = initialProducts.map((product) => storedById.get(product.id) || product);
-    const initialIds = new Set(initialProducts.map((product) => product.id));
-    const extraProducts = stored.filter((product) => product?.id && !initialIds.has(product.id));
+    baseProducts.forEach((product) => {
+      if (baseIds.has(product.id)) return;
+      baseIds.add(product.id);
+      const saved = storedById.get(product.id);
+      const merged = saved
+        ? isCatalogCategoryProduct(product)
+          ? {
+              ...product,
+              ...saved,
+              id: product.id,
+              title: product.title,
+              slug: product.slug,
+              collection: product.collection,
+              category: product.category,
+              thumbnail: product.thumbnail,
+              galleryImages: product.galleryImages,
+            }
+          : { ...product, ...saved }
+        : product;
+      mergedBase.push(merged);
+      const identity = productIdentity(product);
+      if (identity) baseIdentities.add(identity);
+    });
 
-    return [...mergedInitial, ...extraProducts];
+    const extraProducts: Product[] = [];
+    const extraIds = new Set<string>();
+    storedProducts.forEach((product) => {
+      if (baseIds.has(product.id) || extraIds.has(product.id) || isCatalogCategoryProduct(product)) return;
+      const identity = productIdentity(product);
+      if (identity && baseIdentities.has(identity)) return;
+      extraIds.add(product.id);
+      if (identity) baseIdentities.add(identity);
+      extraProducts.push(product);
+    });
+
+    return [...mergedBase, ...extraProducts];
   };
 
   const [products, setProducts] = useState<Product[]>(() => {

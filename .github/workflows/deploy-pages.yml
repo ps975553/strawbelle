@@ -52,4 +52,3 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           artifact_name: ${{ needs.build.outputs.pages_artifact_name }}
-          timeout: 1200000

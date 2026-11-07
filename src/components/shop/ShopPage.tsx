@@ -30,16 +30,14 @@ export const ShopPage: React.FC = () => {
       .filter((p) => {
         if (p.status !== 'published') return false;
 
-        if (selectedCategoryFilter === 'Handbag') {
+        if (selectedCategoryFilter === 'Women Perfume' || selectedCategoryFilter === 'Lady Watch') {
+          if (p.category !== selectedCategoryFilter) return false;
+        } else if (selectedCategoryFilter === 'Handbag') {
           const productType = `${p.collection} ${p.category}`.toLowerCase();
           if (productType.includes('perfume') || productType.includes('fragrance') || productType.includes('watch')) {
             return false;
           }
-        } else if (
-          selectedCategoryFilter &&
-          p.collection !== selectedCategoryFilter &&
-          p.category !== selectedCategoryFilter
-        ) {
+        } else if (selectedCategoryFilter && p.collection !== selectedCategoryFilter && p.category !== selectedCategoryFilter) {
           return false;
         }
 
