@@ -170,7 +170,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           {/* Quick Social Buttons on Mobile */}
           <button
             onClick={handleOrderWhatsApp}
-            className="p-1.5 rounded-lg bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors"
+            className="min-h-9 min-w-9 flex items-center justify-center p-1.5 rounded-lg bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors"
             title="Order via WhatsApp"
             aria-label="Order via WhatsApp"
           >
@@ -180,7 +180,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           {/* Mobile & Tablet Add to Cart Button */}
           <button
             onClick={handleQuickAdd}
-            className="flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-lg bg-[#1D1D1D] hover:bg-[#C6A56B] active:scale-95 text-white transition-all shadow-sm"
+            className="min-h-9 flex items-center justify-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-lg bg-[#1D1D1D] hover:bg-[#C6A56B] active:scale-95 text-white transition-all shadow-sm"
             title="Add to Cart"
             aria-label="Add to Cart"
           >

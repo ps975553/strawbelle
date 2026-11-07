@@ -73,7 +73,7 @@ export const CartDrawer: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
+    <div className="fixed inset-0 z-50 overflow-hidden viewport-full">
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
@@ -81,12 +81,12 @@ export const CartDrawer: React.FC = () => {
       />
 
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-[#F8F5F2] shadow-2xl flex flex-col justify-between border-l border-[#C6A56B]/30 animate-in slide-in-from-right duration-300">
+        <div className="w-screen max-w-md bg-[#F8F5F2] shadow-2xl flex flex-col justify-between border-l border-[#C6A56B]/30 animate-in slide-in-from-right duration-300 h-full">
           {/* Header */}
-          <div className="p-6 bg-white border-b border-neutral-200 flex items-center justify-between">
+          <div className="p-3.5 sm:p-6 bg-white border-b border-neutral-200 flex items-center justify-between gap-1">
             <div className="flex items-center gap-2">
-              <ShoppingBag className="w-5 h-5 text-[#C6A56B]" />
-              <h2 className="font-serif text-lg font-bold tracking-wider uppercase text-[#1D1D1D]">
+              <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 text-[#C6A56B] shrink-0" />
+              <h2 className="font-serif text-base sm:text-lg font-bold tracking-wider uppercase text-[#1D1D1D] whitespace-nowrap">
                 Shopping Cart
               </h2>
               <span className="text-xs font-semibold px-2 py-0.5 bg-[#F8F5F2] text-neutral-600 rounded-full border border-neutral-200">
@@ -97,9 +97,10 @@ export const CartDrawer: React.FC = () => {
               {cart.length > 0 && (
                 <button
                   onClick={clearCart}
-                  className="text-[11px] text-neutral-400 hover:text-rose-500 uppercase tracking-wider font-semibold transition-colors mr-1"
+                  className="text-[9px] sm:text-[11px] text-neutral-400 hover:text-rose-500 uppercase tracking-wider font-semibold transition-colors mr-1 whitespace-nowrap"
                 >
-                  Clear Cart
+                  <span className="sm:hidden">Clear</span>
+                  <span className="hidden sm:inline">Clear Cart</span>
                 </button>
               )}
               <button
@@ -113,7 +114,7 @@ export const CartDrawer: React.FC = () => {
           </div>
 
           {/* Cart Item List */}
-          <div className="flex-1 overflow-y-auto no-scrollbar p-6 space-y-4">
+          <div className="flex-1 min-h-0 overflow-y-auto no-scrollbar p-4 sm:p-6 space-y-4">
             {cart.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-4">
                 <div className="w-16 h-16 rounded-full bg-white border border-neutral-200 flex items-center justify-center text-neutral-300">
@@ -175,7 +176,7 @@ export const CartDrawer: React.FC = () => {
                         <div className="flex items-center border border-neutral-200 rounded-lg bg-[#F8F5F2]">
                           <button
                             onClick={() => updateCartQuantity(prodId, colorName, itemQty - 1)}
-                            className="p-1.5 hover:text-[#C6A56B] transition-colors"
+                            className="min-h-9 min-w-9 flex items-center justify-center p-1.5 hover:text-[#C6A56B] transition-colors"
                             aria-label="Decrease quantity"
                           >
                             <Minus className="w-3 h-3" />
@@ -185,7 +186,7 @@ export const CartDrawer: React.FC = () => {
                           </span>
                           <button
                             onClick={() => updateCartQuantity(prodId, colorName, itemQty + 1)}
-                            className="p-1.5 hover:text-[#C6A56B] transition-colors"
+                            className="min-h-9 min-w-9 flex items-center justify-center p-1.5 hover:text-[#C6A56B] transition-colors"
                             aria-label="Increase quantity"
                           >
                             <Plus className="w-3 h-3" />
@@ -205,7 +206,7 @@ export const CartDrawer: React.FC = () => {
 
           {/* Footer & Checkout Summary */}
           {cart.length > 0 && (
-            <div className="p-3.5 sm:p-5 bg-white border-t border-neutral-200 space-y-2.5 sm:space-y-3">
+            <div className="p-3.5 sm:p-5 safe-area-bottom bg-white border-t border-neutral-200 space-y-2.5 sm:space-y-3">
               <div className="rounded-lg border border-[#C6A56B]/30 bg-[#F8F5F2] px-3 py-2">
                 <p className="text-[10px] sm:text-[11px] text-neutral-700">
                   {amountForFreeDelivery > 0

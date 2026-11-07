@@ -42,7 +42,7 @@ export const QuickViewModal: React.FC = () => {
   const allMedia = [quickViewProduct.thumbnail, ...quickViewProduct.galleryImages];
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 md:p-10 animate-in fade-in duration-200 overflow-y-auto">
+    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 md:p-10 animate-in fade-in duration-200 overflow-y-auto viewport-full safe-mobile-modal">
       <div className="bg-[#F8F5F2] rounded-3xl w-full max-w-4xl shadow-2xl border border-[#C6A56B]/30 overflow-hidden my-auto relative">
         <button
           onClick={() => setQuickViewProduct(null)}

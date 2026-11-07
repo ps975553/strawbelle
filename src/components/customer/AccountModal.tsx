@@ -102,8 +102,8 @@ export const AccountModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-2.5 sm:p-4 animate-in fade-in duration-200 overflow-y-auto no-scrollbar">
-      <div className="bg-[#F8F5F2] rounded-2xl w-full max-w-2xl shadow-2xl border border-[#C6A56B]/30 overflow-hidden my-auto relative flex flex-col max-h-[90vh]">
+    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-2.5 sm:p-4 animate-in fade-in duration-200 overflow-y-auto no-scrollbar viewport-full safe-mobile-modal">
+      <div className="bg-[#F8F5F2] rounded-2xl w-full max-w-2xl shadow-2xl border border-[#C6A56B]/30 overflow-hidden my-auto relative flex flex-col viewport-90">
         
         {/* Compact Top Header */}
         <div className="px-3.5 py-2.5 sm:px-5 sm:py-3.5 bg-[#1D1D1D] text-white border-b border-neutral-800 shrink-0 relative overflow-hidden">

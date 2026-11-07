@@ -179,7 +179,7 @@ export const CheckoutModal: React.FC = () => {
   };
 
   return (
-    <div id="checkout_modal_container" className="fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 md:p-10 animate-in fade-in duration-200 overflow-y-auto no-scrollbar">
+    <div id="checkout_modal_container" className="fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 md:p-10 animate-in fade-in duration-200 overflow-y-auto no-scrollbar viewport-full safe-mobile-modal">
       <div id="checkout_modal_content" className="bg-[#F8F5F2] rounded-2xl sm:rounded-3xl w-full max-w-4xl shadow-2xl border border-[#C6A56B]/30 overflow-hidden my-auto relative">
         {/* Top Header */}
         <div className="px-4 py-3 sm:px-6 sm:py-4 bg-white flex items-center justify-between">

@@ -12,7 +12,7 @@ export const FloatingContact: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-3 right-3 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end">
+    <div className="fixed bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] right-3 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end">
       {/* Expanded Contact Options Popup */}
       {isOpen && (
         <div
@@ -103,7 +103,7 @@ export const FloatingContact: React.FC = () => {
       <button
         id="floating-contact-trigger-btn"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-4 sm:py-2.5 bg-[#1D1D1D] hover:bg-[#C6A56B] active:scale-95 text-white rounded-full shadow-lg border border-[#C6A56B]/40 hover:border-white transition-all duration-300 group cursor-pointer"
+        className="min-h-10 flex items-center gap-1.5 px-2.5 py-2 sm:px-4 sm:py-2.5 bg-[#1D1D1D] hover:bg-[#C6A56B] active:scale-95 text-white rounded-full shadow-lg border border-[#C6A56B]/40 hover:border-white transition-all duration-300 group cursor-pointer"
         title="Contact Us"
         aria-label="Contact Us"
       >

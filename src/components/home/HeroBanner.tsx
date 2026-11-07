@@ -121,7 +121,7 @@ export const HeroBanner: React.FC = () => {
               </div>
 
               <div className="w-full max-w-xl mt-1">
-                <h1 className="font-serif font-medium leading-[0.92] tracking-tight text-[#1D1D1D] whitespace-nowrap">
+                <h1 className="flex flex-wrap items-baseline justify-center md:justify-start gap-x-1 sm:gap-x-2 font-serif font-medium leading-[0.92] tracking-tight text-[#1D1D1D]">
                   <span className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl">UP TO </span>
                   <span className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] text-[#B77A16] drop-shadow-[0_2px_8px_rgba(122,76,15,0.15)]">35%</span>
                   <span className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl"> OFF</span>
@@ -167,7 +167,7 @@ export const HeroBanner: React.FC = () => {
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1 sm:pt-2">
             <button
               onClick={handleShopNow}
-              className={`py-2.5 px-5 sm:py-3 sm:px-8 text-[10px] sm:text-xs font-bold uppercase tracking-[0.16em] sm:tracking-[0.22em] rounded-lg sm:rounded-xl shadow-md transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 group ${current.offerSlide ? 'bg-[#1D1D1D] hover:bg-black text-[#F7EBDD] border border-[#C6A56B]/70 shadow-[0_8px_26px_rgba(0,0,0,0.2)]' : 'bg-[#C6A56B] hover:bg-[#B28E4C] text-white'}`}
+              className={`min-h-10 py-2.5 px-5 sm:py-3 sm:px-8 text-[10px] sm:text-xs font-bold uppercase tracking-[0.16em] sm:tracking-[0.22em] rounded-lg sm:rounded-xl shadow-md transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 group ${current.offerSlide ? 'bg-[#1D1D1D] hover:bg-black text-[#F7EBDD] border border-[#C6A56B]/70 shadow-[0_8px_26px_rgba(0,0,0,0.2)]' : 'bg-[#C6A56B] hover:bg-[#B28E4C] text-white'}`}
             >
               <span>{current.primaryButtonText}</span>
               <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform group-hover:translate-x-1" />

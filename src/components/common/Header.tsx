@@ -50,7 +50,7 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full transition-all duration-300">
+    <header className="sticky top-0 z-40 w-full bg-[#F8F5F2] transition-all duration-300 safe-area-top">
       {/* Main Navigation Bar */}
       <div
         className={`w-full transition-all duration-300 ${
@@ -65,10 +65,10 @@ export const Header: React.FC = () => {
             <div className="flex items-center gap-1 sm:gap-6 flex-shrink-0">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-1.5 sm:p-2 text-[#1D1D1D] hover:text-[#C6A56B] transition-colors rounded-lg hover:bg-neutral-200/40"
+                className="lg:hidden min-h-9 min-w-9 flex items-center justify-center p-1.5 text-[#1D1D1D] hover:text-[#C6A56B] transition-colors rounded-lg hover:bg-neutral-200/40"
                 aria-label="Toggle menu"
               >
-                {isMobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
+                {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
 
               <nav className="hidden lg:flex items-center gap-7 text-xs font-semibold uppercase tracking-[0.18em] text-[#1D1D1D]">
@@ -118,7 +118,7 @@ export const Header: React.FC = () => {
               className="flex flex-col items-center justify-center cursor-pointer group px-1 sm:px-2 flex-shrink min-w-0"
               onClick={() => handleNavClick('home')}
             >
-              <span className="font-serif text-lg sm:text-2xl md:text-3xl font-bold tracking-[0.16em] sm:tracking-[0.25em] text-[#1D1D1D] uppercase group-hover:text-[#C6A56B] transition-colors truncate">
+              <span className="font-serif text-base sm:text-2xl md:text-3xl font-bold tracking-[0.12em] sm:tracking-[0.25em] text-[#1D1D1D] uppercase group-hover:text-[#C6A56B] transition-colors truncate">
                 STRAWBELLE
               </span>
               <span className="hidden sm:block text-[8px] sm:text-[9px] uppercase tracking-[0.3em] sm:tracking-[0.35em] text-neutral-500 font-medium -mt-0.5 whitespace-nowrap">
@@ -131,21 +131,21 @@ export const Header: React.FC = () => {
               {/* Search Trigger */}
               <button
                 onClick={() => setIsSearchOpen(true)}
-                className="p-1.5 sm:p-2 text-[#1D1D1D] hover:text-[#C6A56B] transition-colors rounded-full hover:bg-neutral-200/50"
+                className="min-h-9 min-w-9 flex items-center justify-center p-1.5 text-[#1D1D1D] hover:text-[#C6A56B] transition-colors rounded-full hover:bg-neutral-200/50"
                 title="Search"
                 aria-label="Search"
               >
-                <Search className="w-4 h-4 sm:w-5 sm:h-5" />
+                <Search className="w-[18px] h-[18px] sm:w-5 sm:h-5" />
               </button>
 
               {/* Wishlist */}
               <button
                 onClick={() => setIsWishlistOpen(true)}
-                className="p-1.5 sm:p-2 text-[#1D1D1D] hover:text-[#C6A56B] transition-colors rounded-full hover:bg-neutral-200/50 relative"
+                className="min-h-9 min-w-9 flex items-center justify-center p-1.5 text-[#1D1D1D] hover:text-[#C6A56B] transition-colors rounded-full hover:bg-neutral-200/50 relative"
                 title="View Wishlist"
                 aria-label="Wishlist"
               >
-                <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
+                <Heart className="w-[18px] h-[18px] sm:w-5 sm:h-5" />
                 {wishlist.length > 0 && (
                   <span className="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-[#C6A56B] text-white text-[8px] sm:text-[9px] font-bold rounded-full flex items-center justify-center">
                     {wishlist.length}
@@ -156,11 +156,11 @@ export const Header: React.FC = () => {
               {/* Shopping Cart */}
               <button
                 onClick={() => setIsCartOpen(true)}
-                className="p-1.5 sm:p-2 text-[#1D1D1D] hover:text-[#C6A56B] transition-colors rounded-full hover:bg-neutral-200/50 relative"
+                className="min-h-9 min-w-9 flex items-center justify-center p-1.5 text-[#1D1D1D] hover:text-[#C6A56B] transition-colors rounded-full hover:bg-neutral-200/50 relative"
                 title="View Cart"
                 aria-label="Cart"
               >
-                <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
+                <ShoppingBag className="w-[18px] h-[18px] sm:w-5 sm:h-5" />
                 {cartCount > 0 && (
                   <span className="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-[#1D1D1D] text-[#C6A56B] text-[8px] sm:text-[9px] font-bold rounded-full flex items-center justify-center border border-[#C6A56B]">
                     {cartCount}
@@ -171,11 +171,11 @@ export const Header: React.FC = () => {
               {/* Customer Account & Profile */}
               <button
                 onClick={() => setIsAccountOpen(true)}
-                className="p-1.5 sm:p-2 text-[#1D1D1D] hover:text-[#C6A56B] transition-colors rounded-full hover:bg-neutral-200/50"
+                className="hidden sm:flex min-h-9 min-w-9 items-center justify-center p-1.5 text-[#1D1D1D] hover:text-[#C6A56B] transition-colors rounded-full hover:bg-neutral-200/50"
                 title="My Account & Profile"
                 aria-label="Account"
               >
-                <User className="w-4 h-4 sm:w-5 sm:h-5" />
+                <User className="w-[18px] h-[18px] sm:w-5 sm:h-5" />
               </button>
             </div>
           </div>
@@ -184,7 +184,7 @@ export const Header: React.FC = () => {
 
       {/* Mobile Drawer Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 flex">
+        <div className="lg:hidden fixed inset-0 z-50 flex viewport-full safe-area-top">
           {/* Backdrop */}
           <div
             className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"

@@ -53,7 +53,7 @@ const MainViewRouter: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8F5F2] text-[#1D1D1D] selection:bg-[#C6A56B] selection:text-white">
+    <div className="app-shell min-h-screen flex flex-col bg-[#F8F5F2] text-[#1D1D1D] selection:bg-[#C6A56B] selection:text-white">
       <Header />
 
       {activeView !== 'home' && (

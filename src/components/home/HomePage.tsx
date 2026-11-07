@@ -40,7 +40,7 @@ export const HomePage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleCategoryClick(category)}
-                  className="rounded-full border border-neutral-200 bg-[#F8F5F2] px-4 py-2 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#1D1D1D] transition-colors hover:border-[#C6A56B] hover:text-[#C6A56B]"
+                  className="min-h-10 rounded-full border border-neutral-200 bg-[#F8F5F2] px-4 py-2 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#1D1D1D] transition-colors hover:border-[#C6A56B] hover:text-[#C6A56B]"
                 >
                   {category}
                 </button>

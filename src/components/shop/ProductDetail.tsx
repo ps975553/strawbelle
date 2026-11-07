@@ -385,7 +385,7 @@ export const ProductDetail: React.FC = () => {
       {/* Full-Size High-Resolution Lightbox Modal */}
       {isLightboxOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 animate-in fade-in duration-200 viewport-full safe-mobile-modal"
           onClick={() => setIsLightboxOpen(false)}
         >
           {/* Top Bar */}
@@ -455,13 +455,13 @@ export const ProductDetail: React.FC = () => {
             )}
 
             <div
-              className="max-w-full max-h-[80vh] flex items-center justify-center transition-transform duration-300 select-none"
+              className="max-w-full viewport-80 flex items-center justify-center transition-transform duration-300 select-none"
               style={{ transform: `scale(${lightboxZoom})` }}
             >
               <img
                 src={currentMediaUrl}
                 alt={product.title}
-                className="max-h-[80vh] max-w-full object-contain rounded-lg shadow-2xl"
+                className="viewport-80 max-w-full object-contain rounded-lg shadow-2xl"
                 referrerPolicy="no-referrer"
               />
             </div>

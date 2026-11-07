@@ -89,7 +89,7 @@ export const ShopPage: React.FC = () => {
                 onClick={() =>
                   setSelectedCategoryFilter(selectedCategoryFilter === category ? null : category)
                 }
-                className={`rounded-full border px-4 py-2 text-[10px] font-semibold uppercase tracking-wider transition-colors ${
+                className={`min-h-10 rounded-full border px-4 py-2 text-[10px] font-semibold uppercase tracking-wider transition-colors ${
                   selectedCategoryFilter === category
                     ? 'border-[#1D1D1D] bg-[#1D1D1D] text-white'
                     : 'border-neutral-200 bg-white text-[#1D1D1D] hover:border-[#C6A56B] hover:text-[#C6A56B]'

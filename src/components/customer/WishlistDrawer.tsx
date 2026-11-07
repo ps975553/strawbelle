@@ -31,7 +31,7 @@ export const WishlistDrawer: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
+    <div className="fixed inset-0 z-50 overflow-hidden viewport-full">
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
@@ -39,7 +39,7 @@ export const WishlistDrawer: React.FC = () => {
       />
 
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-[#F8F5F2] shadow-2xl flex flex-col justify-between border-l border-[#C6A56B]/30 animate-in slide-in-from-right duration-300">
+        <div className="w-screen max-w-md bg-[#F8F5F2] shadow-2xl flex flex-col justify-between border-l border-[#C6A56B]/30 animate-in slide-in-from-right duration-300 h-full">
           {/* Header */}
           <div className="p-6 bg-white border-b border-neutral-200 flex items-center justify-between">
             <div className="flex items-center gap-2">

@@ -39,8 +39,8 @@ export const SearchModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-start justify-center p-4 sm:p-6 md:p-10 animate-in fade-in duration-200 overflow-y-auto">
-      <div className="bg-[#F8F5F2] rounded-3xl w-full max-w-4xl shadow-2xl border border-[#C6A56B]/30 overflow-hidden my-auto flex flex-col max-h-[90vh]">
+    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-start justify-center p-4 sm:p-6 md:p-10 animate-in fade-in duration-200 overflow-y-auto viewport-full safe-mobile-modal">
+      <div className="bg-[#F8F5F2] rounded-3xl w-full max-w-4xl shadow-2xl border border-[#C6A56B]/30 overflow-hidden my-auto flex flex-col viewport-90">
         {/* Search Header */}
         <div className="p-6 bg-white border-b border-neutral-200 flex items-center justify-between gap-4">
           <div className="flex-1 flex items-center gap-3 bg-[#F8F5F2] px-4 py-3 rounded-2xl border border-neutral-200 focus-within:border-[#C6A56B] transition-colors">
