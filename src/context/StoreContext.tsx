@@ -278,10 +278,24 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const mergeWithInitialProducts = (stored: Product[] | null | undefined): Product[] => {
     if (!Array.isArray(stored) || stored.length === 0) return INITIAL_PRODUCTS;
 
-    const storedById = new Map(stored.map((product) => [product.id, product]));
+    const storedById = new Map<string, Product>();
+    stored.forEach((product) => {
+      if (product?.id) {
+        storedById.set(product.id, product);
+      }
+    });
+
     const mergedInitial = INITIAL_PRODUCTS.map((product) => storedById.get(product.id) || product);
     const initialIds = new Set(INITIAL_PRODUCTS.map((product) => product.id));
-    const extraProducts = stored.filter((product) => product?.id && !initialIds.has(product.id));
+    const knownSkus = new Set(mergedInitial.map((product) => product.sku.trim().toLowerCase()));
+    const extraProducts = Array.from(storedById.values()).filter((product) => {
+      if (initialIds.has(product.id)) return false;
+
+      const sku = product.sku?.trim().toLowerCase();
+      if (sku && knownSkus.has(sku)) return false;
+      if (sku) knownSkus.add(sku);
+      return true;
+    });
 
     return [...mergedInitial, ...extraProducts];
   };

@@ -1,11 +1,21 @@
 import React, { useState, useMemo } from 'react';
 import { useStore } from '../../context/StoreContext';
 import { ProductCard } from './ProductCard';
-import type { HandbagCategory } from '../../types';
+import type { HandbagCategory, Product } from '../../types';
 import {
   Filter,
   SlidersHorizontal
 } from 'lucide-react';
+
+const HANDBAG_CATEGORY_VALUES = new Set<HandbagCategory>([
+  'Totes',
+  'Crossbody',
+  'Shoulder Bags',
+  'Clutches',
+  'Top-Handle',
+  'Mini Bags',
+  'Backpacks',
+]);
 
 export const ShopPage: React.FC = () => {
   const {
@@ -31,13 +41,25 @@ export const ShopPage: React.FC = () => {
   };
 
   const filteredProducts = useMemo(() => {
-    return products
+    const uniqueProductsById = new Map<string, Product>();
+    products.forEach((product) => {
+      if (product?.id) {
+        uniqueProductsById.set(product.id, product);
+      }
+    });
+
+    const uniqueProductsBySku = new Map<string, Product>();
+    uniqueProductsById.forEach((product) => {
+      const sku = product.sku?.trim().toLowerCase();
+      const identity = sku ? `sku:${sku}` : `id:${product.id}`;
+      uniqueProductsBySku.set(identity, product);
+    });
+
+    return Array.from(uniqueProductsBySku.values())
       .filter((p) => {
         if (p.status !== 'published') return false;
 
-        const isHandbag =
-          p.collection.toLowerCase().includes('bag') ||
-          !(['Women Perfume', 'Lady Watch'] as HandbagCategory[]).includes(p.category);
+        const isHandbag = HANDBAG_CATEGORY_VALUES.has(p.category);
         if (showHandbagsOnly && !isHandbag) return false;
 
         if (
