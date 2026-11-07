@@ -165,7 +165,7 @@ export const ProductDetail: React.FC = () => {
               />
 
               {/* Badges Overlay */}
-              {product.discountPercentage && product.discountPercentage > 0 ? (
+              {product.category !== 'Women Perfume' && product.category !== 'Ladies Watch' && product.discountPercentage && product.discountPercentage > 0 ? (
                 <span className="absolute top-3 left-3 bg-[#1D1D1D] text-[#C6A56B] text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full border border-[#C6A56B] shadow-sm uppercase tracking-wider z-10">
                   -{product.discountPercentage}% OFF
                 </span>
@@ -274,12 +274,12 @@ export const ProductDetail: React.FC = () => {
                 <span className="font-serif text-2xl sm:text-3xl font-bold text-[#1D1D1D]">
                   {formatPrice(product.price)}
                 </span>
-                {product.oldPrice && product.oldPrice > product.price && (
+                {product.category !== 'Women Perfume' && product.category !== 'Ladies Watch' && product.oldPrice && product.oldPrice > product.price && (
                   <span className="text-sm text-neutral-400 line-through">
                     {formatPrice(product.oldPrice)}
                   </span>
                 )}
-                {product.discountPercentage && product.discountPercentage > 0 && (
+                {product.category !== 'Women Perfume' && product.category !== 'Ladies Watch' && product.discountPercentage && product.discountPercentage > 0 && (
                   <span className="text-[11px] font-bold text-[#C6A56B] uppercase tracking-wider bg-[#1D1D1D] px-2 py-0.5 rounded-full">
                     Save {product.discountPercentage}%
                   </span>

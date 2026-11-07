@@ -1,4 +1,5 @@
 import { CartItem, Product, ProductColor } from '../types';
+import { calculateShippingCharge } from './shipping';
 
 export interface SocialOrderPayload {
   product: Product;
@@ -65,7 +66,10 @@ export const buildProductOrderMessage = ({
     : null;
   const chosenColor = selectedColor?.name || product.colors[0]?.name || 'Signature';
   const unitPrice = formatPrice(product.price);
-  const totalPrice = formatPrice(product.price * quantity);
+  const subtotalAmount = product.price * quantity;
+  const shippingCharge = calculateShippingCharge(subtotalAmount);
+  const totalPrice = formatPrice(subtotalAmount + shippingCharge);
+  const shippingPrice = shippingCharge > 0 ? formatPrice(shippingCharge) : 'FREE';
   const productUrl = getProductShareUrl(product.id);
 
   const lines = catalogType ? [
@@ -75,6 +79,7 @@ export const buildProductOrderMessage = ({
     `🏷️ *SKU:* ${product.sku}`,
     `📦 *Quantity:* ${quantity}`,
     `💰 *Unit Price:* ${unitPrice}`,
+    `🚚 *Shipping Charges:* ${shippingPrice}`,
     `💎 *Total:* ${totalPrice}`,
     `🔗 *Product Link:* ${productUrl}`,
     `━━━━━━━━━━━━━━━━━━━━━━━━━━━━`
@@ -86,6 +91,7 @@ export const buildProductOrderMessage = ({
     `🎨 *Colorway:* ${chosenColor}`,
     `📦 *Quantity:* ${quantity}`,
     `💰 *Unit Price:* ${unitPrice}`,
+    `🚚 *Shipping Charges:* ${shippingPrice}`,
     `💎 *Total:* ${totalPrice}`,
     `🧵 *Material:* ${product.material}`,
     `🔗 *Product Link:* ${productUrl}`,
@@ -114,6 +120,7 @@ export interface CartOrderPayload {
   cart: CartItem[];
   cartSubtotal: number;
   cartDiscount: number;
+  cartShipping: number;
   cartTotal: number;
   formatPrice: (amount: number) => string;
   appliedCouponCode?: string;
@@ -124,6 +131,7 @@ export const buildCartOrderMessage = ({
   cart,
   cartSubtotal,
   cartDiscount,
+  cartShipping,
   cartTotal,
   formatPrice,
   appliedCouponCode
@@ -163,6 +171,7 @@ export const buildCartOrderMessage = ({
     `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
     `💰 *Subtotal:* ${formatPrice(cartSubtotal)}`,
     appliedCouponCode && cartDiscount > 0 ? `🎟️ *Discount (${appliedCouponCode}):* -${formatPrice(cartDiscount)}` : '',
+    `🚚 *Shipping Charges:* ${cartShipping > 0 ? formatPrice(cartShipping) : 'FREE'}`,
     `💎 *Total:* ${formatPrice(cartTotal)}`,
     `\nPlease confirm availability and order details. Thank you!`
   );

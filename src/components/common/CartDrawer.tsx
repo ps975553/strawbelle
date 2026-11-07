@@ -55,6 +55,7 @@ export const CartDrawer: React.FC = () => {
       cart,
       cartSubtotal,
       cartDiscount,
+      cartShipping,
       cartTotal,
       formatPrice,
       appliedCouponCode: appliedCoupon?.code,
@@ -261,10 +262,9 @@ export const CartDrawer: React.FC = () => {
                   </div>
                 )}
                 <div className="flex justify-between items-center text-[10px] sm:text-[11px]">
-                  <span>Shipping Charges</span>
-                  <span className="uppercase flex items-center gap-1">
-                    <span className="text-neutral-400 line-through font-normal">{formatPrice(65)}</span>
-                    <span className="font-bold text-emerald-600">FREE</span>
+                  <span>Shipping Charges{cartShipping > 0 ? ' (orders under $80)' : ''}</span>
+                  <span className={cartShipping > 0 ? 'font-bold text-[#1D1D1D]' : 'font-bold text-emerald-600'}>
+                    {cartShipping > 0 ? formatPrice(cartShipping) : 'FREE'}
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-[10px] sm:text-[11px]">

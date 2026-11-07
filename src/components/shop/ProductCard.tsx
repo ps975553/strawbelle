@@ -69,7 +69,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
           {/* Badges Overlay */}
           <div className="absolute top-1.5 left-1.5 flex flex-col gap-1 z-10 pointer-events-none">
-            {product.discountPercentage && product.discountPercentage > 0 ? (
+            {product.category !== 'Women Perfume' && product.category !== 'Ladies Watch' && product.discountPercentage && product.discountPercentage > 0 ? (
               <span className="bg-[#1D1D1D] text-[#C6A56B] text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 rounded-md border border-[#C6A56B] shadow-sm uppercase tracking-wider">
                 -{product.discountPercentage}%
               </span>
@@ -158,7 +158,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <span className="font-serif text-xs sm:text-sm font-bold text-[#1D1D1D] truncate block">
             {formatPrice(product.price)}
           </span>
-          {product.oldPrice && product.oldPrice > product.price && (
+          {product.category !== 'Women Perfume' && product.category !== 'Ladies Watch' && product.oldPrice && product.oldPrice > product.price && (
             <span className="text-[9px] sm:text-[10px] text-neutral-400 line-through">
               {formatPrice(product.oldPrice)}
             </span>

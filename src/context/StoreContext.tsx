@@ -33,6 +33,7 @@ import {
   saveProductsPersistently
 } from '../utils/storage';
 import { mapLadyWatchCatalog, mapWomenPerfumeCatalog } from '../utils/perfumeCatalog';
+import { calculateShippingCharge } from '../utils/shipping';
 
 export interface ToastMessage {
   id: string;
@@ -657,8 +658,8 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     }
   }
 
-  const cartShipping = 0;
   const taxableAmount = Math.max(0, cartSubtotal - cartDiscount);
+  const cartShipping = calculateShippingCharge(taxableAmount);
   const cartEstimatedDuty = Number((taxableAmount * 0.08).toFixed(2)) || 0;
   const cartDutyDiscount = cartEstimatedDuty;
   const cartTax = 0;

@@ -63,7 +63,7 @@ export const QuickViewModal: React.FC = () => {
                 referrerPolicy="no-referrer"
               />
 
-              {quickViewProduct.discountPercentage && quickViewProduct.discountPercentage > 0 ? (
+              {quickViewProduct.category !== 'Women Perfume' && quickViewProduct.category !== 'Ladies Watch' && quickViewProduct.discountPercentage && quickViewProduct.discountPercentage > 0 ? (
                 <span className="absolute top-3 left-3 bg-[#1D1D1D] text-[#C6A56B] text-xs font-bold px-2.5 py-1 rounded-full border border-[#C6A56B]">
                   -{quickViewProduct.discountPercentage}% OFF
                 </span>
@@ -142,7 +142,7 @@ export const QuickViewModal: React.FC = () => {
                 <span className="font-serif text-2xl font-bold text-[#1D1D1D]">
                   {formatPrice(quickViewProduct.price)}
                 </span>
-                {quickViewProduct.oldPrice && quickViewProduct.oldPrice > quickViewProduct.price && (
+                {quickViewProduct.category !== 'Women Perfume' && quickViewProduct.category !== 'Ladies Watch' && quickViewProduct.oldPrice && quickViewProduct.oldPrice > quickViewProduct.price && (
                   <span className="text-sm text-neutral-400 line-through">
                     {formatPrice(quickViewProduct.oldPrice)}
                   </span>
