@@ -118,6 +118,8 @@ interface StoreContextType {
   setSelectedProductId: (id: string | null) => void;
   selectedCategoryFilter: HandbagCategory | null;
   setSelectedCategoryFilter: (cat: HandbagCategory | null) => void;
+  showHandbagsOnly: boolean;
+  setShowHandbagsOnly: (show: boolean) => void;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
   navigateToProduct: (productId: string) => void;
@@ -286,6 +288,7 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<HandbagCategory | null>(null);
+  const [showHandbagsOnly, setShowHandbagsOnly] = useState(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   // Hydrate all state asynchronously from IndexedDB on initial mount
@@ -793,6 +796,7 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   };
 
   const navigateToCategory = (category: HandbagCategory) => {
+    setShowHandbagsOnly(false);
     setSelectedCategoryFilter(category);
     setActiveView('shop');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -942,6 +946,8 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         setSelectedProductId,
         selectedCategoryFilter,
         setSelectedCategoryFilter,
+        showHandbagsOnly,
+        setShowHandbagsOnly,
         searchQuery,
         setSearchQuery,
         navigateToProduct,

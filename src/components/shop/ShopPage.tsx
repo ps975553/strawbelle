@@ -12,12 +12,13 @@ export const ShopPage: React.FC = () => {
     products,
     selectedCategoryFilter,
     setSelectedCategoryFilter,
+    showHandbagsOnly,
+    setShowHandbagsOnly,
     formatPrice
   } = useStore();
 
   const [sortBy, setSortBy] = useState<'newest' | 'price-asc' | 'price-desc' | 'rating' | 'discount'>('newest');
   const [priceLimit, setPriceLimit] = useState<number>(4000);
-  const [showHandbagsOnly, setShowHandbagsOnly] = useState(false);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
   const resetFilters = () => {

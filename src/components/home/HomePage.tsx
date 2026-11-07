@@ -4,13 +4,21 @@ import type { HandbagCategory } from '../../types';
 import { HeroBanner } from './HeroBanner';
 import { FeaturedSection } from './FeaturedSection';
 
-const categories: HandbagCategory[] = ['Women Perfume', 'Lady Watch'];
+type ShopCategory = HandbagCategory | 'Handbag';
+
+const categories: ShopCategory[] = ['Handbag', 'Women Perfume', 'Lady Watch'];
 
 export const HomePage: React.FC = () => {
-  const { setActiveView, setSelectedCategoryFilter } = useStore();
+  const { setActiveView, setSelectedCategoryFilter, setShowHandbagsOnly } = useStore();
 
-  const handleCategoryClick = (category: HandbagCategory) => {
-    setSelectedCategoryFilter(category);
+  const handleCategoryClick = (category: ShopCategory) => {
+    if (category === 'Handbag') {
+      setSelectedCategoryFilter(null);
+      setShowHandbagsOnly(true);
+    } else {
+      setShowHandbagsOnly(false);
+      setSelectedCategoryFilter(category);
+    }
     setActiveView('shop');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
