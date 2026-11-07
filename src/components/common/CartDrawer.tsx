@@ -10,6 +10,7 @@ import {
   Tag
 } from 'lucide-react';
 import { orderCartViaWhatsApp } from '../../utils/socialOrder';
+import { FREE_SHIPPING_THRESHOLD_USD } from '../../utils/shipping';
 
 export const CartDrawer: React.FC = () => {
   const {
@@ -35,6 +36,9 @@ export const CartDrawer: React.FC = () => {
 
   const [couponInput, setCouponInput] = useState('');
   const [couponError, setCouponError] = useState('');
+  const discountedSubtotal = Math.max(0, cartSubtotal - cartDiscount);
+  const amountForFreeDelivery = Math.max(0, FREE_SHIPPING_THRESHOLD_USD - discountedSubtotal);
+  const freeDeliveryProgress = Math.min(100, (discountedSubtotal / FREE_SHIPPING_THRESHOLD_USD) * 100);
 
   if (!isCartOpen) return null;
 
@@ -202,6 +206,20 @@ export const CartDrawer: React.FC = () => {
           {/* Footer & Checkout Summary */}
           {cart.length > 0 && (
             <div className="p-3.5 sm:p-5 bg-white border-t border-neutral-200 space-y-2.5 sm:space-y-3">
+              <div className="rounded-lg border border-[#C6A56B]/30 bg-[#F8F5F2] px-3 py-2">
+                <p className="text-[10px] sm:text-[11px] text-neutral-700">
+                  {amountForFreeDelivery > 0
+                    ? <>Add <strong className="text-[#1D1D1D]">{formatPrice(amountForFreeDelivery)}</strong> more for free delivery on orders of {formatPrice(FREE_SHIPPING_THRESHOLD_USD)} or more.</>
+                    : <strong className="text-emerald-700">Your order qualifies for free delivery!</strong>}
+                </p>
+                <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-white">
+                  <div
+                    className="h-full rounded-full bg-[#C6A56B] transition-all"
+                    style={{ width: `${freeDeliveryProgress}%` }}
+                  />
+                </div>
+              </div>
+
               {/* Coupon Form */}
               {appliedCoupon ? (
                 <div className="flex items-center justify-between p-2 bg-[#F8F5F2] rounded-xl border border-[#C6A56B]/40 text-xs">
