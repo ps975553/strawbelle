@@ -17,10 +17,12 @@ export const ShopPage: React.FC = () => {
 
   const [sortBy, setSortBy] = useState<'newest' | 'price-asc' | 'price-desc' | 'rating' | 'discount'>('newest');
   const [priceLimit, setPriceLimit] = useState<number>(4000);
+  const [showHandbagsOnly, setShowHandbagsOnly] = useState(false);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
   const resetFilters = () => {
     setSelectedCategoryFilter(null);
+    setShowHandbagsOnly(false);
     setPriceLimit(4000);
     setSortBy('newest');
   };
@@ -29,6 +31,11 @@ export const ShopPage: React.FC = () => {
     return products
       .filter((p) => {
         if (p.status !== 'published') return false;
+
+        const isHandbag =
+          p.collection.toLowerCase().includes('bag') ||
+          !(['Women Perfume', 'Lady Watch'] as HandbagCategory[]).includes(p.category);
+        if (showHandbagsOnly && !isHandbag) return false;
 
         if (
           selectedCategoryFilter &&
@@ -51,10 +58,11 @@ export const ShopPage: React.FC = () => {
         if (sortBy === 'discount') return (b.discountPercentage || 0) - (a.discountPercentage || 0);
         return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
       });
-  }, [products, selectedCategoryFilter, priceLimit, sortBy]);
+  }, [products, selectedCategoryFilter, showHandbagsOnly, priceLimit, sortBy]);
 
   const activeFiltersCount =
     (selectedCategoryFilter ? 1 : 0) +
+    (showHandbagsOnly ? 1 : 0) +
     (priceLimit < 4000 ? 1 : 0);
 
   return (
@@ -88,14 +96,30 @@ export const ShopPage: React.FC = () => {
             Shop by Category
           </span>
           <div className="flex flex-wrap justify-center gap-2">
+            <button
+              type="button"
+              aria-pressed={showHandbagsOnly}
+              onClick={() => {
+                setSelectedCategoryFilter(null);
+                setShowHandbagsOnly((current) => !current);
+              }}
+              className={`rounded-full border px-4 py-2 text-[10px] font-semibold uppercase tracking-wider transition-colors ${
+                showHandbagsOnly
+                  ? 'border-[#1D1D1D] bg-[#1D1D1D] text-white'
+                  : 'border-neutral-200 bg-white text-[#1D1D1D] hover:border-[#C6A56B] hover:text-[#C6A56B]'
+              }`}
+            >
+              Handbag
+            </button>
             {(['Women Perfume', 'Lady Watch'] as HandbagCategory[]).map((category) => (
               <button
                 key={category}
                 type="button"
                 aria-pressed={selectedCategoryFilter === category}
-                onClick={() =>
-                  setSelectedCategoryFilter(selectedCategoryFilter === category ? null : category)
-                }
+                onClick={() => {
+                  setShowHandbagsOnly(false);
+                  setSelectedCategoryFilter(selectedCategoryFilter === category ? null : category);
+                }}
                 className={`rounded-full border px-4 py-2 text-[10px] font-semibold uppercase tracking-wider transition-colors ${
                   selectedCategoryFilter === category
                     ? 'border-[#1D1D1D] bg-[#1D1D1D] text-white'
