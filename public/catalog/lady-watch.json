@@ -1,0 +1,721 @@
+[
+  {
+    "title": "Tummy Hilfigher Women Rosegold Diamond 2",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 16,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-01.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-01.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Versace La Greca Stud Icon 2Ton Black",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 5,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-02.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-02.jpg",
+      "./catalog/lady-watch/watch-image-03.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Tummy Hilfigher Women Gold Diamond",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-04.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-04.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Swarovsk Curiosa Watch For Her 831",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 5,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-05.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-05.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Seiko Presage Classic Series SPB527J1 ledies silver white green",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-06.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-06.jpg",
+      "./catalog/lady-watch/watch-image-07.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Seiko Presage Classic Series SPB527J1 ledies full black",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-08.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-08.jpg",
+      "./catalog/lady-watch/watch-image-09.jpg",
+      "./catalog/lady-watch/watch-image-10.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Patek philipe Ellipse Timepiece Silver White Dial",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-11.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-11.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Patek philipe Ellipse Timepiece Gold Black Dial",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 5,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-12.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-12.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Omegha Constellation Quadrella Rosegold",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 5,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-13.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-13.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "MICHEAL KORS WATCH M-588",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-14.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-14.jpg",
+      "./catalog/lady-watch/watch-image-15.jpg",
+      "./catalog/lady-watch/watch-image-16.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "MICHEAL KORS WATCH M-586",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 12,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-17.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-17.jpg",
+      "./catalog/lady-watch/watch-image-18.jpg",
+      "./catalog/lady-watch/watch-image-19.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Micheal Kors MK6660 Diamond Quality",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 5,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-20.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-20.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "MICHEAL KORS LADIES PARKER BLACK GOLD WATCH",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-21.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-21.jpg",
+      "./catalog/lady-watch/watch-image-22.jpg",
+      "./catalog/lady-watch/watch-image-23.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Michael_l Kors Empire Copper-White",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 5,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-24.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-24.jpg",
+      "./catalog/lady-watch/watch-image-25.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Michael_l Kors Charley Copper-Black",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-26.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-26.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": true,
+    "status": "published"
+  },
+  {
+    "title": "Michael Korrs MK3199 Runway Full Gold",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 5,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-27.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-27.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Michael Korrs Diamond Female watch",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 18,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-28.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-28.jpg",
+      "./catalog/lady-watch/watch-image-29.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Loius Vutton Tambour Full Gold",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 12,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-30.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-30.jpg",
+      "./catalog/lady-watch/watch-image-31.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Guess Diamond GirlSwach (All Working)",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 5,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-32.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-32.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "GUCHI WATCH FOR HER 1109",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-33.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-33.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "GUCHI WATCH FOR HER 1108",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 5,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-34.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-34.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "GUCHI SILVER PINK WATCH FOR HER 1061",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-35.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-35.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "GUCHI GOLD-GREEN WATCH FOR HER 1065",
+    "price": 50,
+    "oldPrice": 80,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-36.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-36.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Guccci Women Diamond Two Tone Rosegold Heavy Quality",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 12,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-37.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-37.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Guccci Women Diamond Two Tone Black Dial Heavy Quality",
+    "price": 50,
+    "oldPrice": 80,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-38.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-38.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Fossiil Kerrigan Gold Green",
+    "price": 30,
+    "oldPrice": 80,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-39.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-39.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Fossiil Harlow Square Pistachio Dial",
+    "price": 50,
+    "oldPrice": 80,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-40.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-40.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Fossii_l Architect Automatic 2Ton-Copper-Pink",
+    "price": 50,
+    "oldPrice": 80,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-41.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-41.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Fossii_l Architect Automatic 2Ton Copper White",
+    "price": 55,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 5,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-42.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-42.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Fosil Raquel Full Copper",
+    "price": 50,
+    "oldPrice": 80,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-43.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-43.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Fosil Raquel",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 12,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-44.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-44.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "EMPHORIO ARRWA%! WATCH FOR HER 1036",
+    "price": 30,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-45.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-45.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Emphorio Arma i Womenswach",
+    "price": 50,
+    "oldPrice": 80,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-46.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-46.jpg",
+      "./catalog/lady-watch/watch-image-47.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "DW Daniel_Wellington Quadro",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 12,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-48.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-48.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Coacch Elliot Lunar New year edition",
+    "price": 60,
+    "oldPrice": 120,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-49.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-49.jpg",
+      "./catalog/lady-watch/watch-image-50.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Coac Ladie Watch ( 1st Quality )",
+    "price": 50,
+    "oldPrice": 80,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 10,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-51.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-51.jpg",
+      "./catalog/lady-watch/watch-image-52.jpg",
+      "./catalog/lady-watch/watch-image-53.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "CHENNEL ICONIC GOLD-RED WATCH FOR HER 1082",
+    "price": 50,
+    "oldPrice": 100,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-54.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-54.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "CHENNEL ICONIC GOLD-PINK WATCH FOR HER 1080",
+    "price": 60,
+    "oldPrice": 150,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 5,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-55.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-55.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Cartie Watch For Her 773",
+    "price": 50,
+    "oldPrice": 120,
+    "discount": 12,
+    "collection": "Lady Watches",
+    "productType": "watch",
+    "stock": 8,
+    "description": "An exquisite luxury lady timepiece uniting precision Swiss craftsmanship with fine jewellery elegance.",
+    "thumbnail": "./catalog/lady-watch/watch-image-56.jpg",
+    "galleryImages": [
+      "./catalog/lady-watch/watch-image-56.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  }
+]

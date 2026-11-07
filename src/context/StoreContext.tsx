@@ -105,6 +105,64 @@ const mapWomenPerfumeCatalog = (entries: WomenPerfumeCatalogEntry[]): Product[] 
     };
   });
 
+interface LadyWatchCatalogEntry {
+  title: string;
+  price: number;
+  oldPrice?: number;
+  discount?: number;
+  collection?: string;
+  stock?: number;
+  description?: string;
+  thumbnail: string;
+  galleryImages?: string[];
+  featured?: boolean;
+  bestSeller?: boolean;
+  isNewArrival?: boolean;
+  status?: 'published' | 'draft';
+}
+
+const mapLadyWatchCatalog = (entries: LadyWatchCatalogEntry[]): Product[] =>
+  entries.map((entry, index) => {
+    const productNumber = String(index + 1).padStart(3, '0');
+    const titleSlug = entry.title
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+    const timestamp = '2026-11-07T00:00:00.000Z';
+
+    return {
+      id: `sb-lady-watch-${productNumber}`,
+      title: entry.title,
+      slug: `lady-watch-${productNumber}-${titleSlug}`,
+      sku: `SB-LW-${productNumber}`,
+      collection: entry.collection || 'Lady Watches',
+      category: 'Lady Watch',
+      price: entry.price,
+      oldPrice: entry.oldPrice,
+      discountPercentage: entry.discount,
+      thumbnail: entry.thumbnail,
+      galleryImages: entry.galleryImages || [],
+      colors: [],
+      description: entry.description || '',
+      details: [],
+      material: 'Timepiece',
+      lining: '',
+      hardware: '',
+      dimensions: { widthCm: 0, heightCm: 0, depthCm: 0, strapDropCm: 0 },
+      weightGrams: 0,
+      stock: entry.stock ?? 0,
+      rating: 5,
+      reviewsCount: 0,
+      featured: entry.featured ?? false,
+      bestSeller: entry.bestSeller ?? false,
+      isNewArrival: entry.isNewArrival ?? false,
+      status: entry.status === 'draft' ? 'draft' : 'published',
+      createdAt: timestamp,
+      updatedAt: timestamp,
+    };
+  });
+
 interface StoreContextType {
   // Products & Collections
   products: Product[];
@@ -179,6 +237,7 @@ interface StoreContextType {
   showHandbagsOnly: boolean;
   setShowHandbagsOnly: (show: boolean) => void;
   isWomenPerfumeCatalogLoading: boolean;
+  isLadyWatchCatalogLoading: boolean;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
   navigateToProduct: (productId: string) => void;
@@ -350,6 +409,8 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const [showHandbagsOnly, setShowHandbagsOnly] = useState(false);
   const [isWomenPerfumeCatalogLoading, setIsWomenPerfumeCatalogLoading] = useState(false);
   const womenPerfumeCatalogLoadStateRef = useRef<'idle' | 'loading' | 'loaded'>('idle');
+  const [isLadyWatchCatalogLoading, setIsLadyWatchCatalogLoading] = useState(false);
+  const ladyWatchCatalogLoadStateRef = useRef<'idle' | 'loading' | 'loaded'>('idle');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   // Hydrate all state asynchronously from IndexedDB on initial mount
@@ -456,6 +517,46 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         console.error('[Store] Could not load Women Perfume catalog:', error);
       } finally {
         setIsWomenPerfumeCatalogLoading(false);
+      }
+    };
+
+    void loadCatalog();
+  }, [isHydrated, selectedCategoryFilter]);
+
+  useEffect(() => {
+    if (
+      !isHydrated ||
+      selectedCategoryFilter !== 'Lady Watch' ||
+      ladyWatchCatalogLoadStateRef.current === 'loading' ||
+      ladyWatchCatalogLoadStateRef.current === 'loaded'
+    ) {
+      return;
+    }
+
+    ladyWatchCatalogLoadStateRef.current = 'loading';
+    setIsLadyWatchCatalogLoading(true);
+
+    const loadCatalog = async () => {
+      try {
+        const catalogUrl = new URL('catalog/lady-watch.json', document.baseURI);
+        const response = await fetch(catalogUrl);
+        if (!response.ok) {
+          throw new Error(`Catalog request failed with status ${response.status}`);
+        }
+
+        const entries = (await response.json()) as LadyWatchCatalogEntry[];
+        if (!Array.isArray(entries)) {
+          throw new Error('The Lady Watch catalog must be a JSON array.');
+        }
+
+        const watchProducts = mapLadyWatchCatalog(entries);
+        setProducts((prev) => mergeWithInitialProducts([...prev, ...watchProducts]));
+        ladyWatchCatalogLoadStateRef.current = 'loaded';
+      } catch (error) {
+        ladyWatchCatalogLoadStateRef.current = 'idle';
+        console.error('[Store] Could not load Lady Watch catalog:', error);
+      } finally {
+        setIsLadyWatchCatalogLoading(false);
       }
     };
 
@@ -1050,6 +1151,7 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         showHandbagsOnly,
         setShowHandbagsOnly,
         isWomenPerfumeCatalogLoading,
+        isLadyWatchCatalogLoading,
         searchQuery,
         setSearchQuery,
         navigateToProduct,

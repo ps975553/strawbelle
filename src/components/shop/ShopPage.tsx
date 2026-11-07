@@ -15,6 +15,7 @@ export const ShopPage: React.FC = () => {
     showHandbagsOnly,
     setShowHandbagsOnly,
     isWomenPerfumeCatalogLoading,
+    isLadyWatchCatalogLoading,
     formatPrice
   } = useStore();
 
@@ -240,9 +241,14 @@ export const ShopPage: React.FC = () => {
             )}
 
             {/* Product Cards */}
-            {selectedCategoryFilter === 'Women Perfume' && isWomenPerfumeCatalogLoading ? (
+            {(
+              (selectedCategoryFilter === 'Women Perfume' && isWomenPerfumeCatalogLoading) ||
+              (selectedCategoryFilter === 'Lady Watch' && isLadyWatchCatalogLoading)
+            ) ? (
               <div className="bg-white rounded-2xl p-8 text-center border border-neutral-200">
-                <p className="text-[11px] text-neutral-500">Loading women’s perfume catalog…</p>
+                <p className="text-[11px] text-neutral-500">
+                  Loading {selectedCategoryFilter === 'Women Perfume' ? 'women’s perfume' : 'lady watch'} catalog…
+                </p>
               </div>
             ) : filteredProducts.length === 0 ? (
               <div className="bg-white rounded-2xl p-8 text-center border border-neutral-200 space-y-3">
