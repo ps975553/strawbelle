@@ -25,7 +25,7 @@ export const FeaturedSection: React.FC = () => {
     if (randomFeaturedIdsRef.current.length > 0) return;
 
     const publishedProducts = products.filter(
-      (p) => p.status === 'published' && p.category !== 'Women Perfume' && p.category !== 'Lady Watch'
+      (p) => p.status === 'published' && p.category !== 'Women Perfume' && p.category !== 'Ladies Watch'
     );
     if (publishedProducts.length === 0) return;
 
@@ -38,14 +38,14 @@ export const FeaturedSection: React.FC = () => {
     .map((id) => products.find((p) => p.id === id))
     .filter(
       (p): p is typeof products[number] =>
-        Boolean(p && p.status === 'published' && p.category !== 'Women Perfume' && p.category !== 'Lady Watch')
+        Boolean(p && p.status === 'published' && p.category !== 'Women Perfume' && p.category !== 'Ladies Watch')
     );
 
   const filteredProducts =
     activeTab === 'featured'
       ? randomFeaturedProducts
       : products.filter((p) => {
-          if (p.status !== 'published' || p.category === 'Women Perfume' || p.category === 'Lady Watch') return false;
+          if (p.status !== 'published' || p.category === 'Women Perfume' || p.category === 'Ladies Watch') return false;
           if (activeTab === 'bestsellers') return p.bestSeller;
           if (activeTab === 'new') return p.isNewArrival;
           return true;

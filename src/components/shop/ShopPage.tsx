@@ -30,7 +30,7 @@ export const ShopPage: React.FC = () => {
       .filter((p) => {
         if (p.status !== 'published') return false;
 
-        if (selectedCategoryFilter === 'Women Perfume' || selectedCategoryFilter === 'Lady Watch') {
+        if (selectedCategoryFilter === 'Women Perfume' || selectedCategoryFilter === 'Ladies Watch') {
           if (p.category !== selectedCategoryFilter) return false;
         } else if (selectedCategoryFilter === 'Handbag') {
           const productType = `${p.collection} ${p.category}`.toLowerCase();
@@ -81,7 +81,7 @@ export const ShopPage: React.FC = () => {
             Shop by Category
           </span>
           <div className="flex flex-wrap justify-center gap-2">
-            {(['Handbag', 'Women Perfume', 'Lady Watch'] as HandbagCategory[]).map((category) => (
+            {(['Handbag', 'Women Perfume', 'Ladies Watch'] as HandbagCategory[]).map((category) => (
               <button
                 key={category}
                 type="button"

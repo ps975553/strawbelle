@@ -239,7 +239,7 @@ export const ProductDetail: React.FC = () => {
               {/* Wishlist and Share */}
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#C6A56B]">
-                  {product.category === 'Women Perfume' || product.category === 'Lady Watch'
+                  {product.category === 'Women Perfume' || product.category === 'Ladies Watch'
                     ? product.collection
                     : 'Handcrafted Atelier'}
                 </span>
@@ -332,7 +332,7 @@ export const ProductDetail: React.FC = () => {
                       className="w-full py-2.5 px-4 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold uppercase tracking-wider rounded-xl shadow-sm hover:shadow transition-all flex items-center justify-center gap-2 group cursor-pointer"
                       title={product.category === 'Women Perfume'
                         ? 'Order this perfume directly via WhatsApp'
-                        : product.category === 'Lady Watch'
+                        : product.category === 'Ladies Watch'
                         ? 'Order this watch directly via WhatsApp'
                         : 'Order this handbag directly via WhatsApp'}
                     >
@@ -347,7 +347,7 @@ export const ProductDetail: React.FC = () => {
                       className="w-full py-2.5 px-4 bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] hover:opacity-95 text-white text-xs font-bold uppercase tracking-wider rounded-xl shadow-sm hover:shadow transition-all flex items-center justify-center gap-2 group cursor-pointer"
                       title={product.category === 'Women Perfume'
                         ? 'Order this perfume directly via Instagram DM'
-                        : product.category === 'Lady Watch'
+                        : product.category === 'Ladies Watch'
                         ? 'Order this watch directly via Instagram DM'
                         : 'Order this handbag directly via Instagram DM'}
                     >

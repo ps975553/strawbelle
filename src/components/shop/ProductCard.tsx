@@ -134,11 +134,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.16em] text-[#C6A56B]">
               {product.category === 'Women Perfume'
                 ? 'Perfume For Women'
-                : product.category === 'Lady Watch'
-                ? 'Lady Watch'
+                : product.category === 'Ladies Watch'
+                ? 'Ladies Watch'
                 : 'Handcrafted'}
             </span>
-            {product.category !== 'Women Perfume' && product.category !== 'Lady Watch' && (
+            {product.category !== 'Women Perfume' && product.category !== 'Ladies Watch' && (
               <div className="flex items-center gap-0.5 text-[9px] sm:text-[10px] text-neutral-600 font-semibold">
                 <Star className="w-2.5 h-2.5 text-[#C6A56B] fill-[#C6A56B]" />
                 <span>{product.rating ? Number(product.rating).toFixed(1) : '5.0'}</span>

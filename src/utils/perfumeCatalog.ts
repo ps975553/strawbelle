@@ -1,6 +1,6 @@
 import type { Product } from '../types';
 
-type CatalogCategory = 'Women Perfume' | 'Lady Watch';
+type CatalogCategory = 'Women Perfume' | 'Ladies Watch';
 
 type CatalogConfig = {
   category: CatalogCategory;
@@ -80,9 +80,9 @@ export const mapWomenPerfumeCatalog = (catalog: unknown): Product[] =>
 
 export const mapLadyWatchCatalog = (catalog: unknown): Product[] =>
   mapCatalog(catalog, {
-    category: 'Lady Watch',
+    category: 'Ladies Watch',
     idPrefix: 'watch',
     skuPrefix: 'SB-WATCH',
-    collectionFallback: 'Lady Watches',
+    collectionFallback: 'Ladies Watch',
     material: 'Watch',
-  });
+  }).map((product) => ({ ...product, collection: 'Ladies Watch' }));

@@ -60,7 +60,7 @@ export const buildProductOrderMessage = ({
 }: SocialOrderPayload): string => {
   const catalogType = product.category === 'Women Perfume'
     ? 'perfume'
-    : product.category === 'Lady Watch'
+    : product.category === 'Ladies Watch'
     ? 'watch'
     : null;
   const chosenColor = selectedColor?.name || product.colors[0]?.name || 'Signature';
@@ -136,7 +136,7 @@ export const buildCartOrderMessage = ({
   cart.forEach((item, index) => {
     const catalogType = item.product.category === 'Women Perfume'
       ? 'perfume'
-      : item.product.category === 'Lady Watch'
+      : item.product.category === 'Ladies Watch'
       ? 'watch'
       : null;
     const chosenColor = item.selectedColor?.name || item.product.colors[0]?.name || 'Signature';

@@ -104,7 +104,7 @@ export const QuickViewModal: React.FC = () => {
             <div>
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#C6A56B]">
-                  {quickViewProduct.category === 'Women Perfume' || quickViewProduct.category === 'Lady Watch'
+                  {quickViewProduct.category === 'Women Perfume' || quickViewProduct.category === 'Ladies Watch'
                     ? quickViewProduct.collection
                     : 'Handcrafted Edition'}
                 </span>
@@ -123,7 +123,7 @@ export const QuickViewModal: React.FC = () => {
                 {quickViewProduct.title}
               </h2>
 
-              {quickViewProduct.category !== 'Women Perfume' && quickViewProduct.category !== 'Lady Watch' && (
+              {quickViewProduct.category !== 'Women Perfume' && quickViewProduct.category !== 'Ladies Watch' && (
                 <div className="flex items-center gap-1.5 mt-1.5">
                   <div className="flex text-[#C6A56B]">
                     {[...Array(5)].map((_, i) => (

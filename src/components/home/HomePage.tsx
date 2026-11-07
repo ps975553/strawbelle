@@ -4,7 +4,7 @@ import type { HandbagCategory } from '../../types';
 import { HeroBanner } from './HeroBanner';
 import { FeaturedSection } from './FeaturedSection';
 
-const categories: HandbagCategory[] = ['Handbag', 'Women Perfume', 'Lady Watch'];
+const categories: HandbagCategory[] = ['Handbag', 'Women Perfume', 'Ladies Watch'];
 
 export const HomePage: React.FC = () => {
   const { setActiveView, setSelectedCategoryFilter } = useStore();
@@ -39,12 +39,12 @@ export const HomePage: React.FC = () => {
                 >
                   {category}
                 </button>
-                {category === 'Lady Watch' && (
+                {category === 'Ladies Watch' && (
                   <button
                     type="button"
                     onClick={() => handleCategoryClick(category)}
-                    aria-label="Explore Lady Watch"
-                    className="h-16 w-16 overflow-hidden rounded-lg border border-neutral-200 bg-[#1D1D1D] shadow-sm transition-transform hover:scale-[1.02]"
+                    aria-label="Explore Ladies Watch"
+                    className="h-[67px] w-[67px] overflow-hidden rounded-lg border border-neutral-200 bg-[#1D1D1D] shadow-sm transition-transform hover:scale-[1.02]"
                   >
                     <img
                       src="./catalog/images/rose-gold-crystal-studded-watch.png"
