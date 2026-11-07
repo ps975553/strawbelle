@@ -13,9 +13,12 @@ export const getProductShareUrl = (productId: string): string => {
   const safeId = encodeURIComponent(productId);
   if (typeof window !== 'undefined') {
     const origin = window.location.origin;
-    return `${origin}/#product-${safeId}`;
+    const pathname = window.location.pathname.endsWith('/')
+      ? window.location.pathname
+      : `${window.location.pathname}/`;
+    return `${origin}${pathname}#product-${safeId}`;
   }
-  return `https://strawbelle.com/#product-${safeId}`;
+  return `https://ps975553.github.io/strawbelle/#product-${safeId}`;
 };
 
 export const copyOrderTextToClipboard = async (text: string): Promise<boolean> => {
