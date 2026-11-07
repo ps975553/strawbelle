@@ -5,6 +5,11 @@ import { HeroBanner } from './HeroBanner';
 import { FeaturedSection } from './FeaturedSection';
 
 const categories: HandbagCategory[] = ['Handbag', 'Women Perfume', 'Ladies Watch'];
+const categoryImages: Partial<Record<HandbagCategory, string>> = {
+  Handbag: './catalog/images/handbag-category.png',
+  'Women Perfume': './catalog/images/women-perfume-category.png',
+  'Ladies Watch': './catalog/images/rose-gold-crystal-studded-watch.png',
+};
 
 export const HomePage: React.FC = () => {
   const { setActiveView, setSelectedCategoryFilter } = useStore();
@@ -39,16 +44,16 @@ export const HomePage: React.FC = () => {
                 >
                   {category}
                 </button>
-                {category === 'Ladies Watch' && (
+                {categoryImages[category] && (
                   <button
                     type="button"
                     onClick={() => handleCategoryClick(category)}
-                    aria-label="Explore Ladies Watch"
+                    aria-label={`Explore ${category}`}
                     className="h-[85px] w-[85px] overflow-hidden rounded-lg border border-neutral-200 bg-[#1D1D1D] shadow-sm transition-transform hover:scale-[1.02]"
                   >
                     <img
-                      src="./catalog/images/rose-gold-crystal-studded-watch.png"
-                      alt="Rose gold crystal-studded watch"
+                      src={categoryImages[category]}
+                      alt={`${category} category`}
                       className="h-full w-full object-contain"
                       loading="lazy"
                       decoding="async"
