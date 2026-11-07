@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useStore } from '../../context/StoreContext';
 import { ProductCard } from './ProductCard';
+import type { HandbagCategory } from '../../types';
 import {
   Filter,
   SlidersHorizontal
@@ -70,6 +71,31 @@ export const ShopPage: React.FC = () => {
           <p className="text-[11px] sm:text-xs text-neutral-500 font-light max-w-md mx-auto mt-1">
             Explore our handcrafted luxury pieces, designed for timeless elegance.
           </p>
+        </div>
+
+        <div className="mb-5 flex flex-col items-center gap-2">
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500">
+            Shop by Category
+          </span>
+          <div className="flex flex-wrap justify-center gap-2">
+            {(['Women Perfume', 'Lady Watch'] as HandbagCategory[]).map((category) => (
+              <button
+                key={category}
+                type="button"
+                aria-pressed={selectedCategoryFilter === category}
+                onClick={() =>
+                  setSelectedCategoryFilter(selectedCategoryFilter === category ? null : category)
+                }
+                className={`rounded-full border px-4 py-2 text-[10px] font-semibold uppercase tracking-wider transition-colors ${
+                  selectedCategoryFilter === category
+                    ? 'border-[#1D1D1D] bg-[#1D1D1D] text-white'
+                    : 'border-neutral-200 bg-white text-[#1D1D1D] hover:border-[#C6A56B] hover:text-[#C6A56B]'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Main Grid + Filter Layout */}

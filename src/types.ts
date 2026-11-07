@@ -5,7 +5,9 @@ export type HandbagCategory =
   | 'Clutches'
   | 'Top-Handle'
   | 'Mini Bags'
-  | 'Backpacks';
+  | 'Backpacks'
+  | 'Women Perfume'
+  | 'Lady Watch';
 
 export interface ProductColor {
   name: string;
