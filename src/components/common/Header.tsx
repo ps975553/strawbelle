@@ -10,7 +10,6 @@ import {
   Package,
   MessageCircle,
   Instagram,
-  Mail,
   ChevronRight,
 } from 'lucide-react';
 import { HandbagCategory } from '../../types';
@@ -272,7 +271,7 @@ export const Header: React.FC = () => {
               <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block">
                 Direct Concierge
               </span>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 gap-2">
                 <a
                   href="https://wa.me/919517220111?text=Hello%20Strawbelle"
                   target="_blank"
@@ -290,13 +289,6 @@ export const Header: React.FC = () => {
                 >
                   <Instagram className="w-4 h-4" />
                   <span>Instagram</span>
-                </a>
-                <a
-                  href="mailto:concierge@strawbelle.com?subject=Strawbelle%20Luxury%20Inquiry&body=Hello%20Strawbelle%20Concierge%2C%0A%0AInstagram%3A%20https%3A%2F%2Fwww.instagram.com%2Fstrawbelle_bags%20(%40strawbelle_bags)%0A%0AInquiry%3A%20"
-                  className="flex flex-col items-center justify-center p-2 rounded-xl bg-white border border-neutral-200 hover:border-[#C6A56B] text-[#C6A56B] text-[10px] font-semibold gap-1"
-                >
-                  <Mail className="w-4 h-4" />
-                  <span>Email</span>
                 </a>
               </div>
             </div>

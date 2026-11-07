@@ -11,7 +11,7 @@ export const INITIAL_PRODUCTS: Product[] = BASE_INITIAL_PRODUCTS;
 
 export const INITIAL_COUPONS: Coupon[] = [];
 
-export const INITIAL_CUSTOMERS: Customer[] = [{ id:'sb-customer-01', name:'Strawbelle Guest', email:'guest@strawbelle.com', phone:'', addresses:[], totalOrders:0, totalSpent:0, tier:'Boutique Client', joinedDate:new Date().toISOString() }];
+export const INITIAL_CUSTOMERS: Customer[] = [{ id:'sb-customer-01', name:'Strawbelle Guest', email:'guest@example.com', phone:'', addresses:[], totalOrders:0, totalSpent:0, tier:'Boutique Client', joinedDate:new Date().toISOString() }];
 
 export const INITIAL_ORDERS: Order[] = [];
 
