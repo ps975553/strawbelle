@@ -16,6 +16,8 @@ concurrency:
 
 jobs:
   build:
+    outputs:
+      pages_artifact_name: ${{ steps.pages_artifact_name.outputs.name }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,9 +31,13 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+      - name: Set Pages artifact name
+        id: pages_artifact_name
+        run: echo "name=github-pages-${{ github.run_id }}-${{ github.run_attempt }}" >> "$GITHUB_OUTPUT"
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          name: ${{ steps.pages_artifact_name.outputs.name }}
           path: dist
 
   deploy:
@@ -44,3 +50,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ${{ needs.build.outputs.pages_artifact_name }}
