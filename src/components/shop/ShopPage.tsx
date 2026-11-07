@@ -73,6 +73,16 @@ export const ShopPage: React.FC = () => {
           </p>
         </div>
 
+        <div
+          role="note"
+          className="mx-auto mb-5 max-w-4xl rounded-xl border border-[#C6A56B]/40 bg-white px-4 py-3 text-center shadow-sm"
+        >
+          <p className="text-[11px] sm:text-xs leading-relaxed text-neutral-600">
+            <strong className="font-bold text-[#1D1D1D]">Note:</strong> Due to copyright rules, product names are changed on Strawbelle.com. The physical item arrives with the correct brand logo and spelling, but please note this is{' '}
+            <strong className="font-bold text-[#1D1D1D]">UA quality</strong> (not from the official brand store). Check the photos or message our team for a real video of the product before ordering!
+          </p>
+        </div>
+
         <div className="mb-5 flex flex-col items-center gap-2">
           <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500">
             Shop by Category
