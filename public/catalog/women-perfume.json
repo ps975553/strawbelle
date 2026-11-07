@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Valentyno Donna Born In Roma Purple Melancholia",
+    "price": 30,
+    "oldPrice": 60,
+    "discount": 15,
+    "collection": "Perfume For Women",
+    "productType": "perfume",
+    "stock": 12,
+    "description": "An enchanting luxury perfume for women from the Strawbelle collection.",
+    "thumbnail": "./catalog/women-perfume/perfume-01.jpg",
+    "galleryImages": [
+      "./catalog/women-perfume/perfume-01.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Valentiino Born In Roma Green Donna womens",
+    "price": 30,
+    "oldPrice": 60,
+    "discount": 15,
+    "collection": "Perfume For Women",
+    "productType": "perfume",
+    "stock": 12,
+    "description": "An enchanting luxury perfume for women from the Strawbelle collection.",
+    "thumbnail": "./catalog/women-perfume/perfume-02.jpg",
+    "galleryImages": [
+      "./catalog/women-perfume/perfume-02.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Mugler Alien Goddess Womens",
+    "price": 30,
+    "oldPrice": 50,
+    "discount": 15,
+    "collection": "Perfume For Women",
+    "productType": "perfume",
+    "stock": 5,
+    "description": "An enchanting luxury perfume for women from the Strawbelle collection.",
+    "thumbnail": "./catalog/women-perfume/perfume-03.jpg",
+    "galleryImages": [
+      "./catalog/women-perfume/perfume-03.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Louiis Vuitton Rose Des Vents Womens",
+    "price": 35,
+    "oldPrice": 80,
+    "discount": 15,
+    "collection": "Perfume For Women",
+    "productType": "perfume",
+    "stock": 5,
+    "description": "An enchanting luxury perfume for women from the Strawbelle collection.",
+    "thumbnail": "./catalog/women-perfume/perfume-04.jpg",
+    "galleryImages": [
+      "./catalog/women-perfume/perfume-04.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Lady Million By Paco Rabanne",
+    "price": 30,
+    "oldPrice": 70,
+    "discount": 15,
+    "collection": "Perfume For Women",
+    "productType": "perfume",
+    "stock": 12,
+    "description": "An enchanting luxury perfume for women from the Strawbelle collection.",
+    "thumbnail": "./catalog/women-perfume/perfume-05.jpg",
+    "galleryImages": [
+      "./catalog/women-perfume/perfume-05.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": true,
+    "status": "published"
+  },
+  {
+    "title": "Good Girl New York",
+    "price": 30,
+    "oldPrice": 70,
+    "discount": 15,
+    "collection": "Perfume For Women",
+    "productType": "perfume",
+    "stock": 12,
+    "description": "An enchanting luxury perfume for women from the Strawbelle collection.",
+    "thumbnail": "./catalog/women-perfume/perfume-06.jpg",
+    "galleryImages": [
+      "./catalog/women-perfume/perfume-06.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Davidoff Cool Water Woman Women",
+    "price": 30,
+    "oldPrice": 60,
+    "discount": 15,
+    "collection": "Perfume For Women",
+    "productType": "perfume",
+    "stock": 9,
+    "description": "An enchanting luxury perfume for women from the Strawbelle collection.",
+    "thumbnail": "./catalog/women-perfume/perfume-07.jpg",
+    "galleryImages": [
+      "./catalog/women-perfume/perfume-07.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Chennel Coco Noir",
+    "price": 30,
+    "oldPrice": 50,
+    "discount": 15,
+    "collection": "Perfume For Women",
+    "productType": "perfume",
+    "stock": 5,
+    "description": "An enchanting luxury perfume for women from the Strawbelle collection.",
+    "thumbnail": "./catalog/women-perfume/perfume-08.jpg",
+    "galleryImages": [
+      "./catalog/women-perfume/perfume-08.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Calvin Kline CK IN2U Womens",
+    "price": 28,
+    "oldPrice": 60,
+    "discount": 15,
+    "collection": "Perfume For Women",
+    "productType": "perfume",
+    "stock": 12,
+    "description": "An enchanting luxury perfume for women from the Strawbelle collection.",
+    "thumbnail": "./catalog/women-perfume/perfume-09.jpg",
+    "galleryImages": [
+      "./catalog/women-perfume/perfume-09.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  },
+  {
+    "title": "Alien Eau De Parfum By Thierry Mugler",
+    "price": 30,
+    "oldPrice": 60,
+    "discount": 15,
+    "collection": "Perfume For Women",
+    "productType": "perfume",
+    "stock": 2,
+    "description": "An enchanting luxury perfume for women from the Strawbelle collection.",
+    "thumbnail": "./catalog/women-perfume/perfume-10.jpg",
+    "galleryImages": [
+      "./catalog/women-perfume/perfume-10.jpg"
+    ],
+    "featured": true,
+    "bestSeller": false,
+    "isNewArrival": false,
+    "status": "published"
+  }
+]

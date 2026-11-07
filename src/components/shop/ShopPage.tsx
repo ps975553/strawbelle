@@ -14,6 +14,7 @@ export const ShopPage: React.FC = () => {
     setSelectedCategoryFilter,
     showHandbagsOnly,
     setShowHandbagsOnly,
+    isWomenPerfumeCatalogLoading,
     formatPrice
   } = useStore();
 
@@ -239,7 +240,11 @@ export const ShopPage: React.FC = () => {
             )}
 
             {/* Product Cards */}
-            {filteredProducts.length === 0 ? (
+            {selectedCategoryFilter === 'Women Perfume' && isWomenPerfumeCatalogLoading ? (
+              <div className="bg-white rounded-2xl p-8 text-center border border-neutral-200">
+                <p className="text-[11px] text-neutral-500">Loading women’s perfume catalog…</p>
+              </div>
+            ) : filteredProducts.length === 0 ? (
               <div className="bg-white rounded-2xl p-8 text-center border border-neutral-200 space-y-3">
                 <p className="font-serif text-lg font-bold text-[#1D1D1D]">
                   No items meet your filter criteria
