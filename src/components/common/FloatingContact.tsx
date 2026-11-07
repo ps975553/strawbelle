@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, Instagram, Mail, X, ExternalLink, Headphones, ArrowRight } from 'lucide-react';
+import { MessageCircle, Instagram, X, ExternalLink, Headphones, ArrowRight } from 'lucide-react';
 import { useStore } from '../../context/StoreContext';
 
 export const FloatingContact: React.FC = () => {
@@ -86,26 +86,6 @@ export const FloatingContact: React.FC = () => {
               <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-neutral-500 group-hover:text-[#E1306C] transition-colors shrink-0" />
             </a>
 
-            {/* Email */}
-            <a
-              id="floating-contact-email"
-              href="mailto:concierge@strawbelle.com?subject=Strawbelle%20Luxury%20Inquiry&body=Hello%20Strawbelle%20Concierge%2C%0A%0AInstagram%3A%20https%3A%2F%2Fwww.instagram.com%2Fstrawbelle_bags%20(%40strawbelle_bags)%0A%0AInquiry%20Details%3A%0A"
-              onClick={() => setIsOpen(false)}
-              className="flex items-center justify-between p-1.5 sm:p-2.5 rounded-xl bg-neutral-900/90 hover:bg-[#C6A56B]/20 border border-neutral-800 hover:border-[#C6A56B]/50 transition-all group"
-            >
-              <div className="flex items-center gap-2 sm:gap-3">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#C6A56B]/20 text-[#C6A56B] flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
-                  <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
-                </div>
-                <div>
-                  <div className="text-[10px] sm:text-xs font-semibold text-white group-hover:text-[#C6A56B] transition-colors">
-                    Email Inquiries
-                  </div>
-                  <div className="text-[8.5px] sm:text-[10px] text-neutral-400">concierge@strawbelle.com</div>
-                </div>
-              </div>
-              <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-neutral-500 group-hover:text-[#C6A56B] transition-colors shrink-0" />
-            </a>
 
             {/* Direct Page Link */}
             <button

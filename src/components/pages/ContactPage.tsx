@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useStore } from '../../context/StoreContext';
-import { Mail, Sparkles, Send, CheckCircle2, MessageCircle, Instagram, ExternalLink } from 'lucide-react';
+import { Sparkles, Send, CheckCircle2, MessageCircle, Instagram, ExternalLink } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
   const { showToast } = useStore();
@@ -42,7 +42,7 @@ export const ContactPage: React.FC = () => {
               Direct Contact Channels
             </span>
           </div>
-          <div className="grid grid-cols-3 gap-2 sm:gap-4">
+          <div className="grid grid-cols-2 gap-2 sm:gap-4">
             {/* WhatsApp */}
             <a
               id="contact-page-whatsapp"
@@ -87,25 +87,6 @@ export const ContactPage: React.FC = () => {
               <ExternalLink className="w-3.5 h-3.5 text-neutral-400 group-hover:text-[#E1306C] transition-colors hidden sm:block" />
             </a>
 
-            {/* Email */}
-            <a
-              id="contact-page-email"
-              href="mailto:concierge@strawbelle.com?subject=Strawbelle%20Concierge%20Inquiry&body=Hello%20Strawbelle%20Concierge%2C%0A%0AInstagram%3A%20https%3A%2F%2Fwww.instagram.com%2Fstrawbelle_bags%20(%40strawbelle_bags)%0A%0AInquiry%20Details%3A%0A"
-              className="flex flex-col sm:flex-row items-center justify-center sm:justify-between p-2.5 sm:p-4 bg-white rounded-xl sm:rounded-2xl border border-neutral-200 hover:border-[#C6A56B] hover:shadow-md transition-all group text-center sm:text-left"
-            >
-              <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#C6A56B]/10 text-[#C6A56B] flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
-                  <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-[11px] sm:text-xs text-[#1D1D1D] group-hover:text-[#C6A56B] transition-colors leading-tight">
-                    Email
-                  </h4>
-                  <p className="text-[9px] sm:text-[10px] text-neutral-500 font-medium hidden sm:block">concierge@strawbelle.com</p>
-                </div>
-              </div>
-              <ExternalLink className="w-3.5 h-3.5 text-neutral-400 group-hover:text-[#C6A56B] transition-colors hidden sm:block" />
-            </a>
           </div>
         </div>
 

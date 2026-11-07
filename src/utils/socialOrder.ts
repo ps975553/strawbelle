@@ -13,9 +13,12 @@ export const getProductShareUrl = (productId: string): string => {
   const safeId = encodeURIComponent(productId);
   if (typeof window !== 'undefined') {
     const origin = window.location.origin;
-    return `${origin}/#product-${safeId}`;
+    const pathname = window.location.pathname.endsWith('/')
+      ? window.location.pathname
+      : `${window.location.pathname}/`;
+    return `${origin}${pathname}#product-${safeId}`;
   }
-  return `https://strawbelle.com/#product-${safeId}`;
+  return `https://ps975553.github.io/strawbelle/#product-${safeId}`;
 };
 
 export const copyOrderTextToClipboard = async (text: string): Promise<boolean> => {
@@ -87,8 +90,6 @@ export const STRAWBELLE_WHATSAPP_PHONE = '919517220111';
 export const STRAWBELLE_WHATSAPP_DISPLAY = '+91 95172 20111';
 export const STRAWBELLE_INSTAGRAM_HANDLE = '@strawbelle_bags';
 export const STRAWBELLE_INSTAGRAM_URL = 'https://www.instagram.com/strawbelle_bags?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==';
-export const STRAWBELLE_EMAIL = 'concierge@strawbelle.com';
-export const STRAWBELLE_EMAIL_MAILTO = 'mailto:concierge@strawbelle.com?subject=Strawbelle%20Luxury%20Inquiry&body=Hello%20Strawbelle%20Concierge%2C%0A%0AFollow%20us%20on%20Instagram%3A%20https%3A%2F%2Fwww.instagram.com%2Fstrawbelle_bags%20(%40strawbelle_bags)%0A%0AInquiry%20Details%3A%0A';
 
 export interface CartOrderPayload {
   cart: CartItem[];
