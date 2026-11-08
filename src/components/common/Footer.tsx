@@ -77,6 +77,18 @@ export const Footer: React.FC = () => {
             <p className="text-xs text-neutral-400 font-light leading-relaxed max-w-md">
               Strawbelle is an independent luxury house specializing solely in the creation of peerless, handcrafted leather goods.
             </p>
+            <div className="pt-3">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#F8F5F2]">Contact an Advisor</h4>
+              <p className="mt-1 text-xs text-neutral-400 font-light leading-relaxed max-w-md">
+                STRAWBELLE advisors are available to assist you with your questions. Monday to Sunday.
+              </p>
+            </div>
+            <div className="pt-3">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#F8F5F2]">Payment Methods</h4>
+              <p className="mt-1 text-xs text-neutral-400 font-light leading-relaxed max-w-md">
+                To reduce taxes and keep prices affordable for buyers and waive other costs, we accept payment by Pay On Delivery and Bank Transfer. Please note that cash on delivery is not available for some postal codes; customers in these areas can pay by bank transfer.
+              </p>
+            </div>
           </div>
 
           {/* Contact Us Buttons */}
