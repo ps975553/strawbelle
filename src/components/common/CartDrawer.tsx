@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useStore } from '../../context/StoreContext';
 import {
   X,
@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { orderCartViaWhatsApp } from '../../utils/socialOrder';
 import { FREE_SHIPPING_THRESHOLD_USD } from '../../utils/shipping';
+import type { Product } from '../../types';
 
 export const CartDrawer: React.FC = () => {
   const {
@@ -38,13 +39,24 @@ export const CartDrawer: React.FC = () => {
 
   const [couponInput, setCouponInput] = useState('');
   const [couponError, setCouponError] = useState('');
+  const [suggestedProducts, setSuggestedProducts] = useState<Product[]>([]);
   const discountedSubtotal = Math.max(0, cartSubtotal - cartDiscount);
   const amountForFreeDelivery = Math.max(0, FREE_SHIPPING_THRESHOLD_USD - discountedSubtotal);
   const freeDeliveryProgress = Math.min(100, (discountedSubtotal / FREE_SHIPPING_THRESHOLD_USD) * 100);
-  const cartProductIds = new Set(cart.map((item) => item.product.id));
-  const suggestedProducts = products
-    .filter((product) => product.status === 'published' && !cartProductIds.has(product.id))
-    .slice(0, 4);
+
+  useEffect(() => {
+    if (!isCartOpen) return;
+
+    const cartProductIds = new Set(cart.map((item) => item.product.id));
+    const availableProducts = products.filter(
+      (product) => product.status === 'published' && !cartProductIds.has(product.id)
+    );
+    for (let index = availableProducts.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [availableProducts[index], availableProducts[randomIndex]] = [availableProducts[randomIndex], availableProducts[index]];
+    }
+    setSuggestedProducts(availableProducts.slice(0, 3));
+  }, [isCartOpen, products, cart]);
 
   if (!isCartOpen) return null;
 
@@ -209,7 +221,7 @@ export const CartDrawer: React.FC = () => {
               })
             )}
 
-            {cart.length > 0 && suggestedProducts.length > 0 && (
+            {suggestedProducts.length > 0 && (
               <section className="pt-2" aria-label="Suggested products">
                 <h3 className="mb-2 font-serif text-sm font-semibold text-[#1D1D1D]">You may also like</h3>
                 <div className="flex gap-2.5 overflow-x-auto pb-1 no-scrollbar">
