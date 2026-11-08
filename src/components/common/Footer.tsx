@@ -1,67 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStore } from '../../context/StoreContext';
-import { Sparkles, ArrowRight, Mail, MessageCircle, Instagram, Headphones } from 'lucide-react';
+import { MessageCircle, Instagram, Headphones } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const {
-    setActiveView,
-    showToast
-  } = useStore();
-
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!newsletterEmail.trim()) return;
-
-    showToast(
-      'Club Welcome',
-      'Use promo code STRAWBELLE10 for 10% off your boutique order.',
-      'gold'
-    );
-    setNewsletterEmail('');
-  };
+  const { setActiveView } = useStore();
 
   return (
     <footer className="bg-[#151515] text-[#F8F5F2] pt-16 pb-12 border-t border-neutral-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Top Newsletter Card */}
-        <div className="bg-[#1D1D1D] rounded-3xl p-8 sm:p-12 border border-neutral-800 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-          <div className="max-w-xl space-y-2">
-            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-[#C6A56B] flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Boutique Circle</span>
-            </span>
-            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
-              Receive Atelier Release Updates
-            </h3>
-            <p className="text-xs text-neutral-400 font-light leading-relaxed">
-              Subscribe to receive preview allocations, bespoke leather releases, and an immediate welcome privilege.
-            </p>
-          </div>
-
-          <form onSubmit={handleSubscribe} className="w-full lg:max-w-md flex flex-col sm:flex-row gap-2.5">
-            <div className="relative flex-1">
-              <Mail className="w-4 h-4 text-neutral-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
-              <input
-                type="email"
-                required
-                value={newsletterEmail}
-                onChange={(e) => setNewsletterEmail(e.target.value)}
-                placeholder="Enter your email address..."
-                className="w-full pl-10 pr-4 py-3.5 bg-neutral-900 border border-neutral-700 rounded-xl text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-[#C6A56B]"
-              />
-            </div>
-            <button
-              type="submit"
-              className="px-6 py-3.5 bg-[#C6A56B] hover:bg-[#B28E4C] text-white text-xs font-bold uppercase tracking-[0.2em] rounded-xl transition-all shadow-md flex items-center justify-center gap-2 shrink-0"
-            >
-              <span>Join Circle</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </form>
-        </div>
-
         {/* Brand & Contact Us Grid */}
         <div className="pt-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center justify-between">
           <div className="lg:col-span-6 space-y-3">

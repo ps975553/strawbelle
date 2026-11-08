@@ -17,6 +17,8 @@ export const CartDrawer: React.FC = () => {
     isCartOpen,
     setIsCartOpen,
     cart,
+    products,
+    addToCart,
     removeFromCart,
     updateCartQuantity,
     clearCart,
@@ -39,6 +41,10 @@ export const CartDrawer: React.FC = () => {
   const discountedSubtotal = Math.max(0, cartSubtotal - cartDiscount);
   const amountForFreeDelivery = Math.max(0, FREE_SHIPPING_THRESHOLD_USD - discountedSubtotal);
   const freeDeliveryProgress = Math.min(100, (discountedSubtotal / FREE_SHIPPING_THRESHOLD_USD) * 100);
+  const cartProductIds = new Set(cart.map((item) => item.product.id));
+  const suggestedProducts = products
+    .filter((product) => product.status === 'published' && !cartProductIds.has(product.id))
+    .slice(0, 4);
 
   if (!isCartOpen) return null;
 
@@ -201,6 +207,39 @@ export const CartDrawer: React.FC = () => {
                   </div>
                 );
               })
+            )}
+
+            {cart.length > 0 && suggestedProducts.length > 0 && (
+              <section className="pt-2" aria-label="Suggested products">
+                <h3 className="mb-2 font-serif text-sm font-semibold text-[#1D1D1D]">You may also like</h3>
+                <div className="flex gap-2.5 overflow-x-auto pb-1 no-scrollbar">
+                  {suggestedProducts.map((product) => (
+                    <article key={product.id} className="w-28 sm:w-32 shrink-0 rounded-xl border border-neutral-200 bg-white p-2">
+                      <img
+                        src={product.thumbnail}
+                        alt={product.title}
+                        className="h-20 w-full rounded-lg bg-[#FAF8F5] object-contain"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <h4 className="mt-1.5 line-clamp-2 min-h-8 text-[10px] font-semibold leading-tight text-[#1D1D1D]">
+                        {product.title}
+                      </h4>
+                      <div className="mt-1.5 flex items-center justify-between gap-1">
+                        <span className="text-[11px] font-bold text-[#1D1D1D]">{formatPrice(product.price)}</span>
+                        <button
+                          type="button"
+                          onClick={() => addToCart(product, product.colors?.[0], 1)}
+                          aria-label={`Add ${product.title} to cart`}
+                          className="flex min-h-8 min-w-8 items-center justify-center rounded-lg bg-[#1D1D1D] text-white transition-colors hover:bg-[#C6A56B]"
+                        >
+                          <Plus className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
             )}
           </div>
 
