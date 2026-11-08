@@ -34,6 +34,7 @@ export const CartDrawer: React.FC = () => {
     removeCoupon,
     formatPrice,
     setActiveView,
+    navigateToProduct,
     showToast
   } = useStore();
 
@@ -88,6 +89,11 @@ export const CartDrawer: React.FC = () => {
   const handleBrowseCatalog = () => {
     setIsCartOpen(false);
     setActiveView('shop');
+  };
+
+  const handleOpenProduct = (productId: string) => {
+    setIsCartOpen(false);
+    navigateToProduct(productId);
   };
 
   return (
@@ -164,21 +170,30 @@ export const CartDrawer: React.FC = () => {
                     key={`${prodId}-${colorName}`}
                     className="bg-white rounded-2xl p-4 border border-neutral-200/80 shadow-sm flex gap-4 relative group"
                   >
-                    <div className="w-20 h-24 rounded-xl overflow-hidden bg-[#FAF8F5] shrink-0 border border-neutral-200/80 flex items-center justify-center p-1.5">
+                    <button
+                      type="button"
+                      onClick={() => handleOpenProduct(prodId)}
+                      aria-label={`View ${item.product?.title}`}
+                      className="w-20 h-24 rounded-xl overflow-hidden bg-[#FAF8F5] shrink-0 border border-neutral-200/80 flex items-center justify-center p-1.5"
+                    >
                       <img
                         src={item.product?.thumbnail || ''}
                         alt={item.product?.title || 'Handbag'}
                         className="w-full h-full object-contain"
                         referrerPolicy="no-referrer"
                       />
-                    </div>
+                    </button>
 
                     <div className="flex-1 flex flex-col justify-between">
                       <div>
                         <div className="flex items-start justify-between gap-2">
-                          <h4 className="font-serif text-sm font-semibold text-[#1D1D1D] line-clamp-2 break-words whitespace-normal leading-snug">
+                          <button
+                            type="button"
+                            onClick={() => handleOpenProduct(prodId)}
+                            className="text-left font-serif text-sm font-semibold text-[#1D1D1D] line-clamp-2 break-words whitespace-normal leading-snug hover:text-[#C6A56B]"
+                          >
                             {item.product?.title}
-                          </h4>
+                          </button>
                           <button
                             onClick={() => removeFromCart(prodId, colorName)}
                             className="text-neutral-400 hover:text-rose-500 transition-colors p-1"
@@ -211,9 +226,21 @@ export const CartDrawer: React.FC = () => {
                           </button>
                         </div>
 
-                        <span className="font-semibold text-sm text-[#1D1D1D]">
-                          {formatPrice(itemPrice * itemQty)}
-                        </span>
+                        <div className="flex flex-col items-end">
+                          {Number(item.product?.oldPrice) > itemPrice && (
+                            <>
+                              <span className="rounded bg-[#C6A56B]/15 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide text-[#8A6A32]">
+                                Limited Time Offer
+                              </span>
+                              <span className="text-[10px] text-neutral-400 line-through">
+                                {formatPrice(Number(item.product.oldPrice) * itemQty)}
+                              </span>
+                            </>
+                          )}
+                          <span className="font-semibold text-sm text-[#1D1D1D]">
+                            {formatPrice(itemPrice * itemQty)}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -227,18 +254,30 @@ export const CartDrawer: React.FC = () => {
                 <div className="flex gap-2.5 overflow-x-auto pb-1 no-scrollbar">
                   {suggestedProducts.map((product) => (
                     <article key={product.id} className="w-28 sm:w-32 shrink-0 rounded-xl border border-neutral-200 bg-white p-2">
-                      <img
-                        src={product.thumbnail}
-                        alt={product.title}
-                        className="h-20 w-full rounded-lg bg-[#FAF8F5] object-contain"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <h4 className="mt-1.5 line-clamp-2 min-h-8 text-[10px] font-semibold leading-tight text-[#1D1D1D]">
-                        {product.title}
-                      </h4>
+                      <button type="button" onClick={() => handleOpenProduct(product.id)} className="block w-full text-left" aria-label={`View ${product.title}`}>
+                        <img
+                          src={product.thumbnail}
+                          alt={product.title}
+                          className="h-20 w-full rounded-lg bg-[#FAF8F5] object-contain"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <span className="mt-1.5 block line-clamp-2 min-h-8 text-[10px] font-semibold leading-tight text-[#1D1D1D]">
+                          {product.title}
+                        </span>
+                        {Number(product.oldPrice) > product.price && (
+                          <span className="mt-1 block text-[7px] font-bold uppercase tracking-wide text-[#8A6A32]">
+                            Limited Time Offer
+                          </span>
+                        )}
+                      </button>
                       <div className="mt-1.5 flex items-center justify-between gap-1">
-                        <span className="text-[11px] font-bold text-[#1D1D1D]">{formatPrice(product.price)}</span>
+                        <div className="flex flex-col">
+                          {Number(product.oldPrice) > product.price && (
+                            <span className="text-[9px] text-neutral-400 line-through">{formatPrice(product.oldPrice!)}</span>
+                          )}
+                          <span className="text-[11px] font-bold text-[#1D1D1D]">{formatPrice(product.price)}</span>
+                        </div>
                         <button
                           type="button"
                           onClick={() => addToCart(product, product.colors?.[0], 1)}
