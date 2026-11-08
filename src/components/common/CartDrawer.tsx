@@ -44,6 +44,12 @@ export const CartDrawer: React.FC = () => {
   const discountedSubtotal = Math.max(0, cartSubtotal - cartDiscount);
   const amountForFreeDelivery = Math.max(0, FREE_SHIPPING_THRESHOLD_USD - discountedSubtotal);
   const freeDeliveryProgress = Math.min(100, (discountedSubtotal / FREE_SHIPPING_THRESHOLD_USD) * 100);
+  const limitedOfferSavings = cart.reduce((savings, item) => {
+    const originalPrice = Number(item.product?.oldPrice) || 0;
+    const currentPrice = Number(item.product?.price) || 0;
+    const quantity = Number(item.quantity) || 1;
+    return savings + Math.max(0, originalPrice - currentPrice) * quantity;
+  }, 0);
 
   useEffect(() => {
     if (!isCartOpen) return;
@@ -362,8 +368,22 @@ export const CartDrawer: React.FC = () => {
               <div className="space-y-1.5 text-[11px] sm:text-xs text-neutral-600 border-t border-neutral-100 pt-2.5">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span className="font-semibold text-neutral-800">{formatPrice(cartSubtotal)}</span>
+                  <span className={`font-semibold ${limitedOfferSavings > 0 ? 'text-neutral-400 line-through' : 'text-neutral-800'}`}>
+                    {formatPrice(cartSubtotal + limitedOfferSavings)}
+                  </span>
                 </div>
+                {limitedOfferSavings > 0 && (
+                  <>
+                    <div className="flex justify-between text-[#8A6A32]">
+                      <span>Limited Time Discount</span>
+                      <span className="font-semibold">-{formatPrice(limitedOfferSavings)}</span>
+                    </div>
+                    <div className="flex justify-between font-semibold text-neutral-800">
+                      <span>Subtotal after discount</span>
+                      <span>{formatPrice(cartSubtotal)}</span>
+                    </div>
+                  </>
+                )}
                 {cartDiscount > 0 && (
                   <div className="flex justify-between text-[#C6A56B]">
                     <span>Discount</span>
