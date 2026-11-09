@@ -33,6 +33,7 @@ import {
   saveProductsPersistently
 } from '../utils/storage';
 import { mapLadyWatchCatalog, mapWomenPerfumeCatalog, mapLadiesSunglassesCatalog, mapLuxuryScarvesCatalog } from '../utils/perfumeCatalog';
+import { mapHandbagCatalog } from '../utils/handbagCatalog';
 import { calculateShippingCharge } from '../utils/shipping';
 
 export interface ToastMessage {
@@ -160,7 +161,8 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   const isCatalogCategoryProduct = (product: Partial<Product>): boolean => {
     const classification = `${product.category || ''} ${product.collection || ''}`.toLowerCase();
-    return /perfume|fragrance|\bwatches?\b|sunglasses|scarf|scarves|shawl/.test(classification);
+    return /perfume|fragrance|\bwatches?\b|sunglasses|scarf|scarves|shawl/.test(classification) ||
+      /^SB-HANDBAG-/i.test(product.sku || '');
   };
 
   const productIdentity = (product: Partial<Product>): string => {
@@ -430,7 +432,8 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     };
 
     const loadProductCatalogs = async () => {
-      const [perfumeProducts, watchProducts, sunglassesProducts, scarfProducts] = await Promise.all([
+      const [handbagProducts, perfumeProducts, watchProducts, sunglassesProducts, scarfProducts] = await Promise.all([
+        fetchCatalog('./catalog/strawbelle_handbags_catalog_2026-11-09.json', mapHandbagCatalog),
         fetchCatalog('./catalog/perfumes_catalog_all_2026-11-07.json', mapWomenPerfumeCatalog),
         fetchCatalog('./catalog/lady_watches_catalog_all_2026-11-07.json', mapLadyWatchCatalog),
         fetchCatalog('./catalog/strawbelle_ladies_sunglasses_all_2026-11-07.json', mapLadiesSunglassesCatalog),
@@ -438,7 +441,7 @@ export const StoreProvider: React.FC<{ children: ReactNode }> = ({ children }) =
       ]);
       if (cancelled) return;
 
-      const catalogProducts = [...perfumeProducts, ...watchProducts, ...sunglassesProducts, ...scarfProducts];
+      const catalogProducts = [...handbagProducts, ...perfumeProducts, ...watchProducts, ...sunglassesProducts, ...scarfProducts];
       if (catalogProducts.length === 0) return;
 
       supplementalCatalogRef.current = catalogProducts;
